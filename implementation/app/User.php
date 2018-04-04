@@ -5,6 +5,12 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * App\User
+ *
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @mixin \Eloquent
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -28,24 +34,24 @@ class User extends Authenticatable
     ];
 
     public function role(){
-        $this->belongsTo('App\Role', 'role_id');
+        return $this->belongsTo('App\Role', 'role_id');
     }
 
     public function teacher(){
-        $this->hasOne('App\Teacher', 'teacher_id');
+        return $this->hasOne('App\Teacher', 'user_id');
     }
 
     public function student(){
-        $this->hasOne('App\Student', 'student_id');
+        return $this->hasOne('App\Student', 'user_id');
     }
 
     public function send_notifications()
     {
-        $this->hasMany('App\Notification', 'sender_id');
+        return $this->hasMany('App\Notification', 'sender_id');
     }
 
     public function receive_notification()
     {
-        $this->hasMany('App\Notification', 'receiver_id');
+        return $this->hasMany('App\Notification', 'receiver_id');
     }
 }

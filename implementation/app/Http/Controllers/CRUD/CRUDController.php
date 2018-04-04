@@ -19,7 +19,8 @@ class CRUDController
         return view('crud.edit_form');
     }
 
-    public function edit(Request $request){
+    public function edit(Request $request)
+    {
         $user = Auth::user()->user_name;
         $user = User::where('user_name', $user)->first();
         $user->full_name = $request['full_name'];
@@ -27,11 +28,12 @@ class CRUDController
         $user->date_of_birth = $request['date_of_birth'];
         $user->role_id = $request['role_id'];
         $user->save();
-
+        return redirect('/user/profile');
     }
 
 
-    public function showProfile(){
+    public function showProfile()
+    {
         return view('crud.profile');
     }
 }

@@ -4,19 +4,24 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Teacher
+ *
+ * @mixin \Eloquent
+ */
 class Teacher extends Model
 {
     //
     public function user(){ //4
-        $this->belongsTo('App\Teacher', 'teacher_id');
+        return $this->belongsTo('App\Teacher', 'user_id');
     }
 
     public function courses(){ //11
-        $this->hasMany('App\Course', 'teacher_id');
+        return $this->hasMany('App\Course', 'teacher_id');
     }
 
     public function reviews(){ //13
-        $this->hasMany('App\Reviews', 'teacher_id');
+        return $this->hasMany('App\Review', 'teacher_id');
     }
 
 }

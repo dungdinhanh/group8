@@ -4,16 +4,21 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Lesson
+ *
+ * @mixin \Eloquent
+ */
 class Lesson extends Model
 {
     //
     public function course(){
         //24
-        $this->belongsTo('App\Course', 'course_id');
+        return $this->belongsTo('App\Course', 'course_id');
     }
 
     public function homework(){
         //30
-        $this->hasMany('App\Homework', 'lesson_id');
+        return $this->hasMany('App\Homework', 'lesson_id');
     }
 }

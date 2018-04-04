@@ -14,8 +14,18 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                    @guest
+                        You are not logged in! Please log in to perform action
+                        @else
+                        You are logged in
+                        @if(Auth::user()->role_id == 2)
+                            <a class="nav-link"  href="{{
+                            route('list_course_teacher',
+                            ['user_id' => Auth::user()->id])}}">
+                                Create Homework
+                            </a>
+                            @endif
+                        @endguest
                 </div>
             </div>
         </div>

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 
@@ -24,5 +24,13 @@ Route::get('/user/profile', 'CRUD\CRUDController@showProfile')->name('profile');
 
 Route::get('/user/edit', 'CRUD\CRUDController@showEditForm')->name('edit_profile');
 
-Route::post('user/edit', 'CRUD\CRUDController@edit')->name('edit_profile_handle');
+Route::post('/user/edit', 'CRUD\CRUDController@edit')->name('edit_profile_handle');
+
+Route::get('/user/course_list/{user_id}', 'Course\CourseController@listCourses')->name(
+    'list_course_teacher'
+);
+
+Route::get('/user/teacher/courses/{course_id}', 'Course\CourseController@listLessons')->name(
+    'list_lessons'
+);
 
