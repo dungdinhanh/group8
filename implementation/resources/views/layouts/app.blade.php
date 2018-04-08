@@ -19,17 +19,24 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        a:hover{
+            background-color: #103050!important;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
         @if (Auth::guest())
 
         @else
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+        <nav style="background: none repeat scroll 0% 0% #103050; border-color:#103050; font-weight: bold" class="navbar navbar-expand-md navbar-light navbar-laravel">
+<!--            <div class="container">-->
+                <a style=" color: white" class="navbar-brand" href="{{ url('/') }}">
+                    <img style="width: 80px" src="http://moodle.hust.edu.vn/theme/image.php/klass/theme/1484300353/home/logo"/>
                     {{ config('app.name', 'Moodle') }}
                 </a>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -37,9 +44,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
                     </ul>
-
+                    <ul class="navbar-nav mr-auto">
+                        <input style="width: 500px; border-radius: 4px" placeholder="search" type="search" >
+                    </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -48,25 +56,25 @@
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->full_name }} <span class="caret"></span>
+                                <a style=" color: white" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Hello {{ Auth::user()->full_name }} <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <div style="left: -50px; background: none repeat scroll 0% 0% #103050; border-color:#103050;" class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                                    <a class="dropdown-item" href="{{route('profile')}}">
+                                    <a style="color: white" class="dropdown-item" href="{{route('profile')}}">
                                         {{__('View Profile')}}
                                     </a>
 
-                                    <a class="dropdown-item" href="{{route('edit_profile')}}">
+                                    <a style="color: white" class="dropdown-item" href="{{route('edit_profile')}}">
                                         {{__('Edit Profile')}}
                                     </a>
 
-                                    <a class="dropdown-item" href="#">
+                                    <a style="color: white" class="dropdown-item" href="#">
                                         {{__('Change Password')}}
                                     </a>
 
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a style="color: white" class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -83,7 +91,7 @@
                         @endguest
                     </ul>
                 </div>
-            </div>
+<!--            </div>-->
         </nav>
         @endif
         <main class="">
