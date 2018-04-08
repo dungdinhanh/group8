@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 class Homework extends Model
 {
     //
+    protected $table = 'homework';
     public function course(){
         //23
         return $this->belongsTo('App\Course', 'course_id');

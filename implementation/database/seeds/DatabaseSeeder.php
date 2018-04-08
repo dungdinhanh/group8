@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         DB::table('students')->delete();
         DB::table('teachers')->delete();
         DB::table('courses')->delete();
+        DB::table('lessons')->delete();
 
 
         DB::table('roles')->insert([
@@ -54,7 +55,6 @@ class DatabaseSeeder extends Seeder
         $users = \App\User::all();
         foreach ($users as $user)
         {
-
             $user_role = Null;
             if($user->role_id == 1){
                 $user_role = new \App\Student();
@@ -70,14 +70,28 @@ class DatabaseSeeder extends Seeder
             $user_role->university = $faker->city;
             $user_role->save();
             if($user->role_id == 2){
-                $course = new \App\Course();
-                $course->course_name = $faker->firstNameMale;
-                $course->max_students = rand(20, 40);
-                $course->max_groups = rand(3, 5);
-                $course->teacher_id = $user_role->id;
-                $course->start_date = $faker->dateTimeBetween('now', '17 days');
-                $course->end_date = $faker->dateTimeBetween('now', '2 years');
-                $course->save();
+                for($i =0; $i < 100; $i++) {
+                    $course = new \App\Course();
+                    $course->course_name = $faker->firstNameMale;
+                    $course->max_students = rand(20, 40);
+                    $course->max_groups = rand(3, 5);
+                    $course->teacher_id = $user_role->id;
+                    $course->start_date = $faker->dateTimeBetween('now', '17 days');
+                    $course->end_date = $faker->dateTimeBetween('now', '2 years');
+                    $course->save();
+                    $course = \App\Course::where('course_name', '=' ,$course->course_name)->get()->first();
+                    for($j = 0; $j < 10; $j++) {
+                        $lesson = new \App\Lesson();
+                        $lesson->lesson_no = $j+1;
+                        $lesson->lesson_title = $faker->firstNameMale;
+                        $lesson->note = "ABCsdfkljsdafklasdjfklasdjfkljfkwejqioqweufjndfhsdal;navlk;fasdjf;asdf
+                        asdfkljasdfkljsdfkljsdalfkjsdalfjsdflsdjafklasdfjsdlakfjasdlkfj";
+                        $lesson->content = "asdlfjsdaklfjsdaklfjsdaklfjsdklafjsdklafjasdklfjsdaklfjasdklfjsdklfjasdklfj
+                        dflksdajflaskdfjsdklafjsdklafjasdklfjasdklfjweiofjweiofns;vjasdil;jhas;ifjweio;kofn";
+                        $lesson->course_id = $course->id;
+                        $lesson->save();
+                    }
+                }
             }
         }
 
