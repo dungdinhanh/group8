@@ -22,6 +22,9 @@
 </head>
 <body>
     <div id="app">
+        @if (Auth::guest())
+
+        @else
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -82,8 +85,8 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
+        @endif
+        <main class="">
             @yield('content')
         </main>
     </div>
