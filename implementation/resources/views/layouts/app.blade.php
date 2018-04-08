@@ -20,7 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-        a:hover{
+       .navbar a:hover{
             background-color: #103050!important;
         }
     </style>
