@@ -46,7 +46,7 @@
 
                     <div class="row">
                         <label class="col-md-6 col-form-label text-md-center">
-                            {{_('Email')}}
+                            Email
                         </label>
 
                         <div class="col-md-6 col-form-label text-md-right">
