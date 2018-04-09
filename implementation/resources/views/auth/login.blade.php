@@ -26,7 +26,7 @@
 <link href="<?php echo e(asset('css/login-pr2.css')); ?>" rel="stylesheet">
 
 <div class="limiter">
-    <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+    <div class="container-login100" style="background-image: url('images/bg-01.jpg')">
         <div class="wrap-login100">
             <form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
                 @csrf
@@ -41,18 +41,17 @@
 
                 <div class="wrap-input100 validate-input" data-validate="Enter username">
                     <input id="user_name" class="input100{{ $errors->has('user_name') ? ' is-invalid' : '' }}"
-                           placeholder="Username" type="text" name="user_name" value="{{ old('user_name') }}" required
-                           autofocus>
+                           placeholder="Username" type="text" name="user_name" value="{{ old('user_name') }}" required>
                     @if ($errors->has('user_name'))
                     <span class="invalid-feedback">
-                        <strong>{{ $errors->first('email') }}</strong>
+                        <strong>{{ $errors->first('user_name') }}</strong>
                     </span>
                     @endif
                     <span class="focus-input100" data-placeholder="&#xf207;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Enter password">
-                    <input class="input100{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Password"
+                    <input id="password" class="input100{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Password"
                            type="password" name="password" required>
                     @if ($errors->has('password'))
                     <span class="invalid-feedback">
