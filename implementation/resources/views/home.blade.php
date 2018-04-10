@@ -15,7 +15,7 @@
                         </div>
                     @endif
                     @guest
-                        You are not logged in! Please log in to perform action
+                        You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform action
                         @else
                         You are logged in
                         @if(Auth::user()->role_id == 2)
