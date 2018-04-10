@@ -37,13 +37,21 @@ class HomeworkController extends Controller
         $homework = Homework::where('id', '=',$homework_id)->get()->first();
         $lesson = $homework->lesson;
         $course = $lesson->course;
-        $time_left = $homework->dead_line - $homework->start;
+        $dead_line = date("Y-m-d H:i:s",strtotime($homework->dead_line));
+        $dead_line = new \DateTime($dead_line);
+        $current = new \DateTime();
+        $time_left = date_diff($dead_line, $current);
+        if ($dead_line > $current) $overtime = false;
+        else $overtime=true;
+        $time_left = $time_left->h;
         return view('homework.view_homework', ['homework' => $homework,
             'lesson' => $lesson->lesson_title,
             'course' => $course->course_name,
-                'time_left' => $time_left]
-
+                'time_left' => $time_left,
+                'overtime' => $overtime]
         );
     }
+
+
 
 }

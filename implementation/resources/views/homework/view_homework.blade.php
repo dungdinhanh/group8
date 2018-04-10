@@ -38,7 +38,7 @@
                                     {{__('Start date')}}
                                 </label>
                                 <label class="col-md-6">
-                                    {{__((string)($homework->start))}}
+                                    {{__($homework->start)}}
                                 </label>
                             </div>
 
@@ -48,7 +48,7 @@
                                     {{__('Deadline')}}
                                 </label>
                                 <label class="col-md-6">
-                                    {{__((string)($homework->dead_line))}}
+                                    {{__($homework->dead_line)}}
                                 </label>
                             </div>
 
@@ -75,10 +75,23 @@
 
                             <div class="row">
                                 <label class="col-form-label col-md-4">
-                                    {{__('Time left')}}
+                                    @if($overtime)
+                                        Over Time
+                                    @else
+                                        Time Left
+                                    @endif
                                 </label>
                                 <label class="col-md-6">
-                                    {{$time_left}}
+                                    {{__($time_left." hours")}}
+                                </label>
+                            </div>
+
+                            <div class="row">
+                                <label class="col-form-label col-md-4">
+                                    {{__('Updated At')}}
+                                </label>
+                                <label class="col-md-6">
+                                    {{__((string)($homework->updated_at))}}
                                 </label>
                             </div>
 
