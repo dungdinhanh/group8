@@ -10,17 +10,17 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        {{__('Create homework for '.$lesson.' of '.$course)}}
+                        {{__('Create homework for '.$lesson->lesson_title.' of '.$course->course_name)}}
                     </div>
                     <div class="card-body">
-                        <form method="post" action="#">
+                        <form method="post" action="{{route('create_homework')}}">
                             @csrf
                             <div class="row form-group">
                                 <label for="homework_no" class="col-md-4 col-form-label text-md-right">
                                     {{__('Homework No')}}
                                 </label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-1">
                                     <input type="text" class="text-center" id="homework_no" name="homework_no" value="{{old('homework_no')}}" required>
                                 </div>
                             </div>
@@ -39,23 +39,57 @@
                                         </span>
                                     @endif
                                 </div>
+                            </div>
 
-                                <div class="row form-group">
-                                    <label for="content" class="col-md-4 col-form-label text-md-right">
-                                        {{__('Content')}}
-                                    </label>
+                            <div class="row form-group">
+                                <label for="content" class="col-md-4 col-form-label text-md-right">
+                                    {{__('Content')}}
+                                </label>
 
-                                    <div class="col-md-6">
-                                        <textarea class="text-center col-md-4 form-control {{$errors->has('content') ? 'is-invalid':''}}">
+                                <div class="col-md-6">
+                                        <textarea id="content" name="content" cols="50" rows="20"
+                                                  class="col-md-12 form-control {{$errors->has('content') ? 'is-invalid':''}}">
                                             {{old('content')}}
                                         </textarea>
 
-                                        @if($errors->has('content'))
+                                    @if($errors->has('content'))
                                         <span class="invalid-feedback">
                                             <strong>{{$errors->first('content')}}</strong>
                                         </span>
-                                        @endif
-                                    </div>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <label for="start" class="col-md-4 col-form-label text-md-right">
+                                    {{__('Start Date:')}}
+                                </label>
+
+                                <div class="col-md-6">
+                                    <input type="datetime-local" id="start" name="start"
+                                           class="text-center form-control col-md-8">
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <label for="dead_line"
+                                       class="col-md-4 col-form-label text-md-right">
+                                    {{__('Dead Line')}}
+                                </label>
+
+                                <div class="col-md-6">
+                                    <input id="dead_line" type="datetime-local"
+                                           name="dead_line" class="form-control col-md-8">
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="lesson_id" value="{{$lesson->id}}">
+                            <input type="hidden" name="course_id" value="{{$course->id}}">
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{__('Create Homework')}}
+                                    </button>
                                 </div>
                             </div>
                         </form>

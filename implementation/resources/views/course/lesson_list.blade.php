@@ -100,8 +100,11 @@
                     <div class="list-group">
                         @foreach($lessons as $lesson)
                             <div class="list-group-item">
-                                <a href="#">
-                                    {{__($lesson->lesson_name)}}
+                                <a href="{{route('show_create_homework', [
+                                'course_id' => $course->id,
+                                'lesson_id' => $lesson->id
+                                ])}}">
+                                    {{__($lesson->lesson_title)}}
                                 </a>
                             </div>
                         @endforeach

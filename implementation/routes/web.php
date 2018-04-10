@@ -34,3 +34,15 @@ Route::get('/user/teacher/courses/{course_id}', 'Course\CourseController@listLes
     'list_lessons'
 );
 
+Route::get('/user/homework/{course_id}/{lesson_id}', 'Homework\HomeworkController@showCreateHomeworkForm')->name(
+    'show_create_homework'
+);
+
+Route::post('/user/homework/create', 'Homework\HomeworkController@createHomework')->name(
+    'create_homework'
+);
+
+Route::get('/user/view_homework/{homework_id}', 'Homework\HomeworkController@showHomework')->name(
+    'view_homework'
+);
+
