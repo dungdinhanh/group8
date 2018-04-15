@@ -98,7 +98,7 @@
                             <div class="row mb-0 form-group">
                                 <div class="col-md-6 offset-md-4">
                                     @if(Auth::user()->role_id == 2)
-                                        <button href="#" type="submit" class="btn btn-primary">
+                                        <button href="{{route('submission_form', ['homework_id' => $homework->id])}}" type="submit" class="btn btn-primary">
                                             {{__('Edit')}}
                                         </button>
                                     @elseif(Auth::user()->role_id == 1)
