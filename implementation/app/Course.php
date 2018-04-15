@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Course extends Model
 {
+    protected $guarded = [];
     //
     public function teacher(){//12
         return $this->belongsTo('App\Teacher', 'teacher_id');

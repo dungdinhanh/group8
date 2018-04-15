@@ -7,6 +7,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
+                    <button><a href="{{ route('create_course') }}"> Add new course</a></button>
                     <div class="card-header" >
                         {{__('Course you are holding')}}
                     </div>

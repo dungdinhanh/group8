@@ -33,6 +33,14 @@ Route::get('/user/course_list/{user_id}', 'Course\CourseController@listCourses')
 Route::get('/user/teacher/courses/{course_id}', 'Course\CourseController@listLessons')->name(
     'list_lessons'
 );
+Route::prefix('teacher')->group(function () {
+    Route::get('/course/create', 'Course\CourseController@createCourse')->name(
+        'create_course'
+    );
+    Route::post('/course/store', 'Course\CourseController@storeCourse')->name(
+        'store_course'
+    );
+});
 
 Route::get('/user/homework/{course_id}/{lesson_id}', 'Homework\HomeworkController@showCreateHomeworkForm')->name(
     'show_create_homework'

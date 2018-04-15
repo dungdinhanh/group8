@@ -8,6 +8,7 @@ use App\Teacher;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Auth;
 
 class CourseController extends Controller
 {
@@ -26,5 +27,26 @@ class CourseController extends Controller
         $lessons = $course->lessons;
         return view('course.lesson_list', ['lessons' => $lessons,
             'course' => $course]);
+    }
+
+
+    public function createCourse()
+    {
+        return view('course.course_create');
+    }
+
+    public function storeCourse(Request $request)
+    {
+        $input = $request->only('course_name',
+                                'max_students',
+                                'max_groups',
+                                'start_date',
+                                'end_date');
+        $course = new Course();
+        $course->teacher_id = Auth::user()->teacher->id;
+        $course->fill($input);
+        $course->save();
+
+        return redirect()->route('list_lessons', ['course_id' => $course->id]);
     }
 }
