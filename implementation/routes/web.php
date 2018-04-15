@@ -40,6 +40,9 @@ Route::prefix('teacher')->group(function () {
     Route::post('/course/store', 'Course\CourseController@storeCourse')->name(
         'store_course'
     );
+    Route::post('/course/search', 'Course\CourseController@searchCourse')->name(
+        'search_course'
+    );
 });
 
 Route::get('/user/homework/{course_id}/{lesson_id}', 'Homework\HomeworkController@showCreateHomeworkForm')->name(

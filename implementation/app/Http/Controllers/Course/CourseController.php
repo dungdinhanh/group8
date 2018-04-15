@@ -25,6 +25,8 @@ class CourseController extends Controller
     {
         $course = Course::where('id', $course_id)->first();
         $lessons = $course->lessons;
+        $students = $course->students;
+        dd($students);
         return view('course.lesson_list', ['lessons' => $lessons,
             'course' => $course]);
     }
@@ -48,5 +50,16 @@ class CourseController extends Controller
         $course->save();
 
         return redirect()->route('list_lessons', ['course_id' => $course->id]);
+    }
+
+    public function searchCourse(Request $request)
+    {
+        $search = $request->search;
+        $courses = Course::where('teacher_id', Auth::id())
+                        ->where('course_name', 'LIKE', "%$search%")->get();
+
+        //return $courses;
+
+        return view('course.course_search', ['courses' => $courses]);
     }
 }

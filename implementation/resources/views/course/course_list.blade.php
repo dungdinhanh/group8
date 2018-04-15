@@ -12,7 +12,10 @@
                         {{__('Course you are holding')}}
                     </div>
                     <div class="card-body">
-                        <div class="table">
+                        <input type="text" id="search" placeholder="search course">
+                        <div id="search_result">
+                        </div>
+                        <div class="table" id="origin_result">
                             @csrf
                             @foreach($courses as $course)
                                     <div class="row nav-link">
@@ -28,4 +31,34 @@
         </div>
     </div>
 
+@endsection
+
+@section('js')
+    <script>
+        $(document).ready(function(){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $("#search").keyup(function(){
+                var search =  $("#search").val();
+                if (search.length < 2) {
+                    $("#origin_result").show();
+                    $("#search_result").hide();
+                } else {
+                    $("#origin_result").hide();
+                    $("#search_result").show();
+                    $.ajax({
+                        type:'POST',
+                        url:'/teacher/course/search',
+                        data:{search : search},
+                        success:function(data){
+                            $( "#search_result").html(data);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 @endsection
