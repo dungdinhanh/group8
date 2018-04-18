@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Homework;
 use App\Course;
 use App\Homework;
 use App\Lesson;
+use App\Submission;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -51,6 +53,11 @@ class HomeworkController extends Controller
                 'overtime' => $overtime]
         );
     }
+
+
+
+
+
 
 
 

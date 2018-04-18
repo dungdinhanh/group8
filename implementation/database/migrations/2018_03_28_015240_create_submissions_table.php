@@ -19,8 +19,8 @@ class CreateSubmissionsTable extends Migration
             $table->unsignedInteger('course_id');
             $table->string('title', 1000);
             $table->text('content');
-            $table->string('note', 10000);
-            $table->time('overtime');
+            $table->string('note', 10000)->nullable();
+            $table->integer('overtime');
             $table->unsignedInteger('homework_id');
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');

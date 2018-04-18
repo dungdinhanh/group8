@@ -83,8 +83,8 @@
                                 </div>
                             </div>
 
-                            <input type="hidden" name="lesson_id" value="{{$lesson->id}}">
-                            <input type="hidden" name="course_id" value="{{$course->id}}">
+                            <input type="hidden" name="lesson_id" value="{{__($lesson->id)}}">
+                            <input type="hidden" name="course_id" value="{{__($course->id)}}">
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">

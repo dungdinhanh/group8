@@ -1,12 +1,6 @@
 @extends('layouts.app')
-@section('title', '| Home - Moodle')
-
+@section('title', '| home')
 @section('content')
-
-@if (Auth::guest())
-You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform action
-
-@else
 <div id="page" class="container-fluid">
     <header id="page-header" class="row">
         <div class="col-xs-12 p-a-1" id="yui_3_17_2_1_1523828301733_42">
@@ -2971,8 +2965,8 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                             </div>
                                                                                             <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=66"
-                                                                                                        class="">Digital
+                                                                                                    href="https://school.demo.moodle.net/course/view.php?id=66"
+                                                                                                    class="">Digital
                                                                                                     Literacy </a>
                                                                                             </h4>
                                                                                         </div>
@@ -3044,8 +3038,8 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                             </div>
                                                                                             <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=62"
-                                                                                                        class="">Psychology
+                                                                                                    href="https://school.demo.moodle.net/course/view.php?id=62"
+                                                                                                    class="">Psychology
                                                                                                     in
                                                                                                     Cinema</a>
                                                                                             </h4>
@@ -3123,8 +3117,8 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                             </div>
                                                                                             <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=63"
-                                                                                                        class="">The
+                                                                                                    href="https://school.demo.moodle.net/course/view.php?id=63"
+                                                                                                    class="">The
                                                                                                     Impressionists</a>
                                                                                             </h4>
                                                                                         </div>
@@ -3200,8 +3194,8 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                             </div>
                                                                                             <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=59"
-                                                                                                        class="">Celebrating
+                                                                                                    href="https://school.demo.moodle.net/course/view.php?id=59"
+                                                                                                    class="">Celebrating
                                                                                                     Cultures</a>
                                                                                             </h4>
                                                                                         </div>
@@ -3277,8 +3271,8 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                             </div>
                                                                                             <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=56"
-                                                                                                        class="">History:
+                                                                                                    href="https://school.demo.moodle.net/course/view.php?id=56"
+                                                                                                    class="">History:
                                                                                                     Russia in
                                                                                                     Revolution</a>
                                                                                             </h4>
@@ -3358,8 +3352,8 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                             </div>
                                                                                             <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=35"
-                                                                                                        class="">World
+                                                                                                    href="https://school.demo.moodle.net/course/view.php?id=35"
+                                                                                                    class="">World
                                                                                                     of Water</a>
                                                                                             </h4>
                                                                                         </div>
@@ -3441,8 +3435,8 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                             </div>
                                                                                             <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=49"
-                                                                                                        class="">Pilgrimage</a>
+                                                                                                    href="https://school.demo.moodle.net/course/view.php?id=49"
+                                                                                                    class="">Pilgrimage</a>
                                                                                             </h4>
                                                                                         </div>
                                                                                         <div class="hidden-xs-down visible-phone">
@@ -3517,8 +3511,8 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                             </div>
                                                                                             <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=64"
-                                                                                                        class="">New
+                                                                                                    href="https://school.demo.moodle.net/course/view.php?id=64"
+                                                                                                    class="">New
                                                                                                     staff
                                                                                                     induction</a>
                                                                                             </h4>
@@ -3577,8 +3571,8 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                             </div>
                                                                                             <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=27"
-                                                                                                        class="">Parents
+                                                                                                    href="https://school.demo.moodle.net/course/view.php?id=27"
+                                                                                                    class="">Parents
                                                                                                     and Citizens
                                                                                                     Council</a>
                                                                                             </h4>
@@ -3643,8 +3637,8 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                             </div>
                                                                                             <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=41"
-                                                                                                        class="">Staffroom</a>
+                                                                                                    href="https://school.demo.moodle.net/course/view.php?id=41"
+                                                                                                    class="">Staffroom</a>
                                                                                             </h4>
                                                                                         </div>
                                                                                         <div class="hidden-xs-down visible-phone">
@@ -3708,8 +3702,8 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                             </div>
                                                                                             <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=38"
-                                                                                                        class="">Moodle
+                                                                                                    href="https://school.demo.moodle.net/course/view.php?id=38"
+                                                                                                    class="">Moodle
                                                                                                     History
                                                                                                     Quiz</a>
                                                                                             </h4>
@@ -3838,8 +3832,8 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                             </div>
                                                                                             <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=51"
-                                                                                                        class="">
+                                                                                                    href="https://school.demo.moodle.net/course/view.php?id=51"
+                                                                                                    class="">
                                                                                                     Moodle and
                                                                                                     Mountaineering</a>
                                                                                             </h4>
@@ -3962,11 +3956,11 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                 <ul class="list">
                                     <li class="listentry">
                                         <div class="user"><a
-                                                    href="https://school.demo.moodle.net/user/view.php?id=13&amp;course=1"
-                                                    title="now"><img
-                                                        src="https://school.demo.moodle.net/pluginfile.php/160/user/icon/boost/f2?rev=1"
-                                                        alt="" title="" class="userpicture" width="16"
-                                                        height="16">{{ Auth::user()->full_name }}</a></div>
+                                                href="https://school.demo.moodle.net/user/view.php?id=13&amp;course=1"
+                                                title="now"><img
+                                                    src="https://school.demo.moodle.net/pluginfile.php/160/user/icon/boost/f2?rev=1"
+                                                    alt="" title="" class="userpicture" width="16"
+                                                    height="16">{{ Auth::user()->full_name }}</a></div>
                                     </li>
                                 </ul>
                                 <div class="clearer"><!-- --></div>
@@ -3998,7 +3992,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                             <div class="name">Anna Alexander</div>
                                         </div>
                                         <div class="info"><a
-                                                    href="https://school.demo.moodle.net/mod/forum/discuss.php?d=176">Try
+                                                href="https://school.demo.moodle.net/mod/forum/discuss.php?d=176">Try
                                                 the new features of Moodle 3.4 on Mount Orange!</a></div>
                                     </li>
                                     <li class="post">
@@ -4007,7 +4001,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                             <div class="name">Anna Alexander</div>
                                         </div>
                                         <div class="info"><a
-                                                    href="https://school.demo.moodle.net/mod/forum/discuss.php?d=174">Mount
+                                                href="https://school.demo.moodle.net/mod/forum/discuss.php?d=174">Mount
                                                 Orange is using Moodle 3.3!</a></div>
                                     </li>
                                     <li class="post">
@@ -4016,13 +4010,13 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                             <div class="name">Anna Alexander</div>
                                         </div>
                                         <div class="info"><a
-                                                    href="https://school.demo.moodle.net/mod/forum/discuss.php?d=170">Mount
+                                                href="https://school.demo.moodle.net/mod/forum/discuss.php?d=170">Mount
                                                 Orange is running Moodle 3.2!</a></div>
                                     </li>
                                 </ul>
 
                                 <div class="footer"><a
-                                            href="https://school.demo.moodle.net/mod/forum/view.php?f=17">Older
+                                        href="https://school.demo.moodle.net/mod/forum/view.php?f=17">Older
                                         topics</a> ...
                                 </div>
 
@@ -4037,6 +4031,4 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
         </div>
     </div>
 </div>
-@endif
-
 @endsection
