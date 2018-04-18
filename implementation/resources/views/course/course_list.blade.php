@@ -34,31 +34,5 @@
 @endsection
 
 @section('js')
-    <script>
-        $(document).ready(function(){
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $("#search").keyup(function(){
-                var search =  $("#search").val();
-                if (search.length < 2) {
-                    $("#origin_result").show();
-                    $("#search_result").hide();
-                } else {
-                    $("#origin_result").hide();
-                    $("#search_result").show();
-                    $.ajax({
-                        type:'POST',
-                        url:'/teacher/course/search',
-                        data:{search : search},
-                        success:function(data){
-                            $( "#search_result").html(data);
-                        }
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="{{ asset('js/code/course/search.js') }}"></script>
 @endsection

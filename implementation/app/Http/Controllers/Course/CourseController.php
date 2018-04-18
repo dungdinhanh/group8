@@ -26,7 +26,6 @@ class CourseController extends Controller
         $course = Course::where('id', $course_id)->first();
         $lessons = $course->lessons;
         $students = $course->students;
-        dd($students);
         return view('course.lesson_list', ['lessons' => $lessons,
             'course' => $course]);
     }
@@ -62,4 +61,10 @@ class CourseController extends Controller
 
         return view('course.course_search', ['courses' => $courses]);
     }
+
+    public function listStudent(Request $request)
+    {
+
+    }
+
 }
