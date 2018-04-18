@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('title', '| Home - Moodle')
-
 @section('content')
 
 @if (Auth::guest())

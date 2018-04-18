@@ -45,6 +45,15 @@
                     @if ($errors->has('user_name'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('user_name') }}</strong>
+                        <script>
+                            swal({
+                                title: "Login error!",
+                                text: "Login error",
+                                icon: "error",
+                                button: "try again!",
+                            });
+                        </script>
+
                     </span>
                     @endif
                     <span class="focus-input100" data-placeholder="&#xf207;"></span>
