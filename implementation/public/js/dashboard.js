@@ -14,7 +14,6 @@ function tryMe() {
 }
 
 function tryMe2() {
-    console.log('aaa')
     $('#nav-drawer').each(function () {
         if ($("#nav-drawer").hasClass("closed")) {
             $(this).removeClass('closed');
@@ -22,8 +21,7 @@ function tryMe2() {
         else {
             $(this).addClass('closed');
         }
-    })
-    console.log('bbb')
+    });
 
     $('#page-my-index').each(function () {
         if ($("#page-my-index").hasClass("drawer-open-left")) {
@@ -31,6 +29,24 @@ function tryMe2() {
         }
         else {
             $(this).addClass('drawer-open-left');
+        }
+    })
+}
+
+function changeCourseOverview() {
+    $('#myoverview_courses_view').each(function () {
+        if ($("#myoverview_courses_view").hasClass("in")) {
+            // $(this).removeClass('in');
+        } else {
+            $(this).addClass('in');
+        }
+    })
+
+    $('#myoverview_courses_view').each(function () {
+        if ($("#myoverview_courses_view").hasClass("active")) {
+            // $(this).removeClass('active');
+        } else {
+            $(this).addClass('active');
         }
     })
 }

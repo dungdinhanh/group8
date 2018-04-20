@@ -47,13 +47,14 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                         Timeline
                                                     </a>
                                                 </li>
-                                                <li class="nav-item">
+                                                <li class="nav-item" onclick="changeCourseOverview()">
                                                     <a class="nav-link " href="#myoverview_courses_view"
                                                        role="tab" data-toggle="tab" data-tabname="courses">
                                                         Courses
                                                     </a>
                                                 </li>
                                             </ul>
+
                                             <div class="tab-content content-centred">
                                                 <div role="tabpanel" class="tab-pane fade in active"
                                                      id="myoverview_timeline_view">
@@ -2911,13 +2912,16 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div role="tabpanel" class="tab-pane fade "
+                                                <div role="tabpanel" class="tab-pane fade"
                                                      id="myoverview_courses_view">
+
                                                     <div id="courses-view-5ad3c64cd3d045ad3c64cc86722"
                                                          data-region="courses-view">
                                                         <div class="text-xs-center text-center">
                                                             <div class="btn-group m-y-2" role="group"
                                                                  data-toggle="btns">
+
+
                                                                 <a class="btn btn-default active"
                                                                    href="#myoverview_courses_view_in_progress"
                                                                    data-toggle="tab">
@@ -2940,11 +2944,23 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                  id="myoverview_courses_view_in_progress">
                                                                 <div id="courses-view-in-progress"
                                                                      data-status="1">
+                                                                    <div class="table">
 
+                                                                        <div class="row nav-link">
+
+                                                                        </div>
+                                                                    </div>
                                                                     <div id="pc-for-in-progress"
                                                                          data-region="paging-content">
                                                                         <div data-region="paging-content-item"
-                                                                             data-page="1" class=" row">
+                                                                             data-page="1" id="page1" class=" row">
+                                                                            @csrf
+                                                                            @foreach($courses as $course)
+                                                                            @if($course->id < 10)
+
+                                                                            <a class="nav-link"
+                                                                               href="{{route('list_lessons', ['course_id'=>$course->id])}}">
+                                                                            </a>
                                                                             <div class="col-lg-6">
                                                                                 <div class="card m-b-1 courses-view-course-item">
                                                                                     <div class="card-block course-info-container"
@@ -2971,8 +2987,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                             </div>
                                                                                             <h4 class="h5"><a
                                                                                                         href="https://school.demo.moodle.net/course/view.php?id=66"
-                                                                                                        class="">Digital
-                                                                                                    Literacy </a>
+                                                                                                        class="">{{__($course->course_name)}} </a>
                                                                                             </h4>
                                                                                         </div>
                                                                                         <div class="hidden-xs-down visible-phone">
@@ -3003,8 +3018,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 <div class="media-body">
                                                                                                     <h4 class="h5">
                                                                                                         <a href="https://school.demo.moodle.net/course/view.php?id=66"
-                                                                                                           class="">Digital
-                                                                                                            Literacy </a>
+                                                                                                           class="">{{__($course->course_name)}} </a>
                                                                                                     </h4>
                                                                                                 </div>
                                                                                             </div>
@@ -3018,419 +3032,34 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-lg-6">
-                                                                                <div class="card m-b-1 courses-view-course-item">
-                                                                                    <div class="card-block course-info-container"
-                                                                                         id="course-info-container-62">
-                                                                                        <div class="hidden-sm-up hidden-phone">
-                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                <div class="progress-doughnut">
-                                                                                                    <div class="progress-text has-percent">
-                                                                                                        6%
-                                                                                                    </div>
-                                                                                                    <div class="progress-indicator">
-                                                                                                        <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                            <g>
-                                                                                                                <title aria-hidden="true">
-                                                                                                                    6%</title>
-                                                                                                                <circle class="circle percent-6"
-                                                                                                                        r="27.5"
-                                                                                                                        cx="35"
-                                                                                                                        cy="35"></circle>
-                                                                                                            </g>
-                                                                                                        </svg>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=62"
-                                                                                                        class="">Psychology
-                                                                                                    in
-                                                                                                    Cinema</a>
-                                                                                            </h4>
-                                                                                        </div>
-                                                                                        <div class="hidden-xs-down visible-phone">
-                                                                                            <div class="media">
-                                                                                                <div class="media-left">
-                                                                                                    <div class="media-object">
-                                                                                                        <div class="progress-chart-container m-b-1">
-                                                                                                            <div class="progress-doughnut">
-                                                                                                                <div class="progress-text has-percent">
-                                                                                                                    6%
-                                                                                                                </div>
-                                                                                                                <div class="progress-indicator">
-                                                                                                                    <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                        <g>
-                                                                                                                            <title aria-hidden="true">
-                                                                                                                                6%</title>
-                                                                                                                            <circle class="circle percent-6"
-                                                                                                                                    r="27.5"
-                                                                                                                                    cx="35"
-                                                                                                                                    cy="35"></circle>
-                                                                                                                        </g>
-                                                                                                                    </svg>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="media-body">
-                                                                                                    <h4 class="h5">
-                                                                                                        <a href="https://school.demo.moodle.net/course/view.php?id=62"
-                                                                                                           class="">Psychology
-                                                                                                            in
-                                                                                                            Cinema</a>
-                                                                                                    </h4>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <p class="text-muted">
-                                                                                            In this course we
-                                                                                            study three films:
-                                                                                            Spider, A Beautiful
-                                                                                            Mind, and Fight
-                                                                                            Club. The main focus
-                                                                                            of the course will
-                                                                                            be the ways in which
-                                                                                            ...
-                                                                                        </p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-lg-6">
-                                                                                <div class="card m-b-1 courses-view-course-item">
-                                                                                    <div class="card-block course-info-container"
-                                                                                         id="course-info-container-63">
-                                                                                        <div class="hidden-sm-up hidden-phone">
-                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                <div class="progress-doughnut">
-                                                                                                    <div class="progress-text ">
-                                                                                                        0%
-                                                                                                    </div>
-                                                                                                    <div class="progress-indicator">
-                                                                                                        <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                            <g>
-                                                                                                                <title aria-hidden="true">
-                                                                                                                    0%</title>
-                                                                                                                <circle class="circle percent-0"
-                                                                                                                        r="27.5"
-                                                                                                                        cx="35"
-                                                                                                                        cy="35"></circle>
-                                                                                                            </g>
-                                                                                                        </svg>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=63"
-                                                                                                        class="">The
-                                                                                                    Impressionists</a>
-                                                                                            </h4>
-                                                                                        </div>
-                                                                                        <div class="hidden-xs-down visible-phone">
-                                                                                            <div class="media">
-                                                                                                <div class="media-left">
-                                                                                                    <div class="media-object">
-                                                                                                        <div class="progress-chart-container m-b-1">
-                                                                                                            <div class="progress-doughnut">
-                                                                                                                <div class="progress-text ">
-                                                                                                                    0%
-                                                                                                                </div>
-                                                                                                                <div class="progress-indicator">
-                                                                                                                    <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                        <g>
-                                                                                                                            <title aria-hidden="true">
-                                                                                                                                0%</title>
-                                                                                                                            <circle class="circle percent-0"
-                                                                                                                                    r="27.5"
-                                                                                                                                    cx="35"
-                                                                                                                                    cy="35"></circle>
-                                                                                                                        </g>
-                                                                                                                    </svg>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="media-body">
-                                                                                                    <h4 class="h5">
-                                                                                                        <a href="https://school.demo.moodle.net/course/view.php?id=63"
-                                                                                                           class="">The
-                                                                                                            Impressionists</a>
-                                                                                                    </h4>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <p class="text-muted">
-                                                                                            An introduction to
-                                                                                            the Impressionist
-                                                                                            movement in France,
-                                                                                            with students
-                                                                                            being allowed to
-                                                                                            select an artist to
-                                                                                            focus on for
-                                                                                            in-depth study. ...
-                                                                                        </p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-lg-6">
-                                                                                <div class="card m-b-1 courses-view-course-item">
-                                                                                    <div class="card-block course-info-container"
-                                                                                         id="course-info-container-59">
-                                                                                        <div class="hidden-sm-up hidden-phone">
-                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                <div class="progress-doughnut">
-                                                                                                    <div class="progress-text has-percent">
-                                                                                                        10%
-                                                                                                    </div>
-                                                                                                    <div class="progress-indicator">
-                                                                                                        <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                            <g>
-                                                                                                                <title aria-hidden="true">
-                                                                                                                    10%</title>
-                                                                                                                <circle class="circle percent-10"
-                                                                                                                        r="27.5"
-                                                                                                                        cx="35"
-                                                                                                                        cy="35"></circle>
-                                                                                                            </g>
-                                                                                                        </svg>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=59"
-                                                                                                        class="">Celebrating
-                                                                                                    Cultures</a>
-                                                                                            </h4>
-                                                                                        </div>
-                                                                                        <div class="hidden-xs-down visible-phone">
-                                                                                            <div class="media">
-                                                                                                <div class="media-left">
-                                                                                                    <div class="media-object">
-                                                                                                        <div class="progress-chart-container m-b-1">
-                                                                                                            <div class="progress-doughnut">
-                                                                                                                <div class="progress-text has-percent">
-                                                                                                                    10%
-                                                                                                                </div>
-                                                                                                                <div class="progress-indicator">
-                                                                                                                    <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                        <g>
-                                                                                                                            <title aria-hidden="true">
-                                                                                                                                10%</title>
-                                                                                                                            <circle class="circle percent-10"
-                                                                                                                                    r="27.5"
-                                                                                                                                    cx="35"
-                                                                                                                                    cy="35"></circle>
-                                                                                                                        </g>
-                                                                                                                    </svg>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="media-body">
-                                                                                                    <h4 class="h5">
-                                                                                                        <a href="https://school.demo.moodle.net/course/view.php?id=59"
-                                                                                                           class="">Celebrating
-                                                                                                            Cultures</a>
-                                                                                                    </h4>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <p class="text-muted">
-                                                                                            Mount Orange is
-                                                                                            proud to have in its
-                                                                                            community students,
-                                                                                            teachers, parents
-                                                                                            and helpers from a
-                                                                                            wide variety of
-                                                                                            different cultures.
-                                                                                            This ...
-                                                                                        </p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-lg-6">
-                                                                                <div class="card m-b-1 courses-view-course-item">
-                                                                                    <div class="card-block course-info-container"
-                                                                                         id="course-info-container-56">
-                                                                                        <div class="hidden-sm-up hidden-phone">
-                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                <div class="progress-doughnut">
-                                                                                                    <div class="progress-text ">
-                                                                                                        0%
-                                                                                                    </div>
-                                                                                                    <div class="progress-indicator">
-                                                                                                        <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                            <g>
-                                                                                                                <title aria-hidden="true">
-                                                                                                                    0%</title>
-                                                                                                                <circle class="circle percent-0"
-                                                                                                                        r="27.5"
-                                                                                                                        cx="35"
-                                                                                                                        cy="35"></circle>
-                                                                                                            </g>
-                                                                                                        </svg>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=56"
-                                                                                                        class="">History:
-                                                                                                    Russia in
-                                                                                                    Revolution</a>
-                                                                                            </h4>
-                                                                                        </div>
-                                                                                        <div class="hidden-xs-down visible-phone">
-                                                                                            <div class="media">
-                                                                                                <div class="media-left">
-                                                                                                    <div class="media-object">
-                                                                                                        <div class="progress-chart-container m-b-1">
-                                                                                                            <div class="progress-doughnut">
-                                                                                                                <div class="progress-text ">
-                                                                                                                    0%
-                                                                                                                </div>
-                                                                                                                <div class="progress-indicator">
-                                                                                                                    <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                        <g>
-                                                                                                                            <title aria-hidden="true">
-                                                                                                                                0%</title>
-                                                                                                                            <circle class="circle percent-0"
-                                                                                                                                    r="27.5"
-                                                                                                                                    cx="35"
-                                                                                                                                    cy="35"></circle>
-                                                                                                                        </g>
-                                                                                                                    </svg>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="media-body">
-                                                                                                    <h4 class="h5">
-                                                                                                        <a href="https://school.demo.moodle.net/course/view.php?id=56"
-                                                                                                           class="">History:
-                                                                                                            Russia
-                                                                                                            in
-                                                                                                            Revolution</a>
-                                                                                                    </h4>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <p class="text-muted">
-                                                                                            This course is
-                                                                                            designed for
-                                                                                            students studying
-                                                                                            Russian history.
-                                                                                            While it is
-                                                                                            aimed at British
-                                                                                            students working
-                                                                                            towards an
-                                                                                            examination, the ...
-                                                                                        </p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-lg-6">
-                                                                                <div class="card m-b-1 courses-view-course-item">
-                                                                                    <div class="card-block course-info-container"
-                                                                                         id="course-info-container-35">
-                                                                                        <div class="hidden-sm-up hidden-phone">
-                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                <div class="progress-doughnut">
-                                                                                                    <div class="progress-text has-percent">
-                                                                                                        13%
-                                                                                                    </div>
-                                                                                                    <div class="progress-indicator">
-                                                                                                        <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                            <g>
-                                                                                                                <title aria-hidden="true">
-                                                                                                                    13%</title>
-                                                                                                                <circle class="circle percent-13"
-                                                                                                                        r="27.5"
-                                                                                                                        cx="35"
-                                                                                                                        cy="35"></circle>
-                                                                                                            </g>
-                                                                                                        </svg>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=35"
-                                                                                                        class="">World
-                                                                                                    of Water</a>
-                                                                                            </h4>
-                                                                                        </div>
-                                                                                        <div class="hidden-xs-down visible-phone">
-                                                                                            <div class="media">
-                                                                                                <div class="media-left">
-                                                                                                    <div class="media-object">
-                                                                                                        <div class="progress-chart-container m-b-1">
-                                                                                                            <div class="progress-doughnut">
-                                                                                                                <div class="progress-text has-percent">
-                                                                                                                    13%
-                                                                                                                </div>
-                                                                                                                <div class="progress-indicator">
-                                                                                                                    <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                        <g>
-                                                                                                                            <title aria-hidden="true">
-                                                                                                                                13%</title>
-                                                                                                                            <circle class="circle percent-13"
-                                                                                                                                    r="27.5"
-                                                                                                                                    cx="35"
-                                                                                                                                    cy="35"></circle>
-                                                                                                                        </g>
-                                                                                                                    </svg>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="media-body">
-                                                                                                    <h4 class="h5">
-                                                                                                        <a href="https://school.demo.moodle.net/course/view.php?id=35"
-                                                                                                           class="">World
-                                                                                                            of
-                                                                                                            Water</a>
-                                                                                                    </h4>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <p class="text-muted">
-                                                                                            We all need water!
-                                                                                            Let's look at things
-                                                                                            we are doing well
-                                                                                            and not so well
-                                                                                            in managing this
-                                                                                            precious resource.
-
-                                                                                            Ages 11-adult
-
-                                                                                            Moodle.net ...
-                                                                                        </p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
+                                                                            @endif
+                                                                            @endforeach
                                                                         </div>
                                                                         <div data-region="paging-content-item"
-                                                                             data-page="2" class="hidden row">
+                                                                             data-page="2" id="page2" class=" row">
+                                                                            @csrf
+                                                                            @foreach($courses as $course)
+                                                                            @if(($course->id >= 10) && ( $course->id < 20))
+
+                                                                            <a class="nav-link"
+                                                                               href="{{route('list_lessons', ['course_id'=>$course->id])}}">
+                                                                            </a>
                                                                             <div class="col-lg-6">
                                                                                 <div class="card m-b-1 courses-view-course-item">
                                                                                     <div class="card-block course-info-container"
-                                                                                         id="course-info-container-49">
+                                                                                         id="course-info-container-66">
                                                                                         <div class="hidden-sm-up hidden-phone">
                                                                                             <div class="progress-chart-container m-b-1">
                                                                                                 <div class="progress-doughnut">
                                                                                                     <div class="progress-text has-percent">
-                                                                                                        6%
+                                                                                                        23%
                                                                                                     </div>
                                                                                                     <div class="progress-indicator">
                                                                                                         <svg xmlns="http://www.w3.org/2000/svg">
                                                                                                             <g>
                                                                                                                 <title aria-hidden="true">
-                                                                                                                    6%</title>
-                                                                                                                <circle class="circle percent-6"
+                                                                                                                    23%</title>
+                                                                                                                <circle class="circle percent-23"
                                                                                                                         r="27.5"
                                                                                                                         cx="35"
                                                                                                                         cy="35"></circle>
@@ -3440,8 +3069,8 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                             </div>
                                                                                             <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=49"
-                                                                                                        class="">Pilgrimage</a>
+                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=66"
+                                                                                                        class="">{{__($course->course_name)}} </a>
                                                                                             </h4>
                                                                                         </div>
                                                                                         <div class="hidden-xs-down visible-phone">
@@ -3451,14 +3080,14 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                         <div class="progress-chart-container m-b-1">
                                                                                                             <div class="progress-doughnut">
                                                                                                                 <div class="progress-text has-percent">
-                                                                                                                    6%
+                                                                                                                    23%
                                                                                                                 </div>
                                                                                                                 <div class="progress-indicator">
                                                                                                                     <svg xmlns="http://www.w3.org/2000/svg">
                                                                                                                         <g>
                                                                                                                             <title aria-hidden="true">
-                                                                                                                                6%</title>
-                                                                                                                            <circle class="circle percent-6"
+                                                                                                                                23%</title>
+                                                                                                                            <circle class="circle percent-23"
                                                                                                                                     r="27.5"
                                                                                                                                     cx="35"
                                                                                                                                     cy="35"></circle>
@@ -3471,285 +3100,23 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                                 <div class="media-body">
                                                                                                     <h4 class="h5">
-                                                                                                        <a href="https://school.demo.moodle.net/course/view.php?id=49"
-                                                                                                           class="">Pilgrimage</a>
+                                                                                                        <a href="https://school.demo.moodle.net/course/view.php?id=66"
+                                                                                                           class="">{{__($course->course_name)}} </a>
                                                                                                     </h4>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
                                                                                         <p class="text-muted">
-                                                                                            This course in
-                                                                                            &nbsp;Religious
-                                                                                            Education studird
-                                                                                            the concept of
-                                                                                            pilgrimage. It
-                                                                                            includes forums for
-                                                                                            reflection on the
-                                                                                            wider meaning and
-                                                                                            ...
+                                                                                            Introducing the
+                                                                                            concept of Digital
+                                                                                            Literacy. Optimised
+                                                                                            for mobile.
                                                                                         </p>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-lg-6">
-                                                                                <div class="card m-b-1 courses-view-course-item">
-                                                                                    <div class="card-block course-info-container"
-                                                                                         id="course-info-container-64">
-                                                                                        <div class="hidden-sm-up hidden-phone">
-                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                <div class="progress-doughnut">
-                                                                                                    <div class="progress-text ">
-                                                                                                        0%
-                                                                                                    </div>
-                                                                                                    <div class="progress-indicator">
-                                                                                                        <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                            <g>
-                                                                                                                <title aria-hidden="true">
-                                                                                                                    0%</title>
-                                                                                                                <circle class="circle percent-0"
-                                                                                                                        r="27.5"
-                                                                                                                        cx="35"
-                                                                                                                        cy="35"></circle>
-                                                                                                            </g>
-                                                                                                        </svg>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=64"
-                                                                                                        class="">New
-                                                                                                    staff
-                                                                                                    induction</a>
-                                                                                            </h4>
-                                                                                        </div>
-                                                                                        <div class="hidden-xs-down visible-phone">
-                                                                                            <div class="media">
-                                                                                                <div class="media-left">
-                                                                                                    <div class="media-object">
-                                                                                                        <div class="progress-chart-container m-b-1">
-                                                                                                            <div class="progress-doughnut">
-                                                                                                                <div class="progress-text ">
-                                                                                                                    0%
-                                                                                                                </div>
-                                                                                                                <div class="progress-indicator">
-                                                                                                                    <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                        <g>
-                                                                                                                            <title aria-hidden="true">
-                                                                                                                                0%</title>
-                                                                                                                            <circle class="circle percent-0"
-                                                                                                                                    r="27.5"
-                                                                                                                                    cx="35"
-                                                                                                                                    cy="35"></circle>
-                                                                                                                        </g>
-                                                                                                                    </svg>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="media-body">
-                                                                                                    <h4 class="h5">
-                                                                                                        <a href="https://school.demo.moodle.net/course/view.php?id=64"
-                                                                                                           class="">New
-                                                                                                            staff
-                                                                                                            induction</a>
-                                                                                                    </h4>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <p class="text-muted">
-
-                                                                                        </p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-lg-6">
-                                                                                <div class="card m-b-1 courses-view-course-item">
-                                                                                    <div class="card-block course-info-container"
-                                                                                         id="course-info-container-27">
-                                                                                        <div class="hidden-sm-up hidden-phone">
-                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                <div class="no-progress">
-                                                                                                    <img class="icon "
-                                                                                                         alt=""
-                                                                                                         src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/i/course">
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=27"
-                                                                                                        class="">Parents
-                                                                                                    and Citizens
-                                                                                                    Council</a>
-                                                                                            </h4>
-                                                                                        </div>
-                                                                                        <div class="hidden-xs-down visible-phone">
-                                                                                            <div class="media">
-                                                                                                <div class="media-left">
-                                                                                                    <div class="media-object">
-                                                                                                        <div class="progress-chart-container m-b-1">
-                                                                                                            <div class="no-progress">
-                                                                                                                <img class="icon "
-                                                                                                                     alt=""
-                                                                                                                     src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/i/course">
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="media-body">
-                                                                                                    <h4 class="h5">
-                                                                                                        <a href="https://school.demo.moodle.net/course/view.php?id=27"
-                                                                                                           class="">Parents
-                                                                                                            and
-                                                                                                            Citizens
-                                                                                                            Council</a>
-                                                                                                    </h4>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <p class="text-muted">
-                                                                                            A space for members
-                                                                                            of Parents and
-                                                                                            Citizens council, an
-                                                                                            important part of
-                                                                                            our school
-                                                                                            community.
-                                                                                        </p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-lg-6">
-                                                                                <div class="card m-b-1 courses-view-course-item">
-                                                                                    <div class="card-block course-info-container"
-                                                                                         id="course-info-container-41">
-                                                                                        <div class="hidden-sm-up hidden-phone">
-                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                <div class="progress-doughnut">
-                                                                                                    <div class="progress-text ">
-                                                                                                        0%
-                                                                                                    </div>
-                                                                                                    <div class="progress-indicator">
-                                                                                                        <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                            <g>
-                                                                                                                <title aria-hidden="true">
-                                                                                                                    0%</title>
-                                                                                                                <circle class="circle percent-0"
-                                                                                                                        r="27.5"
-                                                                                                                        cx="35"
-                                                                                                                        cy="35"></circle>
-                                                                                                            </g>
-                                                                                                        </svg>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=41"
-                                                                                                        class="">Staffroom</a>
-                                                                                            </h4>
-                                                                                        </div>
-                                                                                        <div class="hidden-xs-down visible-phone">
-                                                                                            <div class="media">
-                                                                                                <div class="media-left">
-                                                                                                    <div class="media-object">
-                                                                                                        <div class="progress-chart-container m-b-1">
-                                                                                                            <div class="progress-doughnut">
-                                                                                                                <div class="progress-text ">
-                                                                                                                    0%
-                                                                                                                </div>
-                                                                                                                <div class="progress-indicator">
-                                                                                                                    <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                        <g>
-                                                                                                                            <title aria-hidden="true">
-                                                                                                                                0%</title>
-                                                                                                                            <circle class="circle percent-0"
-                                                                                                                                    r="27.5"
-                                                                                                                                    cx="35"
-                                                                                                                                    cy="35"></circle>
-                                                                                                                        </g>
-                                                                                                                    </svg>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="media-body">
-                                                                                                    <h4 class="h5">
-                                                                                                        <a href="https://school.demo.moodle.net/course/view.php?id=41"
-                                                                                                           class="">Staffroom</a>
-                                                                                                    </h4>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <p class="text-muted">
-                                                                                            A space for staff
-                                                                                            only - not normally
-                                                                                            accessible to
-                                                                                            students.
-
-                                                                                            Important
-                                                                                            professional news,
-                                                                                            updates, documents
-                                                                                            as well as social
-                                                                                            ...
-                                                                                        </p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-lg-6">
-                                                                                <div class="card m-b-1 courses-view-course-item">
-                                                                                    <div class="card-block course-info-container"
-                                                                                         id="course-info-container-38">
-                                                                                        <div class="hidden-sm-up hidden-phone">
-                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                <div class="no-progress">
-                                                                                                    <img class="icon "
-                                                                                                         alt=""
-                                                                                                         src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/i/course">
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=38"
-                                                                                                        class="">Moodle
-                                                                                                    History
-                                                                                                    Quiz</a>
-                                                                                            </h4>
-                                                                                        </div>
-                                                                                        <div class="hidden-xs-down visible-phone">
-                                                                                            <div class="media">
-                                                                                                <div class="media-left">
-                                                                                                    <div class="media-object">
-                                                                                                        <div class="progress-chart-container m-b-1">
-                                                                                                            <div class="no-progress">
-                                                                                                                <img class="icon "
-                                                                                                                     alt=""
-                                                                                                                     src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/i/course">
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="media-body">
-                                                                                                    <h4 class="h5">
-                                                                                                        <a href="https://school.demo.moodle.net/course/view.php?id=38"
-                                                                                                           class="">Moodle
-                                                                                                            History
-                                                                                                            Quiz</a>
-                                                                                                    </h4>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <p class="text-muted">
-                                                                                            This is an example
-                                                                                            of the Single
-                                                                                            activity course
-                                                                                            format. It only
-                                                                                            displays
-                                                                                            one activity, which
-                                                                                            in this case is a
-                                                                                            Quiz, allowing the
-                                                                                            ...
-                                                                                        </p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
+                                                                            @endif
+                                                                            @endforeach
                                                                         </div>
                                                                     </div>
 
@@ -3774,7 +3141,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                     data-region="page-item"
                                                                                     data-page-number="1">
 
-                                                                                    <a href="#"
+                                                                                    <a href="#page1"
                                                                                        class="page-link"
                                                                                        data-region="page-link">
                                                                                         1
@@ -3784,7 +3151,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                     data-region="page-item"
                                                                                     data-page-number="2">
 
-                                                                                    <a href="#"
+                                                                                    <a href="#page2"
                                                                                        class="page-link"
                                                                                        data-region="page-link">
                                                                                         2

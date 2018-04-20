@@ -268,7 +268,7 @@
                    data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0"
                    data-parent-key="mycourses">
                     <div class="m-l-1">
-                        Induction
+                                
                     </div>
                 </a>
                 <a class="list-group-item list-group-item-action "
