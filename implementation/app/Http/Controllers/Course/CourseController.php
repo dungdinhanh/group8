@@ -27,4 +27,6 @@ class CourseController extends Controller
         return view('course.lesson_list', ['lessons' => $lessons,
             'course' => $course]);
     }
+
+
 }
