@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
             'user_name'=>'dinhanhdung',
             'password' => bcrypt('123456'),
             'email'=> 'dinhanhdung@gmail.com',
-            'role_id' => '1',
+            'role_id' => '2',
             'date_of_birth' => '1996/11/21'
         ]);
 
