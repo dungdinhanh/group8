@@ -2949,7 +2949,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                             @if($course->id < 10)
 
                                                                             <a class="nav-link"
-                                                                               href="{{route('list_lessons', ['course_id'=>$course->id])}}">
+                                                                               href="">
                                                                             </a>
                                                                             <div class="col-lg-6">
                                                                                 <div class="card m-b-1 courses-view-course-item">
@@ -2976,7 +2976,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                             </div>
                                                                                             <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=66"
+                                                                                                        href="{{route('list_lessons', ['course_id' => $course->id])}}"
                                                                                                         class="">{{__($course->course_name)}} </a>
                                                                                             </h4>
                                                                                         </div>
@@ -3007,7 +3007,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                                 <div class="media-body">
                                                                                                     <h4 class="h5">
-                                                                                                        <a href="https://school.demo.moodle.net/course/view.php?id=66"
+                                                                                                        <a href="{{route('list_lessons', ['course_id' => $course->id])}}"
                                                                                                            class="">{{__($course->course_name)}} </a>
                                                                                                     </h4>
                                                                                                 </div>
