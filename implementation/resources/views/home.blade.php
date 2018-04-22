@@ -2927,16 +2927,6 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                    data-toggle="tab">
                                                                     In progress
                                                                 </a>
-                                                                <a class="btn btn-default"
-                                                                   href="#myoverview_courses_view_future"
-                                                                   data-toggle="tab">
-                                                                    Future
-                                                                </a>
-                                                                <a class="btn btn-default"
-                                                                   href="#myoverview_courses_view_past"
-                                                                   data-toggle="tab">
-                                                                    Past
-                                                                </a>
                                                             </div>
                                                         </div>
                                                         <div class="tab-content">
@@ -2953,7 +2943,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                     <div id="pc-for-in-progress"
                                                                          data-region="paging-content">
                                                                         <div data-region="paging-content-item"
-                                                                             data-page="1" id="page1" class=" row">
+                                                                             data-page="1" id="page1" class="row">
                                                                             @csrf
                                                                             @foreach($courses as $course)
                                                                             @if($course->id < 10)
@@ -3036,7 +3026,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                             @endforeach
                                                                         </div>
                                                                         <div data-region="paging-content-item"
-                                                                             data-page="2" id="page2" class=" row">
+                                                                             data-page="2" id="page2" class=" row hidden">
                                                                             @csrf
                                                                             @foreach($courses as $course)
                                                                             @if(($course->id >= 10) && ( $course->id < 20))
@@ -3137,8 +3127,8 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                         «
                                                                                     </a>
                                                                                 </li>
-                                                                                <li class="page-item active "
-                                                                                    data-region="page-item"
+                                                                                <li id="pageItem1" class="page-item active "
+                                                                                    data-region="page-item" onclick="changePage(1,2)"
                                                                                     data-page-number="1">
 
                                                                                     <a href="#page1"
@@ -3147,8 +3137,8 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                         1
                                                                                     </a>
                                                                                 </li>
-                                                                                <li class="page-item  "
-                                                                                    data-region="page-item"
+                                                                                <li  id="pageItem2" class="page-item  "
+                                                                                    data-region="page-item" onclick="changePage(2,2)"
                                                                                     data-page-number="2">
 
                                                                                     <a href="#page2"
@@ -3158,125 +3148,6 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                     </a>
                                                                                 </li>
                                                                                 <li class="page-item  "
-                                                                                    data-region="page-item"
-                                                                                    data-page-number="last">
-
-                                                                                    <a href="#"
-                                                                                       class="page-link"
-                                                                                       data-region="page-link">
-                                                                                        »
-                                                                                    </a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </nav>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tab-pane fade"
-                                                                 id="myoverview_courses_view_future">
-                                                                <div class="text-xs-center text-center m-t-3">
-                                                                    <img class="empty-placeholder-image-lg"
-                                                                         src="https://school.demo.moodle.net/theme/image.php/boost/block_myoverview/1523822493/courses"
-                                                                         alt="No future courses"
-                                                                         role="presentation">
-                                                                    <p class="text-muted m-t-1">No future
-                                                                        courses</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tab-pane fade"
-                                                                 id="myoverview_courses_view_past">
-                                                                <div id="courses-view-past" data-status="0">
-
-                                                                    <div id="pc-for-in-progress"
-                                                                         data-region="paging-content">
-                                                                        <div data-region="paging-content-item"
-                                                                             data-page="1" class=" row">
-                                                                            <div class="col-lg-6">
-                                                                                <div class="card m-b-1 courses-view-course-item">
-                                                                                    <div class="card-block course-info-container"
-                                                                                         id="course-info-container-51">
-                                                                                        <div class="hidden-sm-up hidden-phone">
-                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                <div class="no-progress">
-                                                                                                    <img class="icon "
-                                                                                                         alt=""
-                                                                                                         src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/i/course">
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=51"
-                                                                                                        class="">
-                                                                                                    Moodle and
-                                                                                                    Mountaineering</a>
-                                                                                            </h4>
-                                                                                        </div>
-                                                                                        <div class="hidden-xs-down visible-phone">
-                                                                                            <div class="media">
-                                                                                                <div class="media-left">
-                                                                                                    <div class="media-object">
-                                                                                                        <div class="progress-chart-container m-b-1">
-                                                                                                            <div class="no-progress">
-                                                                                                                <img class="icon "
-                                                                                                                     alt=""
-                                                                                                                     src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/i/course">
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="media-body">
-                                                                                                    <h4 class="h5">
-                                                                                                        <a href="https://school.demo.moodle.net/course/view.php?id=51"
-                                                                                                           class="">
-                                                                                                            Moodle
-                                                                                                            and
-                                                                                                            Mountaineering</a>
-                                                                                                    </h4>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <p class="text-muted">
-                                                                                            This course is for
-                                                                                            senior students
-                                                                                            planning an ascent
-                                                                                            of Mont Blanc in
-                                                                                            July. It is also
-                                                                                            designed to take
-                                                                                            Moodle newbies
-                                                                                            through a number ...
-                                                                                        </p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="text-xs-center text-center">
-                                                                        <nav aria-label="" id="pb-for-past"
-                                                                             data-region="paging-bar"
-                                                                             data-page-count="1">
-
-                                                                            <ul class="pagination">
-                                                                                <li class="page-item  disabled"
-                                                                                    data-region="page-item"
-                                                                                    data-page-number="first">
-
-                                                                                    <a href="#"
-                                                                                       class="page-link"
-                                                                                       data-region="page-link">
-                                                                                        «
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li class="page-item active disabled"
-                                                                                    data-region="page-item"
-                                                                                    data-page-number="1">
-
-                                                                                    <a href="#"
-                                                                                       class="page-link"
-                                                                                       data-region="page-link">
-                                                                                        1
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li class="page-item  disabled"
                                                                                     data-region="page-item"
                                                                                     data-page-number="last">
 

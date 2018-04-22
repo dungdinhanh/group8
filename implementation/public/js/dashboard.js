@@ -51,6 +51,43 @@ function changeCourseOverview() {
     })
 }
 
+
+function changePage(index, total) {
+    console.log(index, total);
+    for(let i = 1; i <= total; i++){
+        if(parseInt(i) === parseInt(index) ){
+            $('#page' + index).each(function () {
+                if ($('#page' + index).hasClass("hidden")) {
+                    $(this).removeClass('hidden');
+                }
+            })
+
+            $('#pageItem' + index).each(function () {
+                if ($('#pageItem' + index).hasClass("active")) {
+                    // $(this).removeClass('active');
+                } else {
+                    $(this).addClass('active');
+                }
+            })
+        }else {
+            $('#page' + i).each(function () {
+                if ($('#page' + i).hasClass("hidden")) {
+                    // $(this).removeClass('hidden');
+                } else {
+                    $(this).addClass('hidden');
+                }
+            })
+
+            $('#pageItem' + i).each(function () {
+                if ($('#pageItem' + i).hasClass("active")) {
+                    $(this).removeClass('active');
+                }
+            })
+        }
+    }
+
+}
+
 /*==================================================================
 [ Focus input ]*/
 
