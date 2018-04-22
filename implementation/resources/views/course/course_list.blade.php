@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', '|Courses')
+<!--@section('title', '|Courses')-->
 
-@section('content')
+@section('course')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">

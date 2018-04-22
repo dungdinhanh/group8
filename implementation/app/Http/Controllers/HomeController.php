@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user()->id;
+        $user = User::where('id', '=', $user)->get()->first();
+        if($user->role_id == 1)
+        {
+            $student = $user->student;
+            $courses = $student->courses;
+        }
+        else if($user->role_id == 2)
+        {
+            $teacher = $user->teacher;
+            $courses = $teacher->courses;
+        }
+        return view('home', [
+            'courses' => $courses
+        ]);
     }
 }
