@@ -31,6 +31,7 @@ class CourseController extends Controller
     }
 
 
+
     public function createCourse()
     {
         return view('course.course_create');
@@ -66,5 +67,6 @@ class CourseController extends Controller
     {
 
     }
+
 
 }
