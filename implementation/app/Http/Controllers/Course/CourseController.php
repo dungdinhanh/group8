@@ -15,6 +15,7 @@ class CourseController extends Controller
     //
     public function listCourses($user_id)
     {
+
         $user = User::where('id', $user_id)->first();
         $teacher = $user->teacher;
         $courses = $teacher->courses;
@@ -55,7 +56,7 @@ class CourseController extends Controller
     public function searchCourse(Request $request)
     {
         $search = $request->search;
-        $courses = Course::where('teacher_id', Auth::id())
+        $courses = Course::where('teacher_id', Auth::user()->teacher->id)
                         ->where('course_name', 'LIKE', "%$search%")->get();
 
         //return $courses;
@@ -63,7 +64,18 @@ class CourseController extends Controller
         return view('course.course_search', ['courses' => $courses]);
     }
 
-    public function listStudent(Request $request)
+    public function listStudent(Request $request, $course_id)
+    {
+        $course = Course::where('id', $course_id)->first();
+        $searchStudent = User::where('role_id', 1)->get()->pluck('email');
+        $students = $course->students;
+
+        return view('course.student_list', ['students' => $students,
+                                                'searchStudent' => $searchStudent
+                                                ]);
+    }
+
+    public function addStudent(Request $request)
     {
 
     }

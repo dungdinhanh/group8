@@ -48,6 +48,9 @@ Route::prefix('teacher')->group(function () {
     Route::post('/course/search', 'Course\CourseController@searchCourse')->name(
         'search_course'
     );
+    Route::get('/course/list_student/{course_id}', 'Course\CourseController@listStudent')->name(
+        'list_student'
+    );
 });
 
 

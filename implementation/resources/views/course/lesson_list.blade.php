@@ -88,6 +88,15 @@
                                     {{__((string)$course->updated_at)}}
                                 </label>
                             </div>
+                            <div class="row">
+                                <label for="updated_at" class="col-md-4 text-md-left">
+                                    {{__('Students number:')}}
+                                </label>
+                                <label id="updated_at" class="col-md-7 text-center">
+                                    {{__((string)$course->students->count())}}
+                                    <a href="{{route('list_student', ['course_id' => $course->id])}}"> View detail</a>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
