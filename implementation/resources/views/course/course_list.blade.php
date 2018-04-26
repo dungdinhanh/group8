@@ -64,16 +64,17 @@
                                                         class="spinner iconsmall" style="display: none;"
                                                         hidden="hidden"></h3></div>
                                         <div class="content" style="">
-                                            <div id="search_result"  class="courses">
+                                            <div id="search_result" class="courses">
                                             </div>
-                                            <div id="origin_result"  class="courses">
+                                            <div id="origin_result" class="courses">
                                                 @csrf
                                                 @foreach($courses as $course)
-                                                <div   class="coursebox clearfix odd first collapsed" data-courseid="66"
+                                                <div class="coursebox clearfix odd first collapsed" data-courseid="66"
                                                      data-type="1">
                                                     <div class="info">
                                                         <div class="coursename"><a class=""
-                                                                                   href="{{route('list_lessons', ['course_id'=>$course->id])}}">{{__($course->course_name)}}</a></div>
+                                                                                   href="{{route('list_lessons', ['course_id'=>$course->id])}}">{{__($course->course_name)}}</a>
+                                                        </div>
                                                         <div class="moreinfo"><a title="Summary"
                                                                                  href="{{route('list_lessons', ['course_id'=>$course->id])}}"><i
                                                                         class="icon fa fa-sign-in fa-fw "
@@ -93,7 +94,17 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="buttons"></div>
+                        <div class="buttons">
+                            <div class="singlebutton">
+                                <form method="get" action="https://school.demo.moodle.net/course/edit.php">
+                                    <input type="hidden" name="category" value="1">
+                                    <input type="hidden" name="returnto" value="topcat">
+                                    <button type="submit" class="btn btn-secondary" id="single_button5ae2034e8883c2"
+                                            title="">Add a new course
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
 
 

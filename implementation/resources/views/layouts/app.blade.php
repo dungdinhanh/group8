@@ -225,7 +225,7 @@
              tabindex="-1">
             <nav class="list-group">
                 <a class="list-group-item list-group-item-action font-weight-bold"
-                   href="https://school.demo.moodle.net/my/"
+                   href="/home"
                    data-key="myhome" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="1"
                    data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0"
                    data-preceedwithhr="0">
@@ -233,24 +233,7 @@
                         Dashboard
                     </div>
                 </a>
-
-                <a class="list-group-item list-group-item-action "
-                   href="https://school.demo.moodle.net/calendar/view.php?view=month" data-key="calendar"
-                   data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="60" data-nodetype="0"
-                   data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0"
-                   data-parent-key="1">
-                    <div class="m-l-0">
-                        Calendar
-                    </div>
-                </a>
-                <a class="list-group-item list-group-item-action " href="https://school.demo.moodle.net/user/files.php"
-                   data-key="privatefiles" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="70"
-                   data-nodetype="0" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0"
-                   data-preceedwithhr="0" data-parent-key="1">
-                    <div class="m-l-0">
-                        Private files
-                    </div>
-                </a>
+                
                 <div class="list-group-item" data-key="mycourses" data-isexpandable="1" data-indent="0"
                      data-showdivider="0"
                      data-type="0" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="0"
@@ -262,7 +245,7 @@
                 </div>
 
 
-                <a class="list-group-item list-group-item-action "
+                <a class=""
                    href="https://school.demo.moodle.net/course/view.php?id=64" data-key="64" data-isexpandable="1"
                    data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0"
                    data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0"
@@ -302,6 +285,33 @@
         </div>
     </div>
     <div id="yui3-css-stamp" style="position: absolute !important; visibility: hidden !important" class=""></div>
+    <footer id="page-footer" class="p-y-1 bg-inverse">
+        <div class="container">
+            <div id="course-footer"></div>
+
+            <p class="helplink"><a href="/home">
+                    <i class="icon fa fa-info-circle fa-fw iconhelp icon-pre" aria-hidden="true" aria-label=""></i>Welcome
+                    to Moodle system</a>
+            </p>
+
+            <div class="logininfo">You are logged in as <a href="https://school.demo.moodle.net/user/profile.php?id=20"
+                                                           title="View profile">{{ Auth::user()->full_name }}</a> (<a
+                        href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Log out</a>)
+                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                      style="display: none;">
+                    @csrf
+                </form>
+            </div>
+            <div class="tool_usertours-resettourcontainer"></div>
+            <div class="homelink"><a href="/home">Home</a></div>
+            <a>Designed & developed by @NickyDo</a>
+            <div id="resetcountdown"
+                 style="padding: 3px 1em; position: fixed; bottom: 0px; right: 0px; overflow: hidden; background-color: red; font-weight: bold;">
+                Login confirmed! Your account is activated
+            </div>
+        </div>
+    </footer>
 
     @endif
 
@@ -309,7 +319,7 @@
 </body>
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
