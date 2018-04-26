@@ -74,10 +74,8 @@
                                         </h3>
                                         <div class="section_availability"></div>
                                         <div class="summary">
-                                            <div class="no-overflow"><p>This course explores Digital Literacy and its
-                                                    importance for teachers and students. The course is optimised for
-                                                    the
-                                                    mobile app. Please try it out!</p></div>
+                                            <div class="no-overflow"><p>This course explores {{__($course->course_name)}} and its
+                                                    importance for teachers and students!</p></div>
                                         </div>
                                         <ul class="section img-text">
                                             <li class="activity choice modtype_choice " id="module-777">
@@ -174,71 +172,42 @@
                                                                  src="https://school.demo.moodle.net/theme/image.php/boost/core/1524376896/spacer">
                                     </div>
                                     <div class="content"><h3 class="sectionname"><span><a
-                                                        href="{{route('show_create_homework', [
-                        'course_id' => $course->id,
-                        'lesson_id' => $lesson->id
-                        ])}}">{{__($lesson->lesson_title)}}</a></span>
+                                                        href="#">{{__($lesson->lesson_title)}}</a></span>
                                         </h3>
                                         <div class="section_availability"></div>
                                         <div class="summary"></div>
                                         <ul class="section img-text">
+                                            @if(Auth::user()->role_id == 2)
                                             <li class="activity scorm modtype_scorm " id="module-790">
                                                 <div>
                                                     <div class="mod-indent-outer">
                                                         <div class="mod-indent"></div>
                                                         <div>
-                                                            <div class="activityinstance"><a class="" onclick=""
-                                                                                             href="https://school.demo.moodle.net/mod/scorm/view.php?id=790"><img
-                                                                            src="https://school.demo.moodle.net/theme/image.php/boost/scorm/1524376896/icon"
-                                                                            class="iconlarge activityicon" alt=" "
-                                                                            role="presentation"><span
-                                                                            class="instancename">Forum netiquette<span
-                                                                                class="accesshide "> SCORM package</span></span></a>
+                                                            <div class="activityinstance">
+                                                                <a class="" onclick=""
+                                                                   href="{{route('show_create_homework', [
+                                                                    'course_id' => $course->id,
+                                                                    'lesson_id' => $lesson->id
+                                                                    ])}}">
+                                                                    <img src="https://school.demo.moodle.net/theme/image.php/boost/scorm/1524376896/icon"
+                                                                         class="iconlarge activityicon" alt=" "
+                                                                         role="presentation"><span
+                                                                            class="instancename">Create Homework</span>
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li class="activity quiz modtype_quiz " id="module-789">
-                                                <div>
-                                                    <div class="mod-indent-outer">
-                                                        <div class="mod-indent"></div>
-                                                        <div>
-                                                            <div class="activityinstance"><a class="" onclick=""
-                                                                                             href="https://school.demo.moodle.net/mod/quiz/view.php?id=789"><img
-                                                                            src="https://school.demo.moodle.net/theme/image.php/boost/quiz/1524376896/icon"
-                                                                            class="iconlarge activityicon" alt=" "
-                                                                            role="presentation"><span
-                                                                            class="instancename">Fun quiz: How's your Social media?</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="activity wiki modtype_wiki " id="module-786">
-                                                <div>
-                                                    <div class="mod-indent-outer">
-                                                        <div class="mod-indent"></div>
-                                                        <div>
-                                                            <div class="activityinstance"><a class="" onclick=""
-                                                                                             href="https://school.demo.moodle.net/mod/wiki/view.php?id=786"><img
-                                                                            src="https://school.demo.moodle.net/theme/image.php/boost/wiki/1524376896/icon"
-                                                                            class="iconlarge activityicon" alt=" "
-                                                                            role="presentation"><span
-                                                                            class="instancename">Share examples of digital literacy<span
-                                                                                class="accesshide "> Wiki</span></span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
+                                            @endif
+
                                             <li class="activity assign modtype_assign " id="module-787">
                                                 <div>
                                                     <div class="mod-indent-outer">
                                                         <div class="mod-indent"></div>
                                                         <div>
                                                             <div class="activityinstance"><a class="" onclick=""
-                                                                                             href="https://school.demo.moodle.net/mod/assign/view.php?id=787"><img
+                                                                                             href=""><img
                                                                             src="https://school.demo.moodle.net/theme/image.php/boost/assign/1524376896/icon"
                                                                             class="iconlarge activityicon" alt=" "
                                                                             role="presentation"><span
@@ -259,22 +228,6 @@
                                                                             class="iconlarge activityicon" alt=" "
                                                                             role="presentation"><span
                                                                             class="instancename">Assignment 2 (Upload)</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="activity workshop modtype_workshop " id="module-803">
-                                                <div>
-                                                    <div class="mod-indent-outer">
-                                                        <div class="mod-indent"></div>
-                                                        <div>
-                                                            <div class="activityinstance"><a class="" onclick=""
-                                                                                             href="https://school.demo.moodle.net/mod/workshop/view.php?id=803"><img
-                                                                            src="https://school.demo.moodle.net/theme/image.php/boost/workshop/1524376896/icon"
-                                                                            class="iconlarge activityicon" alt=" "
-                                                                            role="presentation"><span
-                                                                            class="instancename">Workshop: Transmediation </span></a>
                                                             </div>
                                                         </div>
                                                     </div>

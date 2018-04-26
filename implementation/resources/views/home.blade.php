@@ -3,8 +3,31 @@
 @section('content')
 
 @if (Auth::guest())
-You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform action
+<style>
+    #notLogin{
+        width: 450px;
+        position: relative;
+        font-size: 2rem;
+        animation-name: example;
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
+    }
+    /* Safari 4.0 - 8.0 */
+    @-webkit-keyframes example {
+        from {top: 10px;}
+        to {top: 200px;}
+    }
 
+    @keyframes example {
+        from {top: 10px;}
+        to {top: 200px;}
+    }
+</style>
+<div id="notLogin" class="container">
+    <header style=" margin: 10px auto; text-align: center" id="page-header">
+        You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform action
+    </header>
+</div>
 @else
 <div id="page" class="container-fluid">
     <header id="page-header" class="row">
@@ -3181,6 +3204,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
 
                 </div>
             </section>
+            @if(Auth::user()->role_id == 2)
             <section data-region="blocks-column" class="hidden-print">
                 <aside id="block-region-side-pre" class="block-region" data-blockregion="side-pre"
                        data-droptarget="1"><a href="#sb-1" class="sr-only sr-only-focusable">Skip Online
@@ -3271,6 +3295,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
 
                     <span id="sb-2"></span></aside>
             </section>
+            @endif
         </div>
     </div>
 </div>

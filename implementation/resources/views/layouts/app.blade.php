@@ -49,7 +49,8 @@
                             class="btn pull-xs-left m-r-1 btn-secondary" data-action="toggle-drawer" data-side="left"
                             data-preference="drawer-open-nav" id="yui_3_17_2_1_1523819606195_41"><i
                                 class="icon fa fa-bars fa-fw " aria-hidden="true" aria-label=""
-                                id="yui_3_17_2_1_1523819606195_40"></i><span class="sr-only">Side panel</span></button>
+                                id="yui_3_17_2_1_1523819606195_40"></i>
+                        <span class="sr-only">Side panel</span></button>
                 </div>
 
                 <a href="https://school.demo.moodle.net" class="navbar-brand
@@ -139,6 +140,8 @@
                          aria-label="Show notification window with no new notifications" tabindex="0">
                         <i class="icon fa fa-bell fa-fw " aria-hidden="true" title="Toggle notifications menu"
                            aria-label="Toggle notifications menu"></i>
+                        <div class="count-container" data-region="count-container">2</div>
+
                         <div class="count-container hidden" data-region="count-container"></div>
 
                     </div>
@@ -233,20 +236,20 @@
                         Dashboard
                     </div>
                 </a>
-                
-                <div class="list-group-item" data-key="mycourses" data-isexpandable="1" data-indent="0"
-                     data-showdivider="0"
-                     data-type="0" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="0"
-                     data-hidden="0"
-                     data-preceedwithhr="0" data-parent-key="myhome">
+
+                <a href="{{route('list_course_teacher', ['user_id'=>Auth::user()->id])}}" class="list-group-item"
+                   data-key="mycourses" data-isexpandable="1" data-indent="0"
+                   data-showdivider="0"
+                   data-type="0" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="0"
+                   data-hidden="0"
+                   data-preceedwithhr="0" data-parent-key="myhome">
                     <div class="m-l-0">
                         My courses
                     </div>
-                </div>
-
+                </a>
 
                 <a class=""
-                   href="https://school.demo.moodle.net/course/view.php?id=64" data-key="64" data-isexpandable="1"
+                   href="" data-key="64" data-isexpandable="1"
                    data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0"
                    data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0"
                    data-parent-key="mycourses">
@@ -255,7 +258,7 @@
                     </div>
                 </a>
                 <a class="list-group-item list-group-item-action "
-                   href="https://school.demo.moodle.net/course/view.php?id=27" data-key="27" data-isexpandable="1"
+                   href="" data-key="27" data-isexpandable="1"
                    data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0"
                    data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0"
                    data-parent-key="mycourses">

@@ -3,7 +3,6 @@
 @section('title', '|Courses')
 
 @section('content')
-
 <div id="page" class="container-fluid">
     <header id="page-header" class="row">
         <div class="col-xs-12 p-a-1">
@@ -94,17 +93,17 @@
                                 </div>
                             </div>
                         </div>
+                        @if(Auth::user()->role_id == 2)
                         <div class="buttons">
                             <div class="singlebutton">
-                                <form method="get" action="https://school.demo.moodle.net/course/edit.php">
-                                    <input type="hidden" name="category" value="1">
-                                    <input type="hidden" name="returnto" value="topcat">
+                                <form method="get" action="">
                                     <button type="submit" class="btn btn-secondary" id="single_button5ae2034e8883c2"
                                             title="">Add a new course
                                     </button>
                                 </form>
                             </div>
                         </div>
+                        @endif
                     </div>
 
 
