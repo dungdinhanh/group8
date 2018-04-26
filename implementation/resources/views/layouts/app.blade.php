@@ -311,7 +311,14 @@
             <a>Designed & developed by @NickyDo</a>
             <div id="resetcountdown"
                  style="padding: 3px 1em; position: fixed; bottom: 0px; right: 0px; overflow: hidden; background-color: red; font-weight: bold;">
-                Login confirmed! Your account is activated
+                Login as a
+                @if(Auth::user()->role_id == 2)
+                    Teacher!
+                @endif
+                @if(Auth::user()->role_id == 1)
+                    Student!
+                @endif
+                Your account is activated
             </div>
         </div>
     </footer>
