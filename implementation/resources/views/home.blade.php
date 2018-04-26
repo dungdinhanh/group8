@@ -40,7 +40,11 @@
 
     <div id="page-content" class="row">
         <div id="region-main-box" class="col-xs-12">
+            @if(Auth::user()->role_id == 2)
             <section id="region-main" class="has-blocks">
+                @else
+            <section id="region-main">
+                @endif
                 <div class="card card-block">
                     <span class="notifications" id="user-notifications"></span>
                     <div role="main"><span id="maincontent"></span>

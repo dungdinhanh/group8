@@ -236,7 +236,7 @@
                         Dashboard
                     </div>
                 </a>
-
+                @if(Auth::user()->role_id == 2)
                 <a href="{{route('list_course_teacher', ['user_id'=>Auth::user()->id])}}" class="list-group-item"
                    data-key="mycourses" data-isexpandable="1" data-indent="0"
                    data-showdivider="0"
@@ -247,7 +247,7 @@
                         My courses
                     </div>
                 </a>
-
+                @endif
                 <a class=""
                    href="" data-key="64" data-isexpandable="1"
                    data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0"
