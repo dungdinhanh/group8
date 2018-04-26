@@ -70,7 +70,7 @@
                                                                  src="https://school.demo.moodle.net/theme/image.php/boost/core/1524376896/spacer">
                                     </div>
                                     <div class="content"><h3 class="sectionname"><span><a
-                                                        href="https://school.demo.moodle.net/course/view.php?id=66#section-0">About this course</a></span>
+                                                        href="#section-0">About this course</a></span>
                                         </h3>
                                         <div class="section_availability"></div>
                                         <div class="summary">
