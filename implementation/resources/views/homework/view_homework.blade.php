@@ -3,118 +3,126 @@
 @section('title',  '| Homework')
 
 @section('content')
-    <div class="container" style="margin-top: 66px">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">
+<link href="<?php echo e(asset('css/profile.css')); ?>" rel="stylesheet">
+
+<div class="container" style="margin-top: 66px">
+    <div class="row">
+        <div style="margin-top: 20px"
+             class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+            <div class="panel panel-info">
+                <div class="panel-heading" style="text-align: center">
+                    <h3 class="panel-title">
                         {{__('Homework No.'.$homework->homework_no.' - '.$homework->title)}}
-                    </div>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 " align="center">
+                            <img style="width: 100px; border-radius: 50%"
+                                 alt="User Pic"
+                                 src="{{ asset('images/hw.jpg') }}"
+                                 class="img-circle img-responsive">
+                        </div>
+                        <div class="col-md-9 col-lg-9">
+                            <table class="table table-user-information">
+                                <tbody>
+                                <div class="table">
+                                    <tr>
+                                        <td>
+                                            {{__('Title')}}                                        </td>
+                                        <td>
+                                            <label id="user_name">{{__($homework->title)}}</label>
+                                        </td>
+                                    </tr>
 
-                    <div class="card-body">
-                        <div class="table">
-                            <div class="row">
-                                <label class="col-form-label col-md-4">
-                                    {{__('Title')}}
-                                </label>
-                                <label class="col-form-label col-md-8">
-                                    {{__($homework->title)}}
-                                </label>
-                            </div>
+                                    <tr>
+                                        <td>
+                                            {{__('Content')}}
+                                        </td>
 
-                            <div class="row">
-                                <label class="col-form-label col-md-4">
-                                    {{__('Content')}}
-                                </label>
-
-                                <p class="col-md-6">
-                                    {{__($homework->content)}}
-                                </p>
-                            </div>
-
-
-                            <div class="row">
-                                <label class="col-form-label col-md-4">
-                                    {{__('Start date')}}
-                                </label>
-                                <label class="col-md-6">
-                                    {{__($homework->start)}}
-                                </label>
-                            </div>
-
-
-                            <div class="row">
-                                <label class="col-form-label col-md-4">
-                                    {{__('Deadline')}}
-                                </label>
-                                <label class="col-md-6">
-                                    {{__($homework->dead_line)}}
-                                </label>
-                            </div>
+                                        <td>
+                                            <label id="email">{{__($homework->content)}}</label>
+                                        </td>
+                                    </tr>
 
 
-                            <div class="row">
-                                <label class="col-form-label col-md-4">
-                                    {{__('Lesson')}}
-                                </label>
+                                    <tr>
+                                        <td>
+                                            {{__('Start date')}}
+                                        </td>
 
-                                <label class="col-md-6">
-                                    {{__($lesson)}}
-                                </label>
-                            </div>
+                                        <td>
+                                            {{__($homework->start)}}
+                                        </td>
+                                    </tr>
 
-                            <div class="row">
-                                <label class="col-form-label col-md-4">
-                                    {{__('Course')}}
-                                </label>
 
-                                <label class="col-md-6">
-                                    {{__($course)}}
-                                </label>
-                            </div>
+                                    <tr>
+                                        <td>
+                                            {{__('Deadline')}}
+                                        </td>
 
-                            <div class="row">
-                                <label class="col-form-label col-md-4">
-                                    @if($overtime)
-                                        Over Time
-                                    @else
-                                        Time Left
-                                    @endif
-                                </label>
-                                <label class="col-md-6">
-                                    {{__($time_left." hours")}}
-                                </label>
-                            </div>
+                                        <td>
+                                            {{__($homework->dead_line)}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            {{__('Lesson')}}
+                                        </td>
 
-                            <div class="row">
-                                <label class="col-form-label col-md-4">
-                                    {{__('Updated At')}}
-                                </label>
-                                <label class="col-md-6">
-                                    {{__((string)($homework->updated_at))}}
-                                </label>
-                            </div>
+                                        <td>
+                                            {{__($lesson)}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            {{__('Course')}}
+                                        </td>
 
-                            <div class="row mb-0 form-group">
-                                <div class="col-md-6 offset-md-4">
-                                    @if(Auth::user()->role_id == 2)
-                                        <button href="{{route('submission_form', ['homework_id' => $homework->id])}}" type="submit" class="btn btn-primary">
-                                            {{__('Edit')}}
-                                        </button>
-                                    @elseif(Auth::user()->role_id == 1)
-                                        <button href="#" type="submit" class="btn-primary btn">
-                                            {{__('Do submisstion')}}
-                                        </button>
+                                        <td>
+                                            {{__($course)}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @if($overtime)
+                                            Over Time
+                                            @else
+                                            Time Left
+                                            @endif
+                                        </td>
 
-                                    @endif
+                                        <td>
+                                            {{__($time_left." hours")}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            {{__('Updated At')}}
+                                        </td>
+
+                                        <td>
+                                            {{__((string)($homework->updated_at))}}
+                                        </td>
+                                    </tr>
                                 </div>
 
-                            </div>
+                                </tbody>
+                            </table>
+                            @if(Auth::user()->role_id == 2)
+                            <a href="{{route('submission_form', ['homework_id' => $homework->id])}}" type="submit" class="btn btn-primary">{{__('Edit')}} homework</a>
+                            @elseif(Auth::user()->role_id == 1)
+                            <a href="#" type="submit" class="btn btn-primary"> {{__('Do submisstion')}}</a>
+                            @endif
+                            <a style="margin-top: 2px;" href="/home" class="btn btn-primary">Back To Home Page</a>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
+</div
 
 @endsection
