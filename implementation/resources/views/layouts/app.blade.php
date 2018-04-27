@@ -248,24 +248,6 @@
                     </div>
                 </a>
                 @endif
-                <a class=""
-                   href="" data-key="64" data-isexpandable="1"
-                   data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0"
-                   data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0"
-                   data-parent-key="mycourses">
-                    <div class="m-l-1">
-                                
-                    </div>
-                </a>
-                <a class="list-group-item list-group-item-action "
-                   href="" data-key="27" data-isexpandable="1"
-                   data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0"
-                   data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0"
-                   data-parent-key="mycourses">
-                    <div class="m-l-1">
-                        Parents and Citizens Council
-                    </div>
-                </a>
                 <a class="list-group-item list-group-item-action "
                    href="https://school.demo.moodle.net/course/view.php?id=41" data-key="41" data-isexpandable="1"
                    data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0"
