@@ -7,10 +7,10 @@
 @section('content')
 <div class="container" style="margin-top: 66px">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="">
             <div class="card">
                 <div class="card-header">
-                    {{__('Create homework for '.$lesson->lesson_title.' of '.$course->course_name)}}
+                    <h2>{{__('Create homework for '.$lesson->lesson_title.' of '.$course->course_name)}}</h2>
                 </div>
                 <div class="card-body">
                     <form method="post" action="{{route('create_homework')}}">
