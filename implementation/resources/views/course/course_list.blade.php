@@ -96,7 +96,7 @@
                         @if(Auth::user()->role_id == 2)
                         <div class="buttons">
                             <div class="singlebutton">
-                                <form method="get" action="">
+                                <form method="get" action="/teacher/course/create">
                                     <button type="submit" class="btn btn-secondary" id="single_button5ae2034e8883c2"
                                             title="">Add a new course
                                     </button>
