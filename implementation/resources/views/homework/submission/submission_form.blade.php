@@ -113,11 +113,9 @@ col-md-12">Type your answer here</textarea>
 
                                             </label>
                                             <span data-fieldtype="submit">
-                                            <input type="submit" class="btn
-
-                                        btn-secondary
-                                        " name="cancel" id="id_cancel" value="Cancel"
-                                                   onclick="skipClientValidation = true; return true;">
+                                            <a href="/user/view_homework/{{__($homework->id)}}"  class="btn btn-secondary
+                                        " name="cancel" id="id_cancel" value="Cancel">cancel
+                                            </a>
                                             </span>
 
                                         </div>
