@@ -24,14 +24,17 @@ $(document).ready(function() {
         "Scala",
         "Scheme"
     ];
+    $( "#tags" ).autocomplete({
+        source: availableTags
+    });
     $( "#student_email" ).autocomplete({
         source: availableTags
     });
     $("#close_student").click(function () {
+        console.log($("#tags"))
         //$('#studentModal').hide();
-        $( "#student_email" ).autocomplete({
-            source: availableTags
-        });
+        // $( "#student_email" ).autocomplete({
+        //     source: availableTags
+        // });
     });
-
 });
