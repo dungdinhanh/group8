@@ -110,10 +110,10 @@
 
                                 </tbody>
                             </table>
-                            @if(Auth::user()->role_id == 2)
-                            <a href="{{route('submission_form', ['homework_id' => $homework->id])}}" type="submit" class="btn btn-primary">{{__('Edit')}} homework</a>
-                            @elseif(Auth::user()->role_id == 1)
-                            <a href="#" type="submit" class="btn btn-primary"> {{__('Do submisstion')}}</a>
+                            @if(Auth::user()->role_id == 1)
+                            <a href="{{route('submission_form', ['homework_id' => $homework->id])}}" type="submit" class="btn btn-primary">{{__('Do submisstion')}}</a>
+                            @elseif(Auth::user()->role_id == 2)
+                            <a href="#" type="submit" class="btn btn-primary">{{__('Edit')}} homework </a>
                             @endif
                             <a style="margin-top: 2px;" href="/home" class="btn btn-primary">Back To Home Page</a>
                         </div>
