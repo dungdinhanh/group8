@@ -27,6 +27,8 @@
                                     <li class="breadcrumb-item"><a
                                                 href="#"
                                                 title="Assignment">Assignment {{__($homework->homework_no)}}</a></li>
+                                    <li class="breadcrumb-item"><a
+                                                title="Assignment">{{$submission->id}}</a></li>
                                 </ol>
                             </nav>
                         </div>
