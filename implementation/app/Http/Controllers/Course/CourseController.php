@@ -67,6 +67,4 @@ class CourseController extends Controller
     {
 
     }
-
-
 }

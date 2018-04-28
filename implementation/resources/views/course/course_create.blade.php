@@ -3,12 +3,46 @@
 @section('title', '|Courses')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+<div id="page" class="container-fluid">
+        <header id="page-header" class="row">
+            <div class="col-xs-12 p-a-1" id="yui_3_17_2_1_1524824525822_765">
+                <div class="card" id="yui_3_17_2_1_1524824525822_764">
+                    <div class="card-block" id="yui_3_17_2_1_1524824525822_763">
+                        <div class="pull-xs-right context-header-settings-menu"></div>
+                        <div class="pull-xs-left">
+                            <div class="page-context-header">
+                                <div class="page-header-image"><a
+                                            href="#"><img
+                                                src="{{ asset('images/user.jpg') }}"
+                                                alt="Anna Alexander" title="Anna Alexander" class="userpicture" width="100"
+                                                height="100"></a></div>
+                                <div class="page-header-headings"><h1>{{Auth::user()->user_name}}</h1></div>
+                            </div>
+                        </div>
+                        <div class="clearfix w-100 pull-xs-left" id="page-navbar">
+                            <div class="breadcrumb-nav">
+                                <nav role="navigation">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="/home">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="#">{{__('Create Course')}}</a></li>
+                                    </ol>
+                                </nav>
+                            </div>
+                            <div class="breadcrumb-button pull-xs-right"></div>
+                        </div>
+                        <div id="course-header"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="page-content" class="row">
+            <div id="region-main-box" class="col-xs-12">
                 <div class="card">
                     <div class="card-header">
-                        {{__('Edit Profile')}}
+                        <h2 id="yui_3_17_2_1_1524824525822_418">
+                            {{__('Create Course')}}
+                        </h2>
                     </div>
 
                     <div class="card-body">

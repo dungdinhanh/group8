@@ -26,7 +26,7 @@
 <link href="<?php echo e(asset('css/login-pr2.css')); ?>" rel="stylesheet">
 
 <div class="limiter">
-    <div class="container-login100" style="background-image: url('images/bg6.png')">
+    <div class="container-login100" style="background-image: url('images/bg-01.jpg')">
         <div class="wrap-login100">
             <form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
                 @csrf
