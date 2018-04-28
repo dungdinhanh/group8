@@ -194,7 +194,7 @@
                                                                                                 </div>
                                                                                                 <div class="d-inline-block event-name-container">
                                                                                                     <a class="event-name text-truncate"
-                                                                                                       href="https://school.demo.moodle.net/mod/lesson/view.php?id=799">FOBO?
+                                                                                                       href="">FOBO?
                                                                                                         Let us
                                                                                                         help you
                                                                                                         cure it!
@@ -211,7 +211,7 @@
                                                                                                         12:10
                                                                                                     </div>
                                                                                                     <div class="hidden-md-down col-lg-7 text-truncate">
-                                                                                                        <a href="https://school.demo.moodle.net/mod/lesson/view.php?id=799">Start
+                                                                                                        <a href="">Start
                                                                                                             lesson</a>
                                                                                                     </div>
                                                                                                 </div>
@@ -235,7 +235,7 @@
                                                                                                 </div>
                                                                                                 <div class="d-inline-block event-name-container">
                                                                                                     <a class="event-name text-truncate"
-                                                                                                       href="https://school.demo.moodle.net/mod/lesson/view.php?id=763">Can
+                                                                                                       href="">Can
                                                                                                         you make
                                                                                                         a
                                                                                                         revolution?
@@ -254,7 +254,7 @@
                                                                                                         09:20
                                                                                                     </div>
                                                                                                     <div class="hidden-md-down col-lg-7 text-truncate">
-                                                                                                        <a href="https://school.demo.moodle.net/mod/lesson/view.php?id=763">Start
+                                                                                                        <a href="">Start
                                                                                                             lesson</a>
                                                                                                     </div>
                                                                                                 </div>
@@ -278,7 +278,7 @@
                                                                                                 </div>
                                                                                                 <div class="d-inline-block event-name-container">
                                                                                                     <a class="event-name text-truncate"
-                                                                                                       href="https://school.demo.moodle.net/mod/assign/view.php?id=788">Assignment
+                                                                                                       href="">Assignment
                                                                                                         2
                                                                                                         (Upload)
                                                                                                         is due
@@ -296,7 +296,7 @@
                                                                                                         01:00
                                                                                                     </div>
                                                                                                     <div class="hidden-md-down col-lg-7 text-truncate">
-                                                                                                        <a href="https://school.demo.moodle.net/mod/assign/view.php?id=788&amp;action=grader">Grade</a>
+                                                                                                        <a href="">Grade</a>
                                                                                                         <span class="tag tag-pill tag-default">1</span>
                                                                                                     </div>
                                                                                                 </div>
@@ -320,7 +320,7 @@
                                                                                                 </div>
                                                                                                 <div class="d-inline-block event-name-container">
                                                                                                     <a class="event-name text-truncate"
-                                                                                                       href="https://school.demo.moodle.net/mod/workshop/view.php?id=803">Workshop:
+                                                                                                       href="">Workshop:
                                                                                                         Transmediation
                                                                                                         deadline
                                                                                                         for
@@ -337,7 +337,7 @@
                                                                                                         10:00
                                                                                                     </div>
                                                                                                     <div class="hidden-md-down col-lg-7 text-truncate">
-                                                                                                        <a href="https://school.demo.moodle.net/mod/workshop/view.php?id=803">View
+                                                                                                        <a href="">View
                                                                                                             workshop
                                                                                                             summary</a>
                                                                                                     </div>
@@ -362,7 +362,7 @@
                                                                                                 </div>
                                                                                                 <div class="d-inline-block event-name-container">
                                                                                                     <a class="event-name text-truncate"
-                                                                                                       href="https://school.demo.moodle.net/mod/data/view.php?id=649">Database:
+                                                                                                       href="">Database:
                                                                                                         Food for
                                                                                                         Moodlers
                                                                                                         closes</a>
@@ -378,7 +378,7 @@
                                                                                                         11:05
                                                                                                     </div>
                                                                                                     <div class="hidden-md-down col-lg-7 text-truncate">
-                                                                                                        <a href="https://school.demo.moodle.net/mod/data/view.php?id=649">Add
+                                                                                                        <a href="">Add
                                                                                                             entry</a>
                                                                                                     </div>
                                                                                                 </div>
@@ -402,7 +402,7 @@
                                                                                                 </div>
                                                                                                 <div class="d-inline-block event-name-container">
                                                                                                     <a class="event-name text-truncate"
-                                                                                                       href="https://school.demo.moodle.net/mod/assign/view.php?id=775">(Mobile
+                                                                                                       href="">(Mobile
                                                                                                         assignment)
                                                                                                         View
                                                                                                         from
@@ -423,7 +423,7 @@
                                                                                                         00:00
                                                                                                     </div>
                                                                                                     <div class="hidden-md-down col-lg-7 text-truncate">
-                                                                                                        <a href="https://school.demo.moodle.net/mod/assign/view.php?id=775&amp;action=grader">Grade</a>
+                                                                                                        <a href="">Grade</a>
                                                                                                         <span class="tag tag-pill tag-default">3</span>
                                                                                                     </div>
                                                                                                 </div>
@@ -607,7 +607,7 @@
                                                                                                 </div>
                                                                                             </div>
                                                                                             <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=66"
+                                                                                                        href=""
                                                                                                         class="">{{__($course->course_name)}} </a>
                                                                                             </h4>
                                                                                         </div>
@@ -638,7 +638,7 @@
                                                                                                 </div>
                                                                                                 <div class="media-body">
                                                                                                     <h4 class="h5">
-                                                                                                        <a href="https://school.demo.moodle.net/course/view.php?id=66"
+                                                                                                        <a href=""
                                                                                                            class="">{{__($course->course_name)}} </a>
                                                                                                     </h4>
                                                                                                 </div>
@@ -688,7 +688,7 @@
                                                                                                 </div>
                                                                                             </div>
                                                                                             <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=66"
+                                                                                                        href=""
                                                                                                         class="">{{__($course->course_name)}} </a>
                                                                                             </h4>
                                                                                         </div>
@@ -719,7 +719,7 @@
                                                                                                 </div>
                                                                                                 <div class="media-body">
                                                                                                     <h4 class="h5">
-                                                                                                        <a href="https://school.demo.moodle.net/course/view.php?id=66"
+                                                                                                        <a href=""
                                                                                                            class="">{{__($course->course_name)}} </a>
                                                                                                     </h4>
                                                                                                 </div>
@@ -769,7 +769,7 @@
                                                                                                 </div>
                                                                                             </div>
                                                                                             <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=66"
+                                                                                                        href=""
                                                                                                         class="">{{__($course->course_name)}} </a>
                                                                                             </h4>
                                                                                         </div>
@@ -800,7 +800,7 @@
                                                                                                 </div>
                                                                                                 <div class="media-body">
                                                                                                     <h4 class="h5">
-                                                                                                        <a href="https://school.demo.moodle.net/course/view.php?id=66"
+                                                                                                        <a href=""
                                                                                                            class="">{{__($course->course_name)}} </a>
                                                                                                     </h4>
                                                                                                 </div>
@@ -929,7 +929,7 @@
                                 <ul class="list">
                                     <li class="listentry">
                                         <div class="user"><a
-                                                    href="https://school.demo.moodle.net/user/view.php?id=13&amp;course=1"
+                                                    href=""
                                                     title="now"><img
                                                         src="https://school.demo.moodle.net/pluginfile.php/160/user/icon/boost/f2?rev=1"
                                                         alt="" title="" class="userpicture" width="16"
@@ -965,7 +965,7 @@
                                             <div class="name">Anna Alexander</div>
                                         </div>
                                         <div class="info"><a
-                                                    href="https://school.demo.moodle.net/mod/forum/discuss.php?d=176">Try
+                                                    href="#">Try
                                                 the new features of Moodle 3.4 on Mount Orange!</a></div>
                                     </li>
                                     <li class="post">
@@ -974,7 +974,7 @@
                                             <div class="name">Anna Alexander</div>
                                         </div>
                                         <div class="info"><a
-                                                    href="https://school.demo.moodle.net/mod/forum/discuss.php?d=174">Mount
+                                                    href="#">Mount
                                                 Orange is using Moodle 3.3!</a></div>
                                     </li>
                                     <li class="post">
@@ -983,13 +983,13 @@
                                             <div class="name">Anna Alexander</div>
                                         </div>
                                         <div class="info"><a
-                                                    href="https://school.demo.moodle.net/mod/forum/discuss.php?d=170">Mount
+                                                    href="#">Mount
                                                 Orange is running Moodle 3.2!</a></div>
                                     </li>
                                 </ul>
 
                                 <div class="footer"><a
-                                            href="https://school.demo.moodle.net/mod/forum/view.php?f=17">Older
+                                            href="#">Older
                                         topics</a> ...
                                 </div>
 

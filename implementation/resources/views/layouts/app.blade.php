@@ -13,8 +13,6 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/dashboard.js') }}" defer></script>
-    <link rel="stylesheet" type="text/css"
-          href="https://school.demo.moodle.net/theme/styles.php/boost/1523815278_1523818866/all">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -53,7 +51,7 @@
                         <span class="sr-only">Side panel</span></button>
                 </div>
 
-                <a href="https://school.demo.moodle.net" class="navbar-brand
+                <a href="#" class="navbar-brand
                             hidden-sm-down ">
                     <span class="site-name hidden-sm-down">Mount Orange School</span>
                 </a>
@@ -159,7 +157,7 @@
                                     <span class="loading-icon"><img class="icon " alt="Loading" title="Loading"
                                                                     src="https://school.demo.moodle.net/theme/image.php/boost/core/1523815278/y/loading"></span>
                                 </a>
-                                <a href="https://school.demo.moodle.net/message/notificationpreferences.php?userid=13"
+                                <a href=""
                                    title="Notification preferences">
                                     <i class="icon fa fa-cog fa-fw " aria-hidden="true" title="Notification preferences"
                                        aria-label="Notification preferences"></i>
@@ -180,7 +178,7 @@
                                                             src="https://school.demo.moodle.net/theme/image.php/boost/core/1523815278/y/loading"></span>
                         </div>
                         <a class="see-all-link"
-                           href="https://school.demo.moodle.net/message/output/popup/notifications.php">
+                           href="">
                             <div class="popover-region-footer-container">
                                 <div class="popover-region-seeall-text">See all</div>
                             </div>
@@ -200,16 +198,6 @@
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
                             English ‎(en)‎
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="drop-down-5ad3a457dca705ad3a45768f3416">
-                            <a class="dropdown-item" href="https://school.demo.moodle.net/my/index.php?lang=ko"
-                               title="한국어 ‎(ko)‎">한국어 ‎(ko)‎</a>
-                            <a class="dropdown-item" href="https://school.demo.moodle.net/my/index.php?lang=ja"
-                               title="日本語 ‎(ja)‎">日本語 ‎(ja)‎</a>
-                            <a class="dropdown-item" href="https://school.demo.moodle.net/my/index.php?lang=zh_tw"
-                               title="正體中文 ‎(zh_tw)‎">正體中文 ‎(zh_tw)‎</a>
-                            <a class="dropdown-item" href="https://school.demo.moodle.net/my/index.php?lang=zh_cn"
-                               title="简体中文 ‎(zh_cn)‎">简体中文 ‎(zh_cn)‎</a>
-                        </div>
                     </div>
                     <!-- page_heading_menu -->
 
@@ -237,7 +225,7 @@
                     </div>
                 </a>
                 @if(Auth::user()->role_id == 2)
-                <a href="{{route('list_course_teacher', ['user_id'=>Auth::user()->id])}}" class="list-group-item"
+                <a href="{{route('list_course_teacher', ['user_id'=>Auth::user()->id])}}" class="list-group-item list-group-item-action "
                    data-key="mycourses" data-isexpandable="1" data-indent="0"
                    data-showdivider="0"
                    data-type="0" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="0"
@@ -248,17 +236,9 @@
                     </div>
                 </a>
                 @endif
+
                 <a class="list-group-item list-group-item-action "
-                   href="https://school.demo.moodle.net/course/view.php?id=41" data-key="41" data-isexpandable="1"
-                   data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0"
-                   data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0"
-                   data-parent-key="mycourses">
-                    <div class="m-l-1">
-                        Staffroom
-                    </div>
-                </a>
-                <a class="list-group-item list-group-item-action "
-                   href="https://school.demo.moodle.net/course/index.php#"
+                   href=""
                    data-key="courseindexpage" data-isexpandable="0" data-indent="1" data-showdivider="0" data-type="60"
                    data-nodetype="0" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0"
                    data-preceedwithhr="0" data-parent-key="mycourses">
@@ -279,7 +259,7 @@
                     to Moodle system</a>
             </p>
 
-            <div class="logininfo">You are logged in as <a href="https://school.demo.moodle.net/user/profile.php?id=20"
+            <div class="logininfo">You are logged in as <a href=""
                                                            title="View profile">{{ Auth::user()->full_name }}</a> (<a
                         href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Log out</a>)
