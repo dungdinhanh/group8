@@ -495,8 +495,8 @@
                                                                         <div data-region="paging-content-item"
                                                                              data-page="1" id="page1" class="row">
                                                                             @csrf
-                                                                            @foreach($courses as $course)
-                                                                            @if($course->id < 10)
+                                                                            @foreach($courses as $key=>$course)
+                                                                            @if($key < 10)
 
                                                                             <a class="nav-link"
                                                                                href="">
