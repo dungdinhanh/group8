@@ -7,7 +7,22 @@ $(document).ready(function() {
                 data: {
                     'courseId': course_id,
                 },
-                cache: false
+                cache: false,
+                onResponse: function(data) {
+                    var response = { // response as the items on the front-end
+                        results: []
+                    };
+                    console.log(data);
+                    $.each(data.results, function (index, item) {
+                        response.results.push({
+                            full_name: '<img src="https://runestone.it.uu.se/attachments/download/1278/22519192_10155209527636799_4798772387481420173_n.jpg" width="30px">'+
+                                        '<br><br>'+'<h5>'+item.full_name+'</h5>' + item.email,
+                            id: item.id,
+                        });
+                    });
+                    console.log(response)
+                    return response
+                }
             },
             fields: {
                 remoteValues : 'results', // grouping for api results

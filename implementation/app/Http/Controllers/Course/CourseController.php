@@ -90,11 +90,9 @@ class CourseController extends Controller
     public function listStudent(Request $request, $course_id)
     {
         $course = Course::where('id', $course_id)->first();
-        $searchStudent = User::where('role_id', 1)->get()->pluck('email');
-        $students = $course->students;
 
+        $students = $course->getStudents();
         return view('course.student_list', ['students' => $students,
-                                                'searchStudent' => $searchStudent,
                                                 'courseId' => $course_id
                                                 ]);
     }

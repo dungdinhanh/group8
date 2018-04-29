@@ -15,7 +15,7 @@
                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#studentModal">Enroll a new student</button>
                         <!-- Modal -->
                         <div class="modal fade" id="studentModal" role="dialog">
-                            <div class="modal-dialog modal-sm">
+                            <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -46,10 +46,9 @@
                             <tbody>
                             @foreach($students as $student)
                                 <tr>
-                                    <td>$student->name</td>
-                                    <td>$student->email</td>
-                                    <td>$student->student->class</td>
-
+                                    <td>{{$student->full_name}}</td>
+                                    <td>{{$student->email}}</td>
+                                    <td>{{$student->class}}</td>
                                 </tr>
                             @endforeach
                             </tbody>

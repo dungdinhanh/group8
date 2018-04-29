@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 /**
  * App\Course
@@ -21,6 +22,7 @@ class Course extends Model
         return $this->belongsToMany('App\Student', 'enrollments');// this assume to have default
     }
 
+
     public function enrollments()
     {
         return $this->hasMany('App\Enrollment');
@@ -36,5 +38,17 @@ class Course extends Model
 
     public function lessons(){ //21
         return $this->hasMany('App\Lesson'); //assume to have default
+    }
+
+
+    public function getStudents()
+    {
+        $students = $this->students()->get()->pluck('id');
+
+        $user = User::join('students', 'users.id', '=', 'students.user_id')
+            ->whereIn('students.id', $students)
+            ->get();
+
+        return $user;
     }
 }
