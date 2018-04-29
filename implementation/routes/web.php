@@ -51,6 +51,12 @@ Route::prefix('teacher')->group(function () {
     Route::get('/course/list_student/{course_id}', 'Course\CourseController@listStudent')->name(
         'list_student'
     );
+    Route::get('/course/enroll_student', 'Course\CourseController@enrollStudent')->name(
+        'enroll_student'
+    );
+    Route::get('/course/search_student', 'Course\CourseController@searchStudent')->name(
+        'search_student'
+    );
 });
 
 

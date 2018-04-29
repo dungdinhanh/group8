@@ -1,40 +1,37 @@
 $(document).ready(function() {
-    var search_student_field = $('#search_student_field').val();
-    var availableTags = [
-        "ActionScript",
-        "AppleScript",
-        "Asp",
-        "BASIC",
-        "C",
-        "C++",
-        "Clojure",
-        "COBOL",
-        "ColdFusion",
-        "Erlang",
-        "Fortran",
-        "Groovy",
-        "Haskell",
-        "Java",
-        "JavaScript",
-        "Lisp",
-        "Perl",
-        "PHP",
-        "Python",
-        "Ruby",
-        "Scala",
-        "Scheme"
-    ];
-    $( "#tags" ).autocomplete({
-        source: availableTags
+    var course_id = $('#course_id').val();
+    $('#search_student_group')
+        .dropdown({
+            apiSettings: {
+                url: '/teacher/course/search_student?q={query}',
+                data: {
+                    'courseId': course_id,
+                },
+                cache: false
+            },
+            fields: {
+                remoteValues : 'results', // grouping for api results
+                name         : 'full_name',   // displayed dropdown text
+                value        : 'id',   // actual dropdown value
+                description  : 'email'
+            },
+            filterRemoteData: true,
+            placeholder: "enter email or fullname of student"
+        })
+    $("#clear_student").click(function () {
+        $('#search_student_group').dropdown('clear');
     });
-    $( "#student_email" ).autocomplete({
-        source: availableTags
-    });
-    $("#close_student").click(function () {
-        console.log($("#tags"))
-        //$('#studentModal').hide();
-        // $( "#student_email" ).autocomplete({
-        //     source: availableTags
-        // });
+    $("#enroll_student").click(function () {
+        $.ajax({
+            type: 'GET',
+            url: '/teacher/course/enroll_student',
+            data: {
+                courseId: course_id,
+                userIds: $('#search_student_group').dropdown('get value')
+            },
+            success: function (data) {
+                location.reload();
+            }
+        });
     });
 });

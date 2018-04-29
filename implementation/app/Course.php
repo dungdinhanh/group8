@@ -21,6 +21,11 @@ class Course extends Model
         return $this->belongsToMany('App\Student', 'enrollments');// this assume to have default
     }
 
+    public function enrollments()
+    {
+        return $this->hasMany('App\Enrollment');
+    }
+
     public function submissions(){//19
         return $this->hasMany('App\Submission', 'course_id');
     }

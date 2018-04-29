@@ -6,6 +6,8 @@ use App\Course;
 use App\Lesson;
 use App\Teacher;
 use App\User;
+use App\Student;
+use App\Enrollment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
@@ -64,6 +66,27 @@ class CourseController extends Controller
         return view('course.course_search', ['courses' => $courses]);
     }
 
+    public function searchStudent(Request $request)
+    {
+
+        $q = $request->q;
+        $courseId = $request->courseId;
+
+        $data['results'] = User::
+                                where(function ($query) use ($q) {
+                                    $query->where('full_name', 'LIKE', "%$q%")
+                                        ->orWhere('email', 'LIKE', "%$q%");
+                                })
+                                ->with('student')
+                                ->whereHas('student', function ($query)  use ($courseId) {
+                                    $query->whereDoesntHave('enrollments', function ($query) use ($courseId) {
+                                        $query->where('course_id', $courseId);
+                                    });
+                                })
+                                ->get();
+        return $data;
+    }
+
     public function listStudent(Request $request, $course_id)
     {
         $course = Course::where('id', $course_id)->first();
@@ -71,13 +94,29 @@ class CourseController extends Controller
         $students = $course->students;
 
         return view('course.student_list', ['students' => $students,
-                                                'searchStudent' => $searchStudent
+                                                'searchStudent' => $searchStudent,
+                                                'courseId' => $course_id
                                                 ]);
     }
 
-    public function addStudent(Request $request)
+    public function enrollStudent(Request $request)
     {
+        $courseId = $request->courseId;
+        $userIds = $request->userIds;
 
+        $students = Student::whereIn('user_id', $userIds)
+                            ->whereDoesntHave('enrollments', function ($query) use ($courseId) {
+                                $query->where('course_id', $courseId);
+                            })
+                            ->get();
+
+        foreach ($students as $student) {
+            $enrollment = Enrollment::create([
+               'course_id' => $courseId,
+               'student_id' => $student->id,
+            ]);
+        }
+        return $students;
     }
 
 
