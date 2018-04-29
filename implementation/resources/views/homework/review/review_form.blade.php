@@ -6,7 +6,7 @@
 <div id="page" class="container-fluid" style="margin-top: 66px">
     <div id="page-content">
         <div role="main"><span id="user-notifications"></span><span id="maincontent"></span>
-            <div data-region="grading-navigation-panel" data-first-userid="48" data-courseid="66"
+            <div style="text-align: center" data-region="grading-navigation-panel" data-first-userid="48" data-courseid="66"
                  data-showuseridentity="email">
                 <div class="">
                     <div data-region="grading-navigation" class="row">
