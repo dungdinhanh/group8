@@ -40,11 +40,6 @@
                             <div class="box boxaligncenter plugincontentsummary summary_assignsubmission_onlinetext_90 p-y-1">
                                 <i class="icon fa fa-plus fa-fw expandsummaryicon expand_assignsubmission_onlinetext_90"
                                    aria-hidden="true" title="View full" aria-label="View full"></i>
-                                <noscript><a
-                                            href="https://school.demo.moodle.net/mod/assign/view.php?id=787&sid=90&plugin=onlinetext&action=viewpluginassignsubmission&returnaction=grade&returnparams=userid%3D48%26amp%3Brownum%3D0%26amp%3Buseridlistid%3D0"
-                                            id="action_link5ae55caee789620" class=""><i
-                                                class="icon fa fa-search-plus fa-fw " aria-hidden="true"
-                                                title="View submission" aria-label="View submission"></i></a></noscript>
                                 <img class="icon spacer" width="15" height="1" alt=""
                                      src="https://school.demo.moodle.net/theme/image.php/boost/core/1524974461/spacer">
                                 <div class="no-overflow"><p>{{__('Submission Title')}}: {{$submission->title}}</p>
@@ -66,29 +61,12 @@
                                         </div>
                                     </div>
                                     <div class="mdl-left"><a class="showcommentsnonjs"
-                                                             href="https://school.demo.moodle.net/mod/assign/view.php?id=787&amp;userid=48&amp;rownum=0&amp;useridlistid=0&amp;action=grade&amp;nonjscomment=1&amp;comment_itemid=90&amp;comment_context=1324&amp;comment_component=assignsubmission_comments&amp;comment_area=submission_comments">Show
+                                                             href="">Show
                                             comments</a><a class="comment-link" id="comment-link-5ae55caeee706" href="#"
                                                            role="button" aria-expanded="false"><i
                                                     class="icon fa fa-plus-square fa-fw " aria-hidden="true"
                                                     title="Comments" aria-label="Comments"></i><span
                                                     id="comment-link-text-5ae55caeee706">Comments (0)</span></a>
-                                        <div id="comment-ctrl-5ae55caeee706" class="comment-ctrl">
-                                            <ul id="comment-list-5ae55caeee706" class="comment-list">
-                                                <li class="first"></li>
-                                            </ul>
-                                            <div id="comment-pagination-5ae55caeee706" class="comment-pagination"></div>
-                                            <div class="comment-area">
-                                                <div class="db"><textarea name="content" rows="2"
-                                                                          id="dlg-content-5ae55caeee706" cols="20"
-                                                                          style="color: grey;"></textarea></div>
-                                                <div class="fd" id="comment-action-5ae55caeee706"><a
-                                                            id="comment-action-post-5ae55caeee706" href="#">Save
-                                                        comment</a><span> | </span><a
-                                                            id="comment-action-cancel-5ae55caeee706" href="#">Cancel</a>
-                                                </div>
-                                            </div>
-                                            <div class="clearer"></div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
