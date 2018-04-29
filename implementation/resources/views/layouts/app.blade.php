@@ -29,6 +29,7 @@
 
     <!--     Styles -->
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
 </head>
 @if (Auth::guest())
