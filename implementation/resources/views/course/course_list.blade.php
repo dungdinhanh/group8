@@ -3,6 +3,7 @@
 @section('title', '|Courses')
 
 @section('content')
+
 <div id="page" class="container-fluid">
     <header id="page-header" class="row">
         <div class="col-xs-12 p-a-1">
@@ -96,7 +97,7 @@
                         @if(Auth::user()->role_id == 2)
                         <div class="buttons">
                             <div class="singlebutton">
-                                <form method="get" action="/teacher/course/create">
+                                <form method="get" action="{{ route('create_course') }}">
                                     <button type="submit" class="btn btn-secondary" id="single_button5ae2034e8883c2"
                                             title="">[+] Add a new course
                                     </button>

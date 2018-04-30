@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Course;
 
 use App\Course;
-use App\Lesson;
-use App\Teacher;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,6 +13,7 @@ class CourseController extends Controller
     //
     public function listCourses($user_id)
     {
+
         $user = User::where('id', $user_id)->first();
         $teacher = $user->teacher;
         $courses = $teacher->courses;
@@ -55,16 +54,11 @@ class CourseController extends Controller
     public function searchCourse(Request $request)
     {
         $search = $request->search;
-        $courses = Course::where('teacher_id', Auth::id())
+        $courses = Course::where('teacher_id', Auth::user()->teacher->id)
                         ->where('course_name', 'LIKE', "%$search%")->get();
 
         //return $courses;
 
         return view('course.course_search', ['courses' => $courses]);
-    }
-
-    public function listStudent(Request $request)
-    {
-
     }
 }
