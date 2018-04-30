@@ -3,7 +3,7 @@ $(document).ready(function() {
     $('#search_student_group')
         .dropdown({
             apiSettings: {
-                url: '/teacher/course/search_student?q={query}',
+                url: '/teacher/course/student/search?q={query}',
                 data: {
                     'courseId': course_id,
                 },
@@ -39,14 +39,51 @@ $(document).ready(function() {
     $("#enroll_student").click(function () {
         $.ajax({
             type: 'GET',
-            url: '/teacher/course/enroll_student',
+            url: '/teacher/course/student/enroll',
             data: {
                 courseId: course_id,
                 userIds: $('#search_student_group').dropdown('get value')
             },
             success: function (data) {
-                location.reload();
+                // location.reload();
+                t.row.add([
+                    {
+                        "id": "Tiger Nixon",
+                        "full_name": "System Architect",
+                        "email": "$3,120",
+                        "university": "2011/04/25",
+                        "class": "Edinburgh",
+                        "date_of_birth": "5421"
+                    }
+                ]).draw( false );
             }
         });
     });
+
+     var t = $('#table_id').DataTable({
+        "dom": '<"top"if>rt<"bottom"lp><"clear">',
+         // "columnDefs": [ {
+         //     "searchable": false,
+         //     "orderable": false,
+         //     "targets": 0
+         // } ],
+         // "order": [[ 1, 'asc' ]],
+        "ajax": {
+            "url": "/teacher/course/"+course_id+"/student/list",
+            "dataSrc": ""
+        },
+        "columns": [
+            // { "data": "id" },
+            { "data": "full_name" },
+            { "data": "email" },
+            { "data": "university" },
+            { "data": "class" },
+            { "data": "date_of_birth" }
+        ]
+    });
+    // t.on( 'order.dt search.dt', function () {
+    //     t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+    //         cell.innerHTML = i+1;
+    //     } );
+    // } ).draw();
 });

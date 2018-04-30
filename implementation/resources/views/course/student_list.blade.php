@@ -5,14 +5,13 @@
 @section('content')
     <div class="container" style="margin-top: 60px">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
+            <div class="card">
                     <div class="card-header">
                         {{__('student course')}}
                     </div>
                     <input type="hidden" id="course_id" value="{{$courseId}}">
                     <div class="container">
-                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#studentModal">Enroll a new student</button>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#studentModal">Enroll a new student</button>
                         <!-- Modal -->
                         <div class="modal fade" id="studentModal" role="dialog">
                             <div class="modal-dialog">
@@ -34,33 +33,37 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <table id="myTable" class="tablesorter">
-                            <thead>
+                    <table id="table_id" class="ui celled table" style="width:100%">
+                        <thead>
+                        <tr>
+                            <th>Full name</th>
+                            <th>Email</th>
+                            <th>School</th>
+                            <th>Class</th>
+                            <th>BirthDay</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
                             <tr>
-                                <th>Name</th>
-                                <th>Account</th>
+                                <th>Full name</th>
+                                <th>Email</th>
+                                <th>School</th>
                                 <th>Class</th>
+                                <th>BirthDay</th>
                             </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($students as $student)
-                                <tr>
-                                    <td>{{$student->full_name}}</td>
-                                    <td>{{$student->email}}</td>
-                                    <td>{{$student->class}}</td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                        </tfoot>
+                    </table>
                 </div>
-            </div>
         </div>
     </div>
 @endsection
 
+@section('css')
+    <link rel="stylesheet" href="{{asset('css/lib/dataTable.css')}}">
+@endsection
+
 @section('js')
+    <script src="{{asset('js/lib/tableSorter.js')}}"></script>
     <script src="{{asset('js/code/course/student.js')}}">
     </script>
 @endsection

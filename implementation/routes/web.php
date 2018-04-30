@@ -48,15 +48,19 @@ Route::prefix('teacher')->group(function () {
     Route::post('/course/search', 'Course\CourseController@searchCourse')->name(
         'search_course'
     );
-    Route::get('/course/list_student/{course_id}', 'Course\CourseController@listStudent')->name(
-        'list_student'
+    Route::get('/course/{course_id}/student', 'Course\StudentController@index')->name(
+        'show_student'
     );
-    Route::get('/course/enroll_student', 'Course\CourseController@enrollStudent')->name(
+    Route::get('/course/student/enroll', 'Course\StudentController@enroll')->name(
         'enroll_student'
     );
-    Route::get('/course/search_student', 'Course\CourseController@searchStudent')->name(
+    Route::get('/course/{course_id}/student/list', 'Course\StudentController@list')->name(
+        'list_student'
+    );
+    Route::get('/course/student/search', 'Course\StudentController@search')->name(
         'search_student'
     );
+
 });
 
 
