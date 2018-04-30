@@ -14,16 +14,12 @@
     {{--<script src="" defer></script>--}}
     <script src="{{ asset('js/dashboard.js') }}" defer></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
-    <link rel="stylesheet" type="text/css"
-          href="https://school.demo.moodle.net/theme/styles.php/boost/1523815278_1523818866/all">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     @yield('css')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script type="text/javascript" src={{ asset('js/lib/tableSorter.js') }}></script>
+    <script type="text/javascript" src="{{ asset('js/lib/tableSorter.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -42,6 +38,7 @@
 @else
 <body id="page-my-index"
       class="format-site path-my safari dir-ltr lang-en yui-skin-sam yui3-skin-sam school-demo-moodle-net pagelayout-mydashboard course-1 context-160 jsenabled drawer-ease drawer-open-left">
+
 <div id="app">
     <div id="page-wrapper">
 
@@ -55,7 +52,7 @@
                     <button onclick="tryMe2()" aria-expanded="true" aria-controls="nav-drawer" type="button"
                             class="btn pull-xs-left m-r-1 btn-secondary" data-action="toggle-drawer" data-side="left"
                             data-preference="drawer-open-nav" id="yui_3_17_2_1_1523819606195_41"><i
-                                class="icon fa fa-bars fa-fw " aria-hidden="true" aria-label=""
+                                class="icon bars" aria-hidden="true" aria-label=""
                                 id="yui_3_17_2_1_1523819606195_40"></i>
                         <span class="sr-only">Side panel</span></button>
                 </div>
@@ -145,7 +142,7 @@
                     <div class="popover-region-toggle nav-link" data-region="popover-region-toggle" aria-role="button"
                          aria-controls="popover-region-container-5ad3a457db2285ad3a45768f3413" aria-haspopup="true"
                          aria-label="Show notification window with no new notifications" tabindex="0">
-                        <i class="icon fa fa-bell fa-fw " aria-hidden="true" title="Toggle notifications menu"
+                        <i style="font-size: 1.5em;" class="alarm icon" aria-hidden="true" title="Toggle notifications menu"
                            aria-label="Toggle notifications menu"></i>
                         <div class="count-container" data-region="count-container">2</div>
 

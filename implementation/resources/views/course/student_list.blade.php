@@ -3,7 +3,7 @@
 @section('title', '|Courses')
 
 @section('content')
-    <div class="container" style="margin-top: 60px">
+    <div id="page" class="container-fluid" style="margin-top: 60px">
         <div class="row justify-content-center">
             <div class="card">
                     <div class="card-header">
@@ -11,6 +11,8 @@
                     </div>
                     <input type="hidden" id="course_id" value="{{$courseId}}">
                     <div class="container">
+
+                    <div class="container-fluid">
                         <!-- Modal -->
                         <div class="modal fade" id="studentModal" role="dialog">
                             <div class="modal-dialog">
