@@ -77,8 +77,7 @@
                                                         </div>
                                                         <div class="moreinfo"><a title="Summary"
                                                                                  href="{{route('list_lessons', ['course_id'=>$course->id])}}"><i
-                                                                        class="icon sign in alternate
-"
+                                                                        class="icon sign in alternate"
                                                                         aria-hidden="true" title="Summary"
                                                                         aria-label="Summary"></i></a></div>
                                                         <div class="enrolmenticons"><i
