@@ -3,6 +3,11 @@
 @section('title', '|Course - Lesson')
 
 @section('content')
+<style>
+    a, ol, li {
+        text-decoration: none!important;
+    }
+</style>
 
 <div id="page" class="container-fluid">
     <header id="page-header" class="row">
@@ -22,7 +27,7 @@
                                     <li class="breadcrumb-item"><a href="/home">Home</a>
                                     </li>
                                     <li class="breadcrumb-item"><a
-                                                href="">courses</a></li>
+                                                href="{{route('list_course_teacher', ['user_id'=>Auth::user()->id])}}">courses</a></li>
                                     <li class="breadcrumb-item"><a
                                                 href="#"
                                                 title="Digital Literacy ">{{__($course->course_name)}}</a></li>
@@ -56,7 +61,7 @@
 
 <p>If a box with a solid border is shown, you can click it to tick the box when you think you have completed the activity. (Clicking it again removes the tick if you change your mind.)</p>
 </div> " data-html="true" tabindex="0" data-trigger="focus">
-                                    <i class="icon fa fa-question-circle text-info fa-fw " aria-hidden="true"
+                                    <i class="icon question circle outline text-info fa-fw " aria-hidden="true"
                                        title="Help with Completion tick boxes"
                                        aria-label="Help with Completion tick boxes"></i>
                                 </a></div>
@@ -105,7 +110,7 @@
                                                                             src="https://school.demo.moodle.net/theme/image.php/boost/survey/1524376896/icon"
                                                                             class="iconlarge activityicon" alt=" "
                                                                             role="presentation"><span
-                                                                            class="instancename">{{__('Max Students : ')}}: {{__($course->max_students)}}</span></a>
+                                                                            class="instancename">{{__('Max Students : ')}} {{__($course->max_students)}}</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -121,7 +126,7 @@
                                                                             src="https://school.demo.moodle.net/theme/image.php/boost/survey/1524376896/icon"
                                                                             class="iconlarge activityicon" alt=" "
                                                                             role="presentation"><span
-                                                                            class="instancename">{{__('Max groups: ')}}: {{__($course->max_groups)}}</span></a>
+                                                                            class="instancename">{{__('Max groups: ')}} {{__($course->max_groups)}}</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
