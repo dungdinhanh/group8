@@ -1,6 +1,9 @@
 $(document).ready(function() {
     $("#search").keyup(function () {
+
         var search = $("#search").val();
+        console.log('sssssv', search.length);
+
         if (search.length < 1) {
             $("#origin_result").show();
             $("#search_result").hide();

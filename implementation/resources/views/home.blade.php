@@ -3,8 +3,31 @@
 @section('content')
 
 @if (Auth::guest())
-You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform action
+<style>
+    #notLogin{
+        width: 450px;
+        position: relative;
+        font-size: 2rem;
+        animation-name: example;
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
+    }
+    /* Safari 4.0 - 8.0 */
+    @-webkit-keyframes example {
+        from {top: 10px;}
+        to {top: 200px;}
+    }
 
+    @keyframes example {
+        from {top: 10px;}
+        to {top: 200px;}
+    }
+</style>
+<div id="notLogin" class="container">
+    <header style=" margin: 10px auto; text-align: center" id="page-header">
+        You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform action
+    </header>
+</div>
 @else
 <div id="page" class="container-fluid">
     <header id="page-header" class="row">
@@ -17,7 +40,11 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
 
     <div id="page-content" class="row">
         <div id="region-main-box" class="col-xs-12">
+            @if(Auth::user()->role_id == 2)
             <section id="region-main" class="has-blocks">
+                @else
+            <section id="region-main">
+                @endif
                 <div class="card card-block">
                     <span class="notifications" id="user-notifications"></span>
                     <div role="main"><span id="maincontent"></span>
@@ -68,11 +95,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                    data-toggle="tab">
                                                                     Sort by dates
                                                                 </a>
-                                                                <a class="btn btn-default"
-                                                                   href="#myoverview_timeline_courses"
-                                                                   data-toggle="tab">
-                                                                    Sort by courses
-                                                                </a>
+
                                                             </div>
                                                         </div>
 
@@ -171,7 +194,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                                 <div class="d-inline-block event-name-container">
                                                                                                     <a class="event-name text-truncate"
-                                                                                                       href="https://school.demo.moodle.net/mod/lesson/view.php?id=799">FOBO?
+                                                                                                       href="">FOBO?
                                                                                                         Let us
                                                                                                         help you
                                                                                                         cure it!
@@ -188,7 +211,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                         12:10
                                                                                                     </div>
                                                                                                     <div class="hidden-md-down col-lg-7 text-truncate">
-                                                                                                        <a href="https://school.demo.moodle.net/mod/lesson/view.php?id=799">Start
+                                                                                                        <a href="">Start
                                                                                                             lesson</a>
                                                                                                     </div>
                                                                                                 </div>
@@ -212,7 +235,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                                 <div class="d-inline-block event-name-container">
                                                                                                     <a class="event-name text-truncate"
-                                                                                                       href="https://school.demo.moodle.net/mod/lesson/view.php?id=763">Can
+                                                                                                       href="">Can
                                                                                                         you make
                                                                                                         a
                                                                                                         revolution?
@@ -231,7 +254,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                         09:20
                                                                                                     </div>
                                                                                                     <div class="hidden-md-down col-lg-7 text-truncate">
-                                                                                                        <a href="https://school.demo.moodle.net/mod/lesson/view.php?id=763">Start
+                                                                                                        <a href="">Start
                                                                                                             lesson</a>
                                                                                                     </div>
                                                                                                 </div>
@@ -255,7 +278,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                                 <div class="d-inline-block event-name-container">
                                                                                                     <a class="event-name text-truncate"
-                                                                                                       href="https://school.demo.moodle.net/mod/assign/view.php?id=788">Assignment
+                                                                                                       href="">Assignment
                                                                                                         2
                                                                                                         (Upload)
                                                                                                         is due
@@ -273,7 +296,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                         01:00
                                                                                                     </div>
                                                                                                     <div class="hidden-md-down col-lg-7 text-truncate">
-                                                                                                        <a href="https://school.demo.moodle.net/mod/assign/view.php?id=788&amp;action=grader">Grade</a>
+                                                                                                        <a href="">Grade</a>
                                                                                                         <span class="tag tag-pill tag-default">1</span>
                                                                                                     </div>
                                                                                                 </div>
@@ -297,7 +320,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                                 <div class="d-inline-block event-name-container">
                                                                                                     <a class="event-name text-truncate"
-                                                                                                       href="https://school.demo.moodle.net/mod/workshop/view.php?id=803">Workshop:
+                                                                                                       href="">Workshop:
                                                                                                         Transmediation
                                                                                                         deadline
                                                                                                         for
@@ -314,7 +337,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                         10:00
                                                                                                     </div>
                                                                                                     <div class="hidden-md-down col-lg-7 text-truncate">
-                                                                                                        <a href="https://school.demo.moodle.net/mod/workshop/view.php?id=803">View
+                                                                                                        <a href="">View
                                                                                                             workshop
                                                                                                             summary</a>
                                                                                                     </div>
@@ -339,7 +362,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                                 <div class="d-inline-block event-name-container">
                                                                                                     <a class="event-name text-truncate"
-                                                                                                       href="https://school.demo.moodle.net/mod/data/view.php?id=649">Database:
+                                                                                                       href="">Database:
                                                                                                         Food for
                                                                                                         Moodlers
                                                                                                         closes</a>
@@ -355,7 +378,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                         11:05
                                                                                                     </div>
                                                                                                     <div class="hidden-md-down col-lg-7 text-truncate">
-                                                                                                        <a href="https://school.demo.moodle.net/mod/data/view.php?id=649">Add
+                                                                                                        <a href="">Add
                                                                                                             entry</a>
                                                                                                     </div>
                                                                                                 </div>
@@ -379,7 +402,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                                 <div class="d-inline-block event-name-container">
                                                                                                     <a class="event-name text-truncate"
-                                                                                                       href="https://school.demo.moodle.net/mod/assign/view.php?id=775">(Mobile
+                                                                                                       href="">(Mobile
                                                                                                         assignment)
                                                                                                         View
                                                                                                         from
@@ -400,7 +423,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                         00:00
                                                                                                     </div>
                                                                                                     <div class="hidden-md-down col-lg-7 text-truncate">
-                                                                                                        <a href="https://school.demo.moodle.net/mod/assign/view.php?id=775&amp;action=grader">Grade</a>
+                                                                                                        <a href="">Grade</a>
                                                                                                         <span class="tag tag-pill tag-default">3</span>
                                                                                                     </div>
                                                                                                 </div>
@@ -433,2479 +456,6 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                             <p class="text-muted m-t-1">No
                                                                                 upcoming activities due</p>
                                                                         </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tab-pane fade"
-                                                                 id="myoverview_timeline_courses">
-                                                                <div id="sort-by-courses-view-5ad3c64cd3d045ad3c64cc86722">
-                                                                    <ul class="list-group unstyled hidden"
-                                                                        data-region="course-block">
-                                                                        <li class="list-group-item m-y-1">
-                                                                            <div data-region="course-events-container"
-                                                                                 id="course-events-container-66"
-                                                                                 data-course-id="66">
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-3">
-                                                                                        <div class="course-info-container"
-                                                                                             id="course-info-container-66">
-                                                                                            <div class="hidden-sm-up hidden-tablet hidden-phone">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text has-percent">
-                                                                                                            23%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        23%</title>
-                                                                                                                    <circle class="circle percent-23"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35"></circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=66"
-                                                                                                       class="">Digital
-                                                                                                        Literacy </a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-sm-down hidden-tablet hidden-desktop">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text has-percent">
-                                                                                                            23%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        23%</title>
-                                                                                                                    <circle class="circle percent-23"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35"></circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=66"
-                                                                                                       class="">Digital
-                                                                                                        Literacy </a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-xs-down hidden-md-up visible-tablet">
-                                                                                                <div class="media">
-                                                                                                    <div class="media-left">
-                                                                                                        <div class="media-object">
-                                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                                <div class="progress-doughnut">
-                                                                                                                    <div class="progress-text has-percent">
-                                                                                                                        23%
-                                                                                                                    </div>
-                                                                                                                    <div class="progress-indicator">
-                                                                                                                        <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                            <g>
-                                                                                                                                <title aria-hidden="true">
-                                                                                                                                    23%</title>
-                                                                                                                                <circle class="circle percent-23"
-                                                                                                                                        r="27.5"
-                                                                                                                                        cx="35"
-                                                                                                                                        cy="35"></circle>
-                                                                                                                            </g>
-                                                                                                                        </svg>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="media-body">
-                                                                                                        <h4 class="h5">
-                                                                                                            <a href="https://school.demo.moodle.net/course/view.php?id=66"
-                                                                                                               class="">Digital
-                                                                                                                Literacy </a>
-                                                                                                        </h4>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <p class="text-muted">
-                                                                                                Introducing the
-                                                                                                concept of
-                                                                                                Digital
-                                                                                                Literacy.
-                                                                                                Optimised for
-                                                                                                mobile.
-                                                                                            </p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-9">
-                                                                                        <div data-region="event-list-container"
-                                                                                             data-limit="10"
-                                                                                             data-course-id="66"
-                                                                                             data-last-id=""
-                                                                                             data-midnight="1523746800"
-                                                                                             id="event-list-container-66">
-
-                                                                                            <div data-region="event-list-content">
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="-14"
-                                                                                                     data-end-day="0"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 text-danger"
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Recently
-                                                                                                            overdue</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="0"
-                                                                                                     data-end-day="1"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Today</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="1"
-                                                                                                     data-end-day="7"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            7
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="7"
-                                                                                                     data-end-day="30"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            30
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="30"
-                                                                                                     data-end-day=""
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Future</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-
-                                                                                                <div class="text-xs-center text-center m-y-2">
-                                                                                                    <button type="button"
-                                                                                                            class="btn btn-secondary"
-                                                                                                            data-action="view-more">
-                                                                                                        View
-                                                                                                        more
-                                                                                                        <span class="hidden"
-                                                                                                              data-region="loading-icon-container">
-                <span class="loading-icon"><img class="icon " alt="Loading" title="Loading"
-                                                src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/y/loading"></span>
-            </span>
-                                                                                                    </button>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="hidden text-xs-center text-center m-y-3"
-                                                                                                 data-region="empty-message">
-                                                                                                <img class="empty-placeholder-image-sm"
-                                                                                                     src="https://school.demo.moodle.net/theme/image.php/boost/block_myoverview/1523822493/activities"
-                                                                                                     alt="No upcoming activities due"
-                                                                                                     role="presentation">
-                                                                                                <p class="text-muted m-t-1">
-                                                                                                    No upcoming
-                                                                                                    activities
-                                                                                                    due</p>
-                                                                                                <a href="https://school.demo.moodle.net/course/view.php?id=66"
-                                                                                                   class="btn btn-secondary text-primary"
-                                                                                                   aria-label="View course Digital Literacy ">
-                                                                                                    View course
-                                                                                                </a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li class="list-group-item m-y-1">
-                                                                            <div data-region="course-events-container"
-                                                                                 id="course-events-container-62"
-                                                                                 data-course-id="62">
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-3">
-                                                                                        <div class="course-info-container"
-                                                                                             id="course-info-container-62">
-                                                                                            <div class="hidden-sm-up hidden-tablet hidden-phone">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text has-percent">
-                                                                                                            6%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        6%</title>
-                                                                                                                    <circle class="circle percent-6"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35"></circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=62"
-                                                                                                       class="">Psychology
-                                                                                                        in
-                                                                                                        Cinema</a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-sm-down hidden-tablet hidden-desktop">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text has-percent">
-                                                                                                            6%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        6%</title>
-                                                                                                                    <circle class="circle percent-6"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35"></circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=62"
-                                                                                                       class="">Psychology
-                                                                                                        in
-                                                                                                        Cinema</a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-xs-down hidden-md-up visible-tablet">
-                                                                                                <div class="media">
-                                                                                                    <div class="media-left">
-                                                                                                        <div class="media-object">
-                                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                                <div class="progress-doughnut">
-                                                                                                                    <div class="progress-text has-percent">
-                                                                                                                        6%
-                                                                                                                    </div>
-                                                                                                                    <div class="progress-indicator">
-                                                                                                                        <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                            <g>
-                                                                                                                                <title aria-hidden="true">
-                                                                                                                                    6%</title>
-                                                                                                                                <circle class="circle percent-6"
-                                                                                                                                        r="27.5"
-                                                                                                                                        cx="35"
-                                                                                                                                        cy="35"></circle>
-                                                                                                                            </g>
-                                                                                                                        </svg>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="media-body">
-                                                                                                        <h4 class="h5">
-                                                                                                            <a href="https://school.demo.moodle.net/course/view.php?id=62"
-                                                                                                               class="">Psychology
-                                                                                                                in
-                                                                                                                Cinema</a>
-                                                                                                        </h4>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <p class="text-muted">
-                                                                                                In this course
-                                                                                                we study three
-                                                                                                films: Spider, A
-                                                                                                Beautiful Mind,
-                                                                                                and Fight
-                                                                                                Club. The main
-                                                                                                focus of the
-                                                                                                course will be
-                                                                                                the ways in
-                                                                                                which ...
-                                                                                            </p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-9">
-                                                                                        <div data-region="event-list-container"
-                                                                                             data-limit="10"
-                                                                                             data-course-id="62"
-                                                                                             data-last-id=""
-                                                                                             data-midnight="1523746800"
-                                                                                             id="event-list-container-62">
-
-                                                                                            <div data-region="event-list-content">
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="-14"
-                                                                                                     data-end-day="0"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 text-danger"
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Recently
-                                                                                                            overdue</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="0"
-                                                                                                     data-end-day="1"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Today</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="1"
-                                                                                                     data-end-day="7"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            7
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="7"
-                                                                                                     data-end-day="30"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            30
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="30"
-                                                                                                     data-end-day=""
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Future</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-
-                                                                                                <div class="text-xs-center text-center m-y-2">
-                                                                                                    <button type="button"
-                                                                                                            class="btn btn-secondary"
-                                                                                                            data-action="view-more">
-                                                                                                        View
-                                                                                                        more
-                                                                                                        <span class="hidden"
-                                                                                                              data-region="loading-icon-container">
-                <span class="loading-icon"><img class="icon " alt="Loading" title="Loading"
-                                                src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/y/loading"></span>
-            </span>
-                                                                                                    </button>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="hidden text-xs-center text-center m-y-3"
-                                                                                                 data-region="empty-message">
-                                                                                                <img class="empty-placeholder-image-sm"
-                                                                                                     src="https://school.demo.moodle.net/theme/image.php/boost/block_myoverview/1523822493/activities"
-                                                                                                     alt="No upcoming activities due"
-                                                                                                     role="presentation">
-                                                                                                <p class="text-muted m-t-1">
-                                                                                                    No upcoming
-                                                                                                    activities
-                                                                                                    due</p>
-                                                                                                <a href="https://school.demo.moodle.net/course/view.php?id=62"
-                                                                                                   class="btn btn-secondary text-primary"
-                                                                                                   aria-label="View course Psychology in Cinema">
-                                                                                                    View course
-                                                                                                </a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li class="list-group-item m-y-1">
-                                                                            <div data-region="course-events-container"
-                                                                                 id="course-events-container-63"
-                                                                                 data-course-id="63">
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-3">
-                                                                                        <div class="course-info-container"
-                                                                                             id="course-info-container-63">
-                                                                                            <div class="hidden-sm-up hidden-tablet hidden-phone">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text ">
-                                                                                                            0%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        0%</title>
-                                                                                                                    <circle class="circle percent-0"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35"></circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=63"
-                                                                                                       class="">The
-                                                                                                        Impressionists</a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-sm-down hidden-tablet hidden-desktop">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text ">
-                                                                                                            0%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        0%</title>
-                                                                                                                    <circle class="circle percent-0"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35"></circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=63"
-                                                                                                       class="">The
-                                                                                                        Impressionists</a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-xs-down hidden-md-up visible-tablet">
-                                                                                                <div class="media">
-                                                                                                    <div class="media-left">
-                                                                                                        <div class="media-object">
-                                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                                <div class="progress-doughnut">
-                                                                                                                    <div class="progress-text ">
-                                                                                                                        0%
-                                                                                                                    </div>
-                                                                                                                    <div class="progress-indicator">
-                                                                                                                        <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                            <g>
-                                                                                                                                <title aria-hidden="true">
-                                                                                                                                    0%</title>
-                                                                                                                                <circle class="circle percent-0"
-                                                                                                                                        r="27.5"
-                                                                                                                                        cx="35"
-                                                                                                                                        cy="35"></circle>
-                                                                                                                            </g>
-                                                                                                                        </svg>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="media-body">
-                                                                                                        <h4 class="h5">
-                                                                                                            <a href="https://school.demo.moodle.net/course/view.php?id=63"
-                                                                                                               class="">The
-                                                                                                                Impressionists</a>
-                                                                                                        </h4>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <p class="text-muted">
-                                                                                                An introduction
-                                                                                                to the
-                                                                                                Impressionist
-                                                                                                movement in
-                                                                                                France, with
-                                                                                                students
-                                                                                                being allowed to
-                                                                                                select an artist
-                                                                                                to focus on for
-                                                                                                in-depth study.
-                                                                                                ...
-                                                                                            </p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-9">
-                                                                                        <div data-region="event-list-container"
-                                                                                             data-limit="10"
-                                                                                             data-course-id="63"
-                                                                                             data-last-id=""
-                                                                                             data-midnight="1523746800"
-                                                                                             id="event-list-container-63">
-
-                                                                                            <div data-region="event-list-content">
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="-14"
-                                                                                                     data-end-day="0"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 text-danger"
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Recently
-                                                                                                            overdue</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="0"
-                                                                                                     data-end-day="1"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Today</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="1"
-                                                                                                     data-end-day="7"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            7
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="7"
-                                                                                                     data-end-day="30"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            30
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="30"
-                                                                                                     data-end-day=""
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Future</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-
-                                                                                                <div class="text-xs-center text-center m-y-2">
-                                                                                                    <button type="button"
-                                                                                                            class="btn btn-secondary"
-                                                                                                            data-action="view-more">
-                                                                                                        View
-                                                                                                        more
-                                                                                                        <span class="hidden"
-                                                                                                              data-region="loading-icon-container">
-                <span class="loading-icon"><img class="icon " alt="Loading" title="Loading"
-                                                src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/y/loading"></span>
-            </span>
-                                                                                                    </button>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="hidden text-xs-center text-center m-y-3"
-                                                                                                 data-region="empty-message">
-                                                                                                <img class="empty-placeholder-image-sm"
-                                                                                                     src="https://school.demo.moodle.net/theme/image.php/boost/block_myoverview/1523822493/activities"
-                                                                                                     alt="No upcoming activities due"
-                                                                                                     role="presentation">
-                                                                                                <p class="text-muted m-t-1">
-                                                                                                    No upcoming
-                                                                                                    activities
-                                                                                                    due</p>
-                                                                                                <a href="https://school.demo.moodle.net/course/view.php?id=63"
-                                                                                                   class="btn btn-secondary text-primary"
-                                                                                                   aria-label="View course The Impressionists">
-                                                                                                    View course
-                                                                                                </a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li class="list-group-item m-y-1">
-                                                                            <div data-region="course-events-container"
-                                                                                 id="course-events-container-59"
-                                                                                 data-course-id="59">
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-3">
-                                                                                        <div class="course-info-container"
-                                                                                             id="course-info-container-59">
-                                                                                            <div class="hidden-sm-up hidden-tablet hidden-phone">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text has-percent">
-                                                                                                            10%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        10%</title>
-                                                                                                                    <circle class="circle percent-10"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35"></circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=59"
-                                                                                                       class="">Celebrating
-                                                                                                        Cultures</a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-sm-down hidden-tablet hidden-desktop">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text has-percent">
-                                                                                                            10%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        10%</title>
-                                                                                                                    <circle class="circle percent-10"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35"></circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=59"
-                                                                                                       class="">Celebrating
-                                                                                                        Cultures</a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-xs-down hidden-md-up visible-tablet">
-                                                                                                <div class="media">
-                                                                                                    <div class="media-left">
-                                                                                                        <div class="media-object">
-                                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                                <div class="progress-doughnut">
-                                                                                                                    <div class="progress-text has-percent">
-                                                                                                                        10%
-                                                                                                                    </div>
-                                                                                                                    <div class="progress-indicator">
-                                                                                                                        <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                            <g>
-                                                                                                                                <title aria-hidden="true">
-                                                                                                                                    10%</title>
-                                                                                                                                <circle class="circle percent-10"
-                                                                                                                                        r="27.5"
-                                                                                                                                        cx="35"
-                                                                                                                                        cy="35"></circle>
-                                                                                                                            </g>
-                                                                                                                        </svg>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="media-body">
-                                                                                                        <h4 class="h5">
-                                                                                                            <a href="https://school.demo.moodle.net/course/view.php?id=59"
-                                                                                                               class="">Celebrating
-                                                                                                                Cultures</a>
-                                                                                                        </h4>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <p class="text-muted">
-                                                                                                Mount Orange is
-                                                                                                proud to have in
-                                                                                                its community
-                                                                                                students,
-                                                                                                teachers,
-                                                                                                parents
-                                                                                                and helpers from
-                                                                                                a wide variety
-                                                                                                of different
-                                                                                                cultures. This
-                                                                                                ...
-                                                                                            </p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-9">
-                                                                                        <div data-region="event-list-container"
-                                                                                             data-limit="10"
-                                                                                             data-course-id="59"
-                                                                                             data-last-id=""
-                                                                                             data-midnight="1523746800"
-                                                                                             id="event-list-container-59">
-
-                                                                                            <div data-region="event-list-content">
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="-14"
-                                                                                                     data-end-day="0"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 text-danger"
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Recently
-                                                                                                            overdue</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="0"
-                                                                                                     data-end-day="1"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Today</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="1"
-                                                                                                     data-end-day="7"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            7
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="7"
-                                                                                                     data-end-day="30"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            30
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="30"
-                                                                                                     data-end-day=""
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Future</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-
-                                                                                                <div class="text-xs-center text-center m-y-2">
-                                                                                                    <button type="button"
-                                                                                                            class="btn btn-secondary"
-                                                                                                            data-action="view-more">
-                                                                                                        View
-                                                                                                        more
-                                                                                                        <span class="hidden"
-                                                                                                              data-region="loading-icon-container">
-                <span class="loading-icon"><img class="icon " alt="Loading" title="Loading"
-                                                src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/y/loading"></span>
-            </span>
-                                                                                                    </button>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="hidden text-xs-center text-center m-y-3"
-                                                                                                 data-region="empty-message">
-                                                                                                <img class="empty-placeholder-image-sm"
-                                                                                                     src="https://school.demo.moodle.net/theme/image.php/boost/block_myoverview/1523822493/activities"
-                                                                                                     alt="No upcoming activities due"
-                                                                                                     role="presentation">
-                                                                                                <p class="text-muted m-t-1">
-                                                                                                    No upcoming
-                                                                                                    activities
-                                                                                                    due</p>
-                                                                                                <a href="https://school.demo.moodle.net/course/view.php?id=59"
-                                                                                                   class="btn btn-secondary text-primary"
-                                                                                                   aria-label="View course Celebrating Cultures">
-                                                                                                    View course
-                                                                                                </a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li class="list-group-item m-y-1">
-                                                                            <div data-region="course-events-container"
-                                                                                 id="course-events-container-56"
-                                                                                 data-course-id="56">
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-3">
-                                                                                        <div class="course-info-container"
-                                                                                             id="course-info-container-56">
-                                                                                            <div class="hidden-sm-up hidden-tablet hidden-phone">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text ">
-                                                                                                            0%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        0%</title>
-                                                                                                                    <circle class="circle percent-0"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35"></circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=56"
-                                                                                                       class="">History:
-                                                                                                        Russia
-                                                                                                        in
-                                                                                                        Revolution</a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-sm-down hidden-tablet hidden-desktop">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text ">
-                                                                                                            0%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        0%</title>
-                                                                                                                    <circle class="circle percent-0"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35"></circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=56"
-                                                                                                       class="">History:
-                                                                                                        Russia
-                                                                                                        in
-                                                                                                        Revolution</a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-xs-down hidden-md-up visible-tablet">
-                                                                                                <div class="media">
-                                                                                                    <div class="media-left">
-                                                                                                        <div class="media-object">
-                                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                                <div class="progress-doughnut">
-                                                                                                                    <div class="progress-text ">
-                                                                                                                        0%
-                                                                                                                    </div>
-                                                                                                                    <div class="progress-indicator">
-                                                                                                                        <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                            <g>
-                                                                                                                                <title aria-hidden="true">
-                                                                                                                                    0%</title>
-                                                                                                                                <circle class="circle percent-0"
-                                                                                                                                        r="27.5"
-                                                                                                                                        cx="35"
-                                                                                                                                        cy="35"></circle>
-                                                                                                                            </g>
-                                                                                                                        </svg>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="media-body">
-                                                                                                        <h4 class="h5">
-                                                                                                            <a href="https://school.demo.moodle.net/course/view.php?id=56"
-                                                                                                               class="">History:
-                                                                                                                Russia
-                                                                                                                in
-                                                                                                                Revolution</a>
-                                                                                                        </h4>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <p class="text-muted">
-                                                                                                This course is
-                                                                                                designed for
-                                                                                                students
-                                                                                                studying Russian
-                                                                                                history. While
-                                                                                                it is
-                                                                                                aimed at British
-                                                                                                students working
-                                                                                                towards an
-                                                                                                examination, the
-                                                                                                ...
-                                                                                            </p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-9">
-                                                                                        <div data-region="event-list-container"
-                                                                                             data-limit="10"
-                                                                                             data-course-id="56"
-                                                                                             data-last-id=""
-                                                                                             data-midnight="1523746800"
-                                                                                             id="event-list-container-56">
-
-                                                                                            <div data-region="event-list-content">
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="-14"
-                                                                                                     data-end-day="0"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 text-danger"
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Recently
-                                                                                                            overdue</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="0"
-                                                                                                     data-end-day="1"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Today</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="1"
-                                                                                                     data-end-day="7"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            7
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="7"
-                                                                                                     data-end-day="30"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            30
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="30"
-                                                                                                     data-end-day=""
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Future</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-
-                                                                                                <div class="text-xs-center text-center m-y-2">
-                                                                                                    <button type="button"
-                                                                                                            class="btn btn-secondary"
-                                                                                                            data-action="view-more">
-                                                                                                        View
-                                                                                                        more
-                                                                                                        <span class="hidden"
-                                                                                                              data-region="loading-icon-container">
-                <span class="loading-icon"><img class="icon " alt="Loading" title="Loading"
-                                                src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/y/loading"></span>
-            </span>
-                                                                                                    </button>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="hidden text-xs-center text-center m-y-3"
-                                                                                                 data-region="empty-message">
-                                                                                                <img class="empty-placeholder-image-sm"
-                                                                                                     src="https://school.demo.moodle.net/theme/image.php/boost/block_myoverview/1523822493/activities"
-                                                                                                     alt="No upcoming activities due"
-                                                                                                     role="presentation">
-                                                                                                <p class="text-muted m-t-1">
-                                                                                                    No upcoming
-                                                                                                    activities
-                                                                                                    due</p>
-                                                                                                <a href="https://school.demo.moodle.net/course/view.php?id=56"
-                                                                                                   class="btn btn-secondary text-primary"
-                                                                                                   aria-label="View course History: Russia in Revolution">
-                                                                                                    View course
-                                                                                                </a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li class="list-group-item m-y-1">
-                                                                            <div data-region="course-events-container"
-                                                                                 id="course-events-container-35"
-                                                                                 data-course-id="35">
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-3">
-                                                                                        <div class="course-info-container"
-                                                                                             id="course-info-container-35">
-                                                                                            <div class="hidden-sm-up hidden-tablet hidden-phone">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text has-percent">
-                                                                                                            13%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        13%</title>
-                                                                                                                    <circle class="circle percent-13"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35"></circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=35"
-                                                                                                       class="">World
-                                                                                                        of
-                                                                                                        Water</a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-sm-down hidden-tablet hidden-desktop">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text has-percent">
-                                                                                                            13%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        13%</title>
-                                                                                                                    <circle class="circle percent-13"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35"></circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=35"
-                                                                                                       class="">World
-                                                                                                        of
-                                                                                                        Water</a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-xs-down hidden-md-up visible-tablet">
-                                                                                                <div class="media">
-                                                                                                    <div class="media-left">
-                                                                                                        <div class="media-object">
-                                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                                <div class="progress-doughnut">
-                                                                                                                    <div class="progress-text has-percent">
-                                                                                                                        13%
-                                                                                                                    </div>
-                                                                                                                    <div class="progress-indicator">
-                                                                                                                        <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                            <g>
-                                                                                                                                <title aria-hidden="true">
-                                                                                                                                    13%</title>
-                                                                                                                                <circle class="circle percent-13"
-                                                                                                                                        r="27.5"
-                                                                                                                                        cx="35"
-                                                                                                                                        cy="35"></circle>
-                                                                                                                            </g>
-                                                                                                                        </svg>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="media-body">
-                                                                                                        <h4 class="h5">
-                                                                                                            <a href="https://school.demo.moodle.net/course/view.php?id=35"
-                                                                                                               class="">World
-                                                                                                                of
-                                                                                                                Water</a>
-                                                                                                        </h4>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <p class="text-muted">
-                                                                                                We all need
-                                                                                                water! Let's
-                                                                                                look at things
-                                                                                                we are doing
-                                                                                                well and not so
-                                                                                                well
-                                                                                                in managing this
-                                                                                                precious
-                                                                                                resource.
-
-                                                                                                Ages 11-adult
-
-                                                                                                Moodle.net ...
-                                                                                            </p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-9">
-                                                                                        <div data-region="event-list-container"
-                                                                                             data-limit="10"
-                                                                                             data-course-id="35"
-                                                                                             data-last-id=""
-                                                                                             data-midnight="1523746800"
-                                                                                             id="event-list-container-35">
-
-                                                                                            <div data-region="event-list-content">
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="-14"
-                                                                                                     data-end-day="0"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 text-danger"
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Recently
-                                                                                                            overdue</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="0"
-                                                                                                     data-end-day="1"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Today</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="1"
-                                                                                                     data-end-day="7"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            7
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="7"
-                                                                                                     data-end-day="30"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            30
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="30"
-                                                                                                     data-end-day=""
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Future</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-
-                                                                                                <div class="text-xs-center text-center m-y-2">
-                                                                                                    <button type="button"
-                                                                                                            class="btn btn-secondary"
-                                                                                                            data-action="view-more">
-                                                                                                        View
-                                                                                                        more
-                                                                                                        <span class="hidden"
-                                                                                                              data-region="loading-icon-container">
-                <span class="loading-icon"><img class="icon " alt="Loading" title="Loading"
-                                                src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/y/loading"></span>
-            </span>
-                                                                                                    </button>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="hidden text-xs-center text-center m-y-3"
-                                                                                                 data-region="empty-message">
-                                                                                                <img class="empty-placeholder-image-sm"
-                                                                                                     src="https://school.demo.moodle.net/theme/image.php/boost/block_myoverview/1523822493/activities"
-                                                                                                     alt="No upcoming activities due"
-                                                                                                     role="presentation">
-                                                                                                <p class="text-muted m-t-1">
-                                                                                                    No upcoming
-                                                                                                    activities
-                                                                                                    due</p>
-                                                                                                <a href="https://school.demo.moodle.net/course/view.php?id=35"
-                                                                                                   class="btn btn-secondary text-primary"
-                                                                                                   aria-label="View course World of Water">
-                                                                                                    View course
-                                                                                                </a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-
-                                                                    </ul>
-                                                                    <ul class="list-group unstyled hidden"
-                                                                        data-region="course-block">
-                                                                        <li class="list-group-item m-y-1">
-                                                                            <div data-region="course-events-container"
-                                                                                 id="course-events-container-49"
-                                                                                 data-course-id="49">
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-3">
-                                                                                        <div class="course-info-container"
-                                                                                             id="course-info-container-49">
-                                                                                            <div class="hidden-sm-up hidden-tablet hidden-phone">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text has-percent">
-                                                                                                            6%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        6%</title>
-                                                                                                                    <circle class="circle percent-6"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35"></circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=49"
-                                                                                                       class="">Pilgrimage</a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-sm-down hidden-tablet hidden-desktop">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text has-percent">
-                                                                                                            6%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        6%</title>
-                                                                                                                    <circle class="circle percent-6"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35"></circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=49"
-                                                                                                       class="">Pilgrimage</a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-xs-down hidden-md-up visible-tablet">
-                                                                                                <div class="media">
-                                                                                                    <div class="media-left">
-                                                                                                        <div class="media-object">
-                                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                                <div class="progress-doughnut">
-                                                                                                                    <div class="progress-text has-percent">
-                                                                                                                        6%
-                                                                                                                    </div>
-                                                                                                                    <div class="progress-indicator">
-                                                                                                                        <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                            <g>
-                                                                                                                                <title aria-hidden="true">
-                                                                                                                                    6%</title>
-                                                                                                                                <circle class="circle percent-6"
-                                                                                                                                        r="27.5"
-                                                                                                                                        cx="35"
-                                                                                                                                        cy="35"></circle>
-                                                                                                                            </g>
-                                                                                                                        </svg>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="media-body">
-                                                                                                        <h4 class="h5">
-                                                                                                            <a href="https://school.demo.moodle.net/course/view.php?id=49"
-                                                                                                               class="">Pilgrimage</a>
-                                                                                                        </h4>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <p class="text-muted">
-                                                                                                This course in
-                                                                                                &nbsp;Religious
-                                                                                                Education
-                                                                                                studird the
-                                                                                                concept of
-                                                                                                pilgrimage. It
-                                                                                                includes forums
-                                                                                                for reflection
-                                                                                                on the wider
-                                                                                                meaning and ...
-                                                                                            </p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-9">
-                                                                                        <div data-region="event-list-container"
-                                                                                             data-limit="10"
-                                                                                             data-course-id="49"
-                                                                                             data-last-id=""
-                                                                                             data-midnight="1523746800"
-                                                                                             id="event-list-container-49">
-
-                                                                                            <div data-region="event-list-content">
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="-14"
-                                                                                                     data-end-day="0"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 text-danger"
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Recently
-                                                                                                            overdue</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="0"
-                                                                                                     data-end-day="1"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Today</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="1"
-                                                                                                     data-end-day="7"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            7
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="7"
-                                                                                                     data-end-day="30"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            30
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="30"
-                                                                                                     data-end-day=""
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Future</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-
-                                                                                                <div class="text-xs-center text-center m-y-2">
-                                                                                                    <button type="button"
-                                                                                                            class="btn btn-secondary"
-                                                                                                            data-action="view-more">
-                                                                                                        View
-                                                                                                        more
-                                                                                                        <span class="hidden"
-                                                                                                              data-region="loading-icon-container">
-                <span class="loading-icon"><img class="icon " alt="Loading" title="Loading"
-                                                src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/y/loading"></span>
-            </span>
-                                                                                                    </button>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="hidden text-xs-center text-center m-y-3"
-                                                                                                 data-region="empty-message">
-                                                                                                <img class="empty-placeholder-image-sm"
-                                                                                                     src="https://school.demo.moodle.net/theme/image.php/boost/block_myoverview/1523822493/activities"
-                                                                                                     alt="No upcoming activities due"
-                                                                                                     role="presentation">
-                                                                                                <p class="text-muted m-t-1">
-                                                                                                    No upcoming
-                                                                                                    activities
-                                                                                                    due</p>
-                                                                                                <a href="https://school.demo.moodle.net/course/view.php?id=49"
-                                                                                                   class="btn btn-secondary text-primary"
-                                                                                                   aria-label="View course Pilgrimage">
-                                                                                                    View course
-                                                                                                </a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li class="list-group-item m-y-1">
-                                                                            <div data-region="course-events-container"
-                                                                                 id="course-events-container-64"
-                                                                                 data-course-id="64">
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-3">
-                                                                                        <div class="course-info-container"
-                                                                                             id="course-info-container-64">
-                                                                                            <div class="hidden-sm-up hidden-tablet hidden-phone">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text ">
-                                                                                                            0%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        0%</title>
-                                                                                                                    <circle class="circle percent-0"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35"></circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=64"
-                                                                                                       class="">New
-                                                                                                        staff
-                                                                                                        induction</a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-sm-down hidden-tablet hidden-desktop">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text ">
-                                                                                                            0%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        0%</title>
-                                                                                                                    <circle class="circle percent-0"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35"></circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=64"
-                                                                                                       class="">New
-                                                                                                        staff
-                                                                                                        induction</a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-xs-down hidden-md-up visible-tablet">
-                                                                                                <div class="media">
-                                                                                                    <div class="media-left">
-                                                                                                        <div class="media-object">
-                                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                                <div class="progress-doughnut">
-                                                                                                                    <div class="progress-text ">
-                                                                                                                        0%
-                                                                                                                    </div>
-                                                                                                                    <div class="progress-indicator">
-                                                                                                                        <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                            <g>
-                                                                                                                                <title aria-hidden="true">
-                                                                                                                                    0%</title>
-                                                                                                                                <circle class="circle percent-0"
-                                                                                                                                        r="27.5"
-                                                                                                                                        cx="35"
-                                                                                                                                        cy="35"></circle>
-                                                                                                                            </g>
-                                                                                                                        </svg>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="media-body">
-                                                                                                        <h4 class="h5">
-                                                                                                            <a href="https://school.demo.moodle.net/course/view.php?id=64"
-                                                                                                               class="">New
-                                                                                                                staff
-                                                                                                                induction</a>
-                                                                                                        </h4>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <p class="text-muted">
-
-                                                                                            </p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-9">
-                                                                                        <div data-region="event-list-container"
-                                                                                             data-limit="10"
-                                                                                             data-course-id="64"
-                                                                                             data-last-id=""
-                                                                                             data-midnight="1523746800"
-                                                                                             id="event-list-container-64">
-
-                                                                                            <div data-region="event-list-content">
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="-14"
-                                                                                                     data-end-day="0"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 text-danger"
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Recently
-                                                                                                            overdue</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="0"
-                                                                                                     data-end-day="1"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Today</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="1"
-                                                                                                     data-end-day="7"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            7
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="7"
-                                                                                                     data-end-day="30"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            30
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="30"
-                                                                                                     data-end-day=""
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Future</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-
-                                                                                                <div class="text-xs-center text-center m-y-2">
-                                                                                                    <button type="button"
-                                                                                                            class="btn btn-secondary"
-                                                                                                            data-action="view-more">
-                                                                                                        View
-                                                                                                        more
-                                                                                                        <span class="hidden"
-                                                                                                              data-region="loading-icon-container">
-                <span class="loading-icon"><img class="icon " alt="Loading" title="Loading"
-                                                src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/y/loading"></span>
-            </span>
-                                                                                                    </button>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="hidden text-xs-center text-center m-y-3"
-                                                                                                 data-region="empty-message">
-                                                                                                <img class="empty-placeholder-image-sm"
-                                                                                                     src="https://school.demo.moodle.net/theme/image.php/boost/block_myoverview/1523822493/activities"
-                                                                                                     alt="No upcoming activities due"
-                                                                                                     role="presentation">
-                                                                                                <p class="text-muted m-t-1">
-                                                                                                    No upcoming
-                                                                                                    activities
-                                                                                                    due</p>
-                                                                                                <a href="https://school.demo.moodle.net/course/view.php?id=64"
-                                                                                                   class="btn btn-secondary text-primary"
-                                                                                                   aria-label="View course New staff induction">
-                                                                                                    View course
-                                                                                                </a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li class="list-group-item m-y-1">
-                                                                            <div data-region="course-events-container"
-                                                                                 id="course-events-container-27"
-                                                                                 data-course-id="27">
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-3">
-                                                                                        <div class="course-info-container"
-                                                                                             id="course-info-container-27">
-                                                                                            <div class="hidden-sm-up hidden-tablet hidden-phone">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="no-progress">
-                                                                                                        <img class="icon "
-                                                                                                             alt=""
-                                                                                                             src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/i/course">
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=27"
-                                                                                                       class="">Parents
-                                                                                                        and
-                                                                                                        Citizens
-                                                                                                        Council</a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-sm-down hidden-tablet hidden-desktop">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="no-progress">
-                                                                                                        <img class="icon "
-                                                                                                             alt=""
-                                                                                                             src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/i/course">
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=27"
-                                                                                                       class="">Parents
-                                                                                                        and
-                                                                                                        Citizens
-                                                                                                        Council</a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-xs-down hidden-md-up visible-tablet">
-                                                                                                <div class="media">
-                                                                                                    <div class="media-left">
-                                                                                                        <div class="media-object">
-                                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                                <div class="no-progress">
-                                                                                                                    <img class="icon "
-                                                                                                                         alt=""
-                                                                                                                         src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/i/course">
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="media-body">
-                                                                                                        <h4 class="h5">
-                                                                                                            <a href="https://school.demo.moodle.net/course/view.php?id=27"
-                                                                                                               class="">Parents
-                                                                                                                and
-                                                                                                                Citizens
-                                                                                                                Council</a>
-                                                                                                        </h4>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <p class="text-muted">
-                                                                                                A space for
-                                                                                                members of
-                                                                                                Parents and
-                                                                                                Citizens
-                                                                                                council, an
-                                                                                                important part
-                                                                                                of
-                                                                                                our school
-                                                                                                community.
-                                                                                            </p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-9">
-                                                                                        <div data-region="event-list-container"
-                                                                                             data-limit="10"
-                                                                                             data-course-id="27"
-                                                                                             data-last-id=""
-                                                                                             data-midnight="1523746800"
-                                                                                             id="event-list-container-27">
-
-                                                                                            <div data-region="event-list-content">
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="-14"
-                                                                                                     data-end-day="0"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 text-danger"
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Recently
-                                                                                                            overdue</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="0"
-                                                                                                     data-end-day="1"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Today</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="1"
-                                                                                                     data-end-day="7"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            7
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="7"
-                                                                                                     data-end-day="30"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            30
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="30"
-                                                                                                     data-end-day=""
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Future</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-
-                                                                                                <div class="text-xs-center text-center m-y-2">
-                                                                                                    <button type="button"
-                                                                                                            class="btn btn-secondary"
-                                                                                                            data-action="view-more">
-                                                                                                        View
-                                                                                                        more
-                                                                                                        <span class="hidden"
-                                                                                                              data-region="loading-icon-container">
-                <span class="loading-icon"><img class="icon " alt="Loading" title="Loading"
-                                                src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/y/loading"></span>
-            </span>
-                                                                                                    </button>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="hidden text-xs-center text-center m-y-3"
-                                                                                                 data-region="empty-message">
-                                                                                                <img class="empty-placeholder-image-sm"
-                                                                                                     src="https://school.demo.moodle.net/theme/image.php/boost/block_myoverview/1523822493/activities"
-                                                                                                     alt="No upcoming activities due"
-                                                                                                     role="presentation">
-                                                                                                <p class="text-muted m-t-1">
-                                                                                                    No upcoming
-                                                                                                    activities
-                                                                                                    due</p>
-                                                                                                <a href="https://school.demo.moodle.net/course/view.php?id=27"
-                                                                                                   class="btn btn-secondary text-primary"
-                                                                                                   aria-label="View course Parents and Citizens Council">
-                                                                                                    View course
-                                                                                                </a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li class="list-group-item m-y-1">
-                                                                            <div data-region="course-events-container"
-                                                                                 id="course-events-container-41"
-                                                                                 data-course-id="41">
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-3">
-                                                                                        <div class="course-info-container"
-                                                                                             id="course-info-container-41">
-                                                                                            <div class="hidden-sm-up hidden-tablet hidden-phone">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text ">
-                                                                                                            0%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        0%</title>
-                                                                                                                    <circle class="circle percent-0"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35"></circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=41"
-                                                                                                       class="">Staffroom</a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-sm-down hidden-tablet hidden-desktop">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text ">
-                                                                                                            0%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        0%</title>
-                                                                                                                    <circle class="circle percent-0"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35"></circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=41"
-                                                                                                       class="">Staffroom</a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-xs-down hidden-md-up visible-tablet">
-                                                                                                <div class="media">
-                                                                                                    <div class="media-left">
-                                                                                                        <div class="media-object">
-                                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                                <div class="progress-doughnut">
-                                                                                                                    <div class="progress-text ">
-                                                                                                                        0%
-                                                                                                                    </div>
-                                                                                                                    <div class="progress-indicator">
-                                                                                                                        <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                            <g>
-                                                                                                                                <title aria-hidden="true">
-                                                                                                                                    0%</title>
-                                                                                                                                <circle class="circle percent-0"
-                                                                                                                                        r="27.5"
-                                                                                                                                        cx="35"
-                                                                                                                                        cy="35"></circle>
-                                                                                                                            </g>
-                                                                                                                        </svg>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="media-body">
-                                                                                                        <h4 class="h5">
-                                                                                                            <a href="https://school.demo.moodle.net/course/view.php?id=41"
-                                                                                                               class="">Staffroom</a>
-                                                                                                        </h4>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <p class="text-muted">
-                                                                                                A space for
-                                                                                                staff only - not
-                                                                                                normally
-                                                                                                accessible to
-                                                                                                students.
-
-                                                                                                Important
-                                                                                                professional
-                                                                                                news, updates,
-                                                                                                documents as
-                                                                                                well as social
-                                                                                                ...
-                                                                                            </p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-9">
-                                                                                        <div data-region="event-list-container"
-                                                                                             data-limit="10"
-                                                                                             data-course-id="41"
-                                                                                             data-last-id=""
-                                                                                             data-midnight="1523746800"
-                                                                                             id="event-list-container-41">
-
-                                                                                            <div data-region="event-list-content">
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="-14"
-                                                                                                     data-end-day="0"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 text-danger"
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Recently
-                                                                                                            overdue</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="0"
-                                                                                                     data-end-day="1"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Today</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="1"
-                                                                                                     data-end-day="7"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            7
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="7"
-                                                                                                     data-end-day="30"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            30
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="30"
-                                                                                                     data-end-day=""
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Future</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-
-                                                                                                <div class="text-xs-center text-center m-y-2">
-                                                                                                    <button type="button"
-                                                                                                            class="btn btn-secondary"
-                                                                                                            data-action="view-more">
-                                                                                                        View
-                                                                                                        more
-                                                                                                        <span class="hidden"
-                                                                                                              data-region="loading-icon-container">
-                <span class="loading-icon"><img class="icon " alt="Loading" title="Loading"
-                                                src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/y/loading"></span>
-            </span>
-                                                                                                    </button>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="hidden text-xs-center text-center m-y-3"
-                                                                                                 data-region="empty-message">
-                                                                                                <img class="empty-placeholder-image-sm"
-                                                                                                     src="https://school.demo.moodle.net/theme/image.php/boost/block_myoverview/1523822493/activities"
-                                                                                                     alt="No upcoming activities due"
-                                                                                                     role="presentation">
-                                                                                                <p class="text-muted m-t-1">
-                                                                                                    No upcoming
-                                                                                                    activities
-                                                                                                    due</p>
-                                                                                                <a href="https://school.demo.moodle.net/course/view.php?id=41"
-                                                                                                   class="btn btn-secondary text-primary"
-                                                                                                   aria-label="View course Staffroom">
-                                                                                                    View course
-                                                                                                </a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li class="list-group-item m-y-1">
-                                                                            <div data-region="course-events-container"
-                                                                                 id="course-events-container-38"
-                                                                                 data-course-id="38">
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-3">
-                                                                                        <div class="course-info-container"
-                                                                                             id="course-info-container-38">
-                                                                                            <div class="hidden-sm-up hidden-tablet hidden-phone">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="no-progress">
-                                                                                                        <img class="icon "
-                                                                                                             alt=""
-                                                                                                             src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/i/course">
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=38"
-                                                                                                       class="">Moodle
-                                                                                                        History
-                                                                                                        Quiz</a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-sm-down hidden-tablet hidden-desktop">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="no-progress">
-                                                                                                        <img class="icon "
-                                                                                                             alt=""
-                                                                                                             src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/i/course">
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="https://school.demo.moodle.net/course/view.php?id=38"
-                                                                                                       class="">Moodle
-                                                                                                        History
-                                                                                                        Quiz</a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-xs-down hidden-md-up visible-tablet">
-                                                                                                <div class="media">
-                                                                                                    <div class="media-left">
-                                                                                                        <div class="media-object">
-                                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                                <div class="no-progress">
-                                                                                                                    <img class="icon "
-                                                                                                                         alt=""
-                                                                                                                         src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/i/course">
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="media-body">
-                                                                                                        <h4 class="h5">
-                                                                                                            <a href="https://school.demo.moodle.net/course/view.php?id=38"
-                                                                                                               class="">Moodle
-                                                                                                                History
-                                                                                                                Quiz</a>
-                                                                                                        </h4>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <p class="text-muted">
-                                                                                                This is an
-                                                                                                example of the
-                                                                                                Single activity
-                                                                                                course format.
-                                                                                                It only displays
-                                                                                                one activity,
-                                                                                                which in this
-                                                                                                case is a Quiz,
-                                                                                                allowing the ...
-                                                                                            </p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-9">
-                                                                                        <div data-region="event-list-container"
-                                                                                             data-limit="10"
-                                                                                             data-course-id="38"
-                                                                                             data-last-id=""
-                                                                                             data-midnight="1523746800"
-                                                                                             id="event-list-container-38">
-
-                                                                                            <div data-region="event-list-content">
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="-14"
-                                                                                                     data-end-day="0"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 text-danger"
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Recently
-                                                                                                            overdue</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="0"
-                                                                                                     data-end-day="1"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Today</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="1"
-                                                                                                     data-end-day="7"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            7
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="7"
-                                                                                                     data-end-day="30"
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Next
-                                                                                                            30
-                                                                                                            days</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-                                                                                                <div data-region="event-list-group-container"
-                                                                                                     data-start-day="30"
-                                                                                                     data-end-day=""
-                                                                                                     class="hidden">
-
-                                                                                                    <h5 class="h6 m-t-1 "
-                                                                                                        id="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                        <strong>Future</strong>
-                                                                                                    </h5>
-                                                                                                    <ul class="list-group unstyled"
-                                                                                                        data-region="event-list"
-                                                                                                        aria-describedby="event-list-title-5ad3c64cd3d045ad3c64cc86722">
-                                                                                                    </ul>
-                                                                                                </div>
-
-                                                                                                <div class="text-xs-center text-center m-y-2">
-                                                                                                    <button type="button"
-                                                                                                            class="btn btn-secondary"
-                                                                                                            data-action="view-more">
-                                                                                                        View
-                                                                                                        more
-                                                                                                        <span class="hidden"
-                                                                                                              data-region="loading-icon-container">
-                <span class="loading-icon"><img class="icon " alt="Loading" title="Loading"
-                                                src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/y/loading"></span>
-            </span>
-                                                                                                    </button>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="hidden text-xs-center text-center m-y-3"
-                                                                                                 data-region="empty-message">
-                                                                                                <img class="empty-placeholder-image-sm"
-                                                                                                     src="https://school.demo.moodle.net/theme/image.php/boost/block_myoverview/1523822493/activities"
-                                                                                                     alt="No upcoming activities due"
-                                                                                                     role="presentation">
-                                                                                                <p class="text-muted m-t-1">
-                                                                                                    No upcoming
-                                                                                                    activities
-                                                                                                    due</p>
-                                                                                                <a href="https://school.demo.moodle.net/course/view.php?id=38"
-                                                                                                   class="btn btn-secondary text-primary"
-                                                                                                   aria-label="View course Moodle History Quiz">
-                                                                                                    View course
-                                                                                                </a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-
-                                                                    </ul>
-                                                                    <div class="text-xs-center text-center m-t-1">
-                                                                        <button type="button"
-                                                                                class="btn btn-secondary"
-                                                                                data-action="more-courses">
-                                                                            More courses
-                                                                            <span class="hidden"
-                                                                                  data-region="loading-icon-container">
-                                                <span class="loading-icon"><img class="icon " alt="Loading"
-                                                                                title="Loading"
-                                                                                src="https://school.demo.moodle.net/theme/image.php/boost/core/1523822493/y/loading"></span>
-                                            </span>
-                                                                        </button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2945,11 +495,11 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                         <div data-region="paging-content-item"
                                                                              data-page="1" id="page1" class="row">
                                                                             @csrf
-                                                                            @foreach($courses as $course)
-                                                                            @if($course->id < 10)
+                                                                            @foreach($courses as $key=>$course)
+                                                                            @if($key < 10)
 
                                                                             <a class="nav-link"
-                                                                               href="{{route('list_lessons', ['course_id'=>$course->id])}}">
+                                                                               href="">
                                                                             </a>
                                                                             <div class="col-lg-6">
                                                                                 <div class="card m-b-1 courses-view-course-item">
@@ -2959,14 +509,14 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                             <div class="progress-chart-container m-b-1">
                                                                                                 <div class="progress-doughnut">
                                                                                                     <div class="progress-text has-percent">
-                                                                                                        23%
+                                                                                                        {{__($course->max_students)}}%
                                                                                                     </div>
                                                                                                     <div class="progress-indicator">
                                                                                                         <svg xmlns="http://www.w3.org/2000/svg">
                                                                                                             <g>
                                                                                                                 <title aria-hidden="true">
-                                                                                                                    23%</title>
-                                                                                                                <circle class="circle percent-23"
+                                                                                                                    {{__($course->max_students)}}%</title>
+                                                                                                                <circle class="circle percent-{{__($course->max_students)}}"
                                                                                                                         r="27.5"
                                                                                                                         cx="35"
                                                                                                                         cy="35"></circle>
@@ -2976,7 +526,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                             </div>
                                                                                             <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=66"
+                                                                                                        href="{{route('list_lessons', ['course_id' => $course->id])}}"
                                                                                                         class="">{{__($course->course_name)}} </a>
                                                                                             </h4>
                                                                                         </div>
@@ -2987,14 +537,14 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                         <div class="progress-chart-container m-b-1">
                                                                                                             <div class="progress-doughnut">
                                                                                                                 <div class="progress-text has-percent">
-                                                                                                                    23%
+                                                                                                                    {{__($course->max_students)}}%
                                                                                                                 </div>
                                                                                                                 <div class="progress-indicator">
                                                                                                                     <svg xmlns="http://www.w3.org/2000/svg">
                                                                                                                         <g>
                                                                                                                             <title aria-hidden="true">
-                                                                                                                                23%</title>
-                                                                                                                            <circle class="circle percent-23"
+                                                                                                                                {{__($course->max_students)}}%</title>
+                                                                                                                            <circle class="circle percent-{{__($course->max_students)}}"
                                                                                                                                     r="27.5"
                                                                                                                                     cx="35"
                                                                                                                                     cy="35"></circle>
@@ -3007,7 +557,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                                 <div class="media-body">
                                                                                                     <h4 class="h5">
-                                                                                                        <a href="https://school.demo.moodle.net/course/view.php?id=66"
+                                                                                                        <a href="{{route('list_lessons', ['course_id' => $course->id])}}"
                                                                                                            class="">{{__($course->course_name)}} </a>
                                                                                                     </h4>
                                                                                                 </div>
@@ -3015,9 +565,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                         </div>
                                                                                         <p class="text-muted">
                                                                                             Introducing the
-                                                                                            concept of Digital
-                                                                                            Literacy. Optimised
-                                                                                            for mobile.
+                                                                                            concept of {{__($course->course_name)}}.
                                                                                         </p>
                                                                                     </div>
                                                                                 </div>
@@ -3028,8 +576,8 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                         <div data-region="paging-content-item"
                                                                              data-page="2" id="page2" class=" row hidden">
                                                                             @csrf
-                                                                            @foreach($courses as $course)
-                                                                            @if(($course->id >= 10) && ( $course->id < 20))
+                                                                            @foreach($courses as $key=>$course)
+                                                                            @if(($key >= 10) && ($key < 20))
 
                                                                             <a class="nav-link"
                                                                                href="{{route('list_lessons', ['course_id'=>$course->id])}}">
@@ -3042,14 +590,14 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                             <div class="progress-chart-container m-b-1">
                                                                                                 <div class="progress-doughnut">
                                                                                                     <div class="progress-text has-percent">
-                                                                                                        23%
+                                                                                                        {{__($course->max_students)}}%
                                                                                                     </div>
                                                                                                     <div class="progress-indicator">
                                                                                                         <svg xmlns="http://www.w3.org/2000/svg">
                                                                                                             <g>
                                                                                                                 <title aria-hidden="true">
-                                                                                                                    23%</title>
-                                                                                                                <circle class="circle percent-23"
+                                                                                                                    {{__($course->max_students)}}%</title>
+                                                                                                                <circle class="circle percent-{{__($course->max_students)}}"
                                                                                                                         r="27.5"
                                                                                                                         cx="35"
                                                                                                                         cy="35"></circle>
@@ -3059,7 +607,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                             </div>
                                                                                             <h4 class="h5"><a
-                                                                                                        href="https://school.demo.moodle.net/course/view.php?id=66"
+                                                                                                        href=""
                                                                                                         class="">{{__($course->course_name)}} </a>
                                                                                             </h4>
                                                                                         </div>
@@ -3070,14 +618,14 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                         <div class="progress-chart-container m-b-1">
                                                                                                             <div class="progress-doughnut">
                                                                                                                 <div class="progress-text has-percent">
-                                                                                                                    23%
+                                                                                                                    {{__($course->max_students)}}%
                                                                                                                 </div>
                                                                                                                 <div class="progress-indicator">
                                                                                                                     <svg xmlns="http://www.w3.org/2000/svg">
                                                                                                                         <g>
                                                                                                                             <title aria-hidden="true">
-                                                                                                                                23%</title>
-                                                                                                                            <circle class="circle percent-23"
+                                                                                                                                {{__($course->max_students)}}%</title>
+                                                                                                                            <circle class="circle percent-{{__($course->max_students)}}"
                                                                                                                                     r="27.5"
                                                                                                                                     cx="35"
                                                                                                                                     cy="35"></circle>
@@ -3090,7 +638,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                                 </div>
                                                                                                 <div class="media-body">
                                                                                                     <h4 class="h5">
-                                                                                                        <a href="https://school.demo.moodle.net/course/view.php?id=66"
+                                                                                                        <a href=""
                                                                                                            class="">{{__($course->course_name)}} </a>
                                                                                                     </h4>
                                                                                                 </div>
@@ -3098,9 +646,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                         </div>
                                                                                         <p class="text-muted">
                                                                                             Introducing the
-                                                                                            concept of Digital
-                                                                                            Literacy. Optimised
-                                                                                            for mobile.
+                                                                                            concept of{{__($course->course_name)}}
                                                                                         </p>
                                                                                     </div>
                                                                                 </div>
@@ -3108,6 +654,169 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                             @endif
                                                                             @endforeach
                                                                         </div>
+                                                                        <div data-region="paging-content-item"
+                                                                             data-page="3" id="page3" class=" row hidden">
+                                                                            @csrf
+                                                                            @foreach($courses as $key=>$course)
+                                                                            @if(($key >= 20) && ($key < 30))
+
+                                                                            <a class="nav-link"
+                                                                               href="{{route('list_lessons', ['course_id'=>$course->id])}}">
+                                                                            </a>
+                                                                            <div class="col-lg-6">
+                                                                                <div class="card m-b-1 courses-view-course-item">
+                                                                                    <div class="card-block course-info-container"
+                                                                                         id="course-info-container-66">
+                                                                                        <div class="hidden-sm-up hidden-phone">
+                                                                                            <div class="progress-chart-container m-b-1">
+                                                                                                <div class="progress-doughnut">
+                                                                                                    <div class="progress-text has-percent">
+                                                                                                        {{__($course->max_students)}}%
+                                                                                                    </div>
+                                                                                                    <div class="progress-indicator">
+                                                                                                        <svg xmlns="http://www.w3.org/2000/svg">
+                                                                                                            <g>
+                                                                                                                <title aria-hidden="true">
+                                                                                                                    {{__($course->max_students)}}%</title>
+                                                                                                                <circle class="circle percent-{{__($course->max_students)}}"
+                                                                                                                        r="27.5"
+                                                                                                                        cx="35"
+                                                                                                                        cy="35"></circle>
+                                                                                                            </g>
+                                                                                                        </svg>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <h4 class="h5"><a
+                                                                                                        href=""
+                                                                                                        class="">{{__($course->course_name)}} </a>
+                                                                                            </h4>
+                                                                                        </div>
+                                                                                        <div class="hidden-xs-down visible-phone">
+                                                                                            <div class="media">
+                                                                                                <div class="media-left">
+                                                                                                    <div class="media-object">
+                                                                                                        <div class="progress-chart-container m-b-1">
+                                                                                                            <div class="progress-doughnut">
+                                                                                                                <div class="progress-text has-percent">
+                                                                                                                    {{__($course->max_students)}}%
+                                                                                                                </div>
+                                                                                                                <div class="progress-indicator">
+                                                                                                                    <svg xmlns="http://www.w3.org/2000/svg">
+                                                                                                                        <g>
+                                                                                                                            <title aria-hidden="true">
+                                                                                                                                {{__($course->max_students)}}%</title>
+                                                                                                                            <circle class="circle percent-{{__($course->max_students)}}"
+                                                                                                                                    r="27.5"
+                                                                                                                                    cx="35"
+                                                                                                                                    cy="35"></circle>
+                                                                                                                        </g>
+                                                                                                                    </svg>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="media-body">
+                                                                                                    <h4 class="h5">
+                                                                                                        <a href=""
+                                                                                                           class="">{{__($course->course_name)}} </a>
+                                                                                                    </h4>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <p class="text-muted">
+                                                                                            Introducing the
+                                                                                            concept of{{__($course->course_name)}}
+                                                                                        </p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            @endif
+                                                                            @endforeach
+                                                                        </div>
+                                                                        <div data-region="paging-content-item"
+                                                                             data-page="4" id="page4" class=" row hidden">
+                                                                            @csrf
+                                                                            @foreach($courses as $key=>$course)
+                                                                            @if(($key >= 30) && ($key < 40))
+
+                                                                            <a class="nav-link"
+                                                                               href="{{route('list_lessons', ['course_id'=>$course->id])}}">
+                                                                            </a>
+                                                                            <div class="col-lg-6">
+                                                                                <div class="card m-b-1 courses-view-course-item">
+                                                                                    <div class="card-block course-info-container"
+                                                                                         id="course-info-container-66">
+                                                                                        <div class="hidden-sm-up hidden-phone">
+                                                                                            <div class="progress-chart-container m-b-1">
+                                                                                                <div class="progress-doughnut">
+                                                                                                    <div class="progress-text has-percent">
+                                                                                                        {{__($course->max_students)}}%
+                                                                                                    </div>
+                                                                                                    <div class="progress-indicator">
+                                                                                                        <svg xmlns="http://www.w3.org/2000/svg">
+                                                                                                            <g>
+                                                                                                                <title aria-hidden="true">
+                                                                                                                    {{__($course->max_students)}}%</title>
+                                                                                                                <circle class="circle percent-{{__($course->max_students)}}"
+                                                                                                                        r="27.5"
+                                                                                                                        cx="35"
+                                                                                                                        cy="35"></circle>
+                                                                                                            </g>
+                                                                                                        </svg>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <h4 class="h5"><a
+                                                                                                        href=""
+                                                                                                        class="">{{__($course->course_name)}} </a>
+                                                                                            </h4>
+                                                                                        </div>
+                                                                                        <div class="hidden-xs-down visible-phone">
+                                                                                            <div class="media">
+                                                                                                <div class="media-left">
+                                                                                                    <div class="media-object">
+                                                                                                        <div class="progress-chart-container m-b-1">
+                                                                                                            <div class="progress-doughnut">
+                                                                                                                <div class="progress-text has-percent">
+                                                                                                                    {{__($course->max_students)}}%
+                                                                                                                </div>
+                                                                                                                <div class="progress-indicator">
+                                                                                                                    <svg xmlns="http://www.w3.org/2000/svg">
+                                                                                                                        <g>
+                                                                                                                            <title aria-hidden="true">
+                                                                                                                                {{__($course->max_students)}}%</title>
+                                                                                                                            <circle class="circle percent-{{__($course->max_students)}}"
+                                                                                                                                    r="27.5"
+                                                                                                                                    cx="35"
+                                                                                                                                    cy="35"></circle>
+                                                                                                                        </g>
+                                                                                                                    </svg>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="media-body">
+                                                                                                    <h4 class="h5">
+                                                                                                        <a href=""
+                                                                                                           class="">{{__($course->course_name)}} </a>
+                                                                                                    </h4>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <p class="text-muted">
+                                                                                            Introducing the
+                                                                                            concept of{{__($course->course_name)}}
+                                                                                        </p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            @endif
+                                                                            @endforeach
+                                                                        </div>
+
                                                                     </div>
 
                                                                     <div class="text-xs-center text-center">
@@ -3128,7 +837,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                     </a>
                                                                                 </li>
                                                                                 <li id="pageItem1" class="page-item active "
-                                                                                    data-region="page-item" onclick="changePage(1,2)"
+                                                                                    data-region="page-item" onclick="changePage(1,4)"
                                                                                     data-page-number="1">
 
                                                                                     <a href="#page1"
@@ -3138,13 +847,33 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                                                                     </a>
                                                                                 </li>
                                                                                 <li  id="pageItem2" class="page-item  "
-                                                                                    data-region="page-item" onclick="changePage(2,2)"
+                                                                                    data-region="page-item" onclick="changePage(2,4)"
                                                                                     data-page-number="2">
 
                                                                                     <a href="#page2"
                                                                                        class="page-link"
                                                                                        data-region="page-link">
                                                                                         2
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li  id="pageItem3" class="page-item  "
+                                                                                     data-region="page-item" onclick="changePage(3,4)"
+                                                                                     data-page-number="3">
+
+                                                                                    <a href="#page3"
+                                                                                       class="page-link"
+                                                                                       data-region="page-link">
+                                                                                        3
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li  id="pageItem4" class="page-item  "
+                                                                                     data-region="page-item" onclick="changePage(4,4)"
+                                                                                     data-page-number="4">
+
+                                                                                    <a href="#page4"
+                                                                                       class="page-link"
+                                                                                       data-region="page-link">
+                                                                                        4
                                                                                     </a>
                                                                                 </li>
                                                                                 <li class="page-item  "
@@ -3181,6 +910,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
 
                 </div>
             </section>
+            @if(Auth::user()->role_id == 2)
             <section data-region="blocks-column" class="hidden-print">
                 <aside id="block-region-side-pre" class="block-region" data-blockregion="side-pre"
                        data-droptarget="1"><a href="#sb-1" class="sr-only sr-only-focusable">Skip Online
@@ -3199,7 +929,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                 <ul class="list">
                                     <li class="listentry">
                                         <div class="user"><a
-                                                    href="https://school.demo.moodle.net/user/view.php?id=13&amp;course=1"
+                                                    href=""
                                                     title="now"><img
                                                         src="https://school.demo.moodle.net/pluginfile.php/160/user/icon/boost/f2?rev=1"
                                                         alt="" title="" class="userpicture" width="16"
@@ -3235,7 +965,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                             <div class="name">Anna Alexander</div>
                                         </div>
                                         <div class="info"><a
-                                                    href="https://school.demo.moodle.net/mod/forum/discuss.php?d=176">Try
+                                                    href="#">Try
                                                 the new features of Moodle 3.4 on Mount Orange!</a></div>
                                     </li>
                                     <li class="post">
@@ -3244,7 +974,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                             <div class="name">Anna Alexander</div>
                                         </div>
                                         <div class="info"><a
-                                                    href="https://school.demo.moodle.net/mod/forum/discuss.php?d=174">Mount
+                                                    href="#">Mount
                                                 Orange is using Moodle 3.3!</a></div>
                                     </li>
                                     <li class="post">
@@ -3253,13 +983,13 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
                                             <div class="name">Anna Alexander</div>
                                         </div>
                                         <div class="info"><a
-                                                    href="https://school.demo.moodle.net/mod/forum/discuss.php?d=170">Mount
+                                                    href="#">Mount
                                                 Orange is running Moodle 3.2!</a></div>
                                     </li>
                                 </ul>
 
                                 <div class="footer"><a
-                                            href="https://school.demo.moodle.net/mod/forum/view.php?f=17">Older
+                                            href="#">Older
                                         topics</a> ...
                                 </div>
 
@@ -3271,6 +1001,7 @@ You are not<a href="{{ route('login') }}"> login</a>! Please log in to perform a
 
                     <span id="sb-2"></span></aside>
             </section>
+            @endif
         </div>
     </div>
 </div>
