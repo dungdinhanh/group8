@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return redirect()->route('home');
 });
 
 
@@ -103,4 +103,19 @@ Route::get('/review_form/{submission_id}', 'Homework\ReviewController@getReviewF
 Route::post('/add_review/{submission_id}', 'Homework\ReviewController@addReview')->name(
     'add_review'
 );
+
+
+//Notification
+Route::get('/r_notification/{receiver_id}', 'Notification\NotificationController@listReceivedNotification')->name(
+    'list_received_notification'
+);
+
+Route::get('/s_notification/{sender_id}', 'Notification\NotificationController@listSentNotification')->name(
+    'list_sent_notification'
+);
+
+Route::post('/notification/{user_id}/{notification_id}', 'Notification\NotificationController@readNotification')->name(
+    'view_detail_notification'
+);
+
 

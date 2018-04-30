@@ -6,7 +6,7 @@
 
 <link href="<?php echo e(asset('css/register.css')); ?>" rel="stylesheet">
 <div id="register">
-    <div class="container">
+    <div style="margin-top: 16px" class="container">
         <form method="POST" action="{{ route('register') }}">
             @csrf
             <div class="row">

@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
     <link rel="stylesheet" type="text/css"
           href="https://school.demo.moodle.net/theme/styles.php/boost/1523815278_1523818866/all">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     @yield('css')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -55,10 +56,11 @@
                             class="btn pull-xs-left m-r-1 btn-secondary" data-action="toggle-drawer" data-side="left"
                             data-preference="drawer-open-nav" id="yui_3_17_2_1_1523819606195_41"><i
                                 class="icon fa fa-bars fa-fw " aria-hidden="true" aria-label=""
-                                id="yui_3_17_2_1_1523819606195_40"></i><span class="sr-only">Side panel</span></button>
+                                id="yui_3_17_2_1_1523819606195_40"></i>
+                        <span class="sr-only">Side panel</span></button>
                 </div>
 
-                <a href="https://school.demo.moodle.net" class="navbar-brand
+                <a href="#" class="navbar-brand
                             hidden-sm-down ">
                     <span class="site-name hidden-sm-down">Mount Orange School</span>
                 </a>
@@ -145,6 +147,8 @@
                          aria-label="Show notification window with no new notifications" tabindex="0">
                         <i class="icon fa fa-bell fa-fw " aria-hidden="true" title="Toggle notifications menu"
                            aria-label="Toggle notifications menu"></i>
+                        <div class="count-container" data-region="count-container">2</div>
+
                         <div class="count-container hidden" data-region="count-container"></div>
 
                     </div>
@@ -162,7 +166,7 @@
                                     <span class="loading-icon"><img class="icon " alt="Loading" title="Loading"
                                                                     src="https://school.demo.moodle.net/theme/image.php/boost/core/1523815278/y/loading"></span>
                                 </a>
-                                <a href="https://school.demo.moodle.net/message/notificationpreferences.php?userid=13"
+                                <a href=""
                                    title="Notification preferences">
                                     <i class="icon fa fa-cog fa-fw " aria-hidden="true" title="Notification preferences"
                                        aria-label="Notification preferences"></i>
@@ -183,7 +187,7 @@
                                                             src="https://school.demo.moodle.net/theme/image.php/boost/core/1523815278/y/loading"></span>
                         </div>
                         <a class="see-all-link"
-                           href="https://school.demo.moodle.net/message/output/popup/notifications.php">
+                           href="">
                             <div class="popover-region-footer-container">
                                 <div class="popover-region-seeall-text">See all</div>
                             </div>
@@ -203,16 +207,6 @@
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
                             English ‎(en)‎
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="drop-down-5ad3a457dca705ad3a45768f3416">
-                            <a class="dropdown-item" href="https://school.demo.moodle.net/my/index.php?lang=ko"
-                               title="한국어 ‎(ko)‎">한국어 ‎(ko)‎</a>
-                            <a class="dropdown-item" href="https://school.demo.moodle.net/my/index.php?lang=ja"
-                               title="日本語 ‎(ja)‎">日本語 ‎(ja)‎</a>
-                            <a class="dropdown-item" href="https://school.demo.moodle.net/my/index.php?lang=zh_tw"
-                               title="正體中文 ‎(zh_tw)‎">正體中文 ‎(zh_tw)‎</a>
-                            <a class="dropdown-item" href="https://school.demo.moodle.net/my/index.php?lang=zh_cn"
-                               title="简体中文 ‎(zh_cn)‎">简体中文 ‎(zh_cn)‎</a>
-                        </div>
                     </div>
                     <!-- page_heading_menu -->
 
@@ -231,7 +225,7 @@
              tabindex="-1">
             <nav class="list-group">
                 <a class="list-group-item list-group-item-action font-weight-bold"
-                   href="https://school.demo.moodle.net/my/"
+                   href="/home"
                    data-key="myhome" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="1"
                    data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0"
                    data-preceedwithhr="0">
@@ -239,64 +233,21 @@
                         Dashboard
                     </div>
                 </a>
-
-                <a class="list-group-item list-group-item-action "
-                   href="https://school.demo.moodle.net/calendar/view.php?view=month" data-key="calendar"
-                   data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="60" data-nodetype="0"
-                   data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0"
-                   data-parent-key="1">
-                    <div class="m-l-0">
-                        Calendar
-                    </div>
-                </a>
-                <a class="list-group-item list-group-item-action " href="https://school.demo.moodle.net/user/files.php"
-                   data-key="privatefiles" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="70"
-                   data-nodetype="0" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0"
-                   data-preceedwithhr="0" data-parent-key="1">
-                    <div class="m-l-0">
-                        Private files
-                    </div>
-                </a>
-                <div class="list-group-item" data-key="mycourses" data-isexpandable="1" data-indent="0"
-                     data-showdivider="0"
-                     data-type="0" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="0"
-                     data-hidden="0"
-                     data-preceedwithhr="0" data-parent-key="myhome">
+                @if(Auth::user()->role_id == 2)
+                <a href="{{route('list_course_teacher', ['user_id'=>Auth::user()->id])}}" class="list-group-item list-group-item-action "
+                   data-key="mycourses" data-isexpandable="1" data-indent="0"
+                   data-showdivider="0"
+                   data-type="0" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="0"
+                   data-hidden="0"
+                   data-preceedwithhr="0" data-parent-key="myhome">
                     <div class="m-l-0">
                         My courses
                     </div>
-                </div>
+                </a>
+                @endif
 
-
                 <a class="list-group-item list-group-item-action "
-                   href="https://school.demo.moodle.net/course/view.php?id=64" data-key="64" data-isexpandable="1"
-                   data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0"
-                   data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0"
-                   data-parent-key="mycourses">
-                    <div class="m-l-1">
-                                
-                    </div>
-                </a>
-                <a class="list-group-item list-group-item-action "
-                   href="https://school.demo.moodle.net/course/view.php?id=27" data-key="27" data-isexpandable="1"
-                   data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0"
-                   data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0"
-                   data-parent-key="mycourses">
-                    <div class="m-l-1">
-                        Parents and Citizens Council
-                    </div>
-                </a>
-                <a class="list-group-item list-group-item-action "
-                   href="https://school.demo.moodle.net/course/view.php?id=41" data-key="41" data-isexpandable="1"
-                   data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0"
-                   data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0"
-                   data-parent-key="mycourses">
-                    <div class="m-l-1">
-                        Staffroom
-                    </div>
-                </a>
-                <a class="list-group-item list-group-item-action "
-                   href="https://school.demo.moodle.net/course/index.php#"
+                   href=""
                    data-key="courseindexpage" data-isexpandable="0" data-indent="1" data-showdivider="0" data-type="60"
                    data-nodetype="0" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0"
                    data-preceedwithhr="0" data-parent-key="mycourses">
@@ -308,13 +259,48 @@
         </div>
     </div>
     <div id="yui3-css-stamp" style="position: absolute !important; visibility: hidden !important" class=""></div>
+    <footer id="page-footer" class="p-y-1 bg-inverse">
+        <div class="container">
+            <div id="course-footer"></div>
+
+            <p class="helplink"><a href="/home">
+                    <i class="icon fa fa-info-circle fa-fw iconhelp icon-pre" aria-hidden="true" aria-label=""></i>Welcome
+                    to Moodle system</a>
+            </p>
+
+            <div class="logininfo">You are logged in as <a href=""
+                                                           title="View profile">{{ Auth::user()->full_name }}</a> (<a
+                        href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Log out</a>)
+                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                      style="display: none;">
+                    @csrf
+                </form>
+            </div>
+            <div class="tool_usertours-resettourcontainer"></div>
+            <div class="homelink"><a href="/home">Home</a></div>
+            <a>Designed & developed by @NickyDo</a>
+            <div id="resetcountdown"
+                 style="padding: 3px 1em; position: fixed; bottom: 0px; right: 0px; overflow: hidden; background-color: red; font-weight: bold;">
+                Login as a
+                @if(Auth::user()->role_id == 2)
+                    Teacher!
+                @endif
+                @if(Auth::user()->role_id == 1)
+                    Student!
+                @endif
+                Your account is activated
+            </div>
+        </div>
+    </footer>
 
     @endif
 
 </div>
 </body>
+
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

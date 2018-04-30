@@ -4,9 +4,7 @@
 
 @section('content')
 <link href="<?php echo e(asset('css/profile.css')); ?>" rel="stylesheet">
-
-
-<div class="container">
+<div class="container" style="margin-bottom: 145px">
     <div class="row">
         <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
             <p class=" text-info"><?php echo "Today is " . date("Y/m/d") . "<br>"; ?></p>
