@@ -5,3 +5,9 @@
     font-size: 40px;
     font-weight: 1000;
 }
+td.highlightt {
+    background-color: whitesmoke !important;
+}
+div#table_id_wrapper {
+    padding: 20px;
+}

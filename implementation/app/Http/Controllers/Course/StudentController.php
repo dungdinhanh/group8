@@ -68,5 +68,17 @@ class StudentController extends Controller
         return $students;
     }
 
+    public function kick(Request $request)
+    {
+        $courseId = $request->courseId;
+        $studentId = $request->studentId;
+
+        $del = Enrollment::where('course_id', $courseId)
+                            ->where('student_id', $studentId)
+                            ->delete();
+
+        return $del;
+    }
+
 
 }

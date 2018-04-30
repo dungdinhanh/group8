@@ -60,6 +60,9 @@ Route::prefix('teacher')->group(function () {
     Route::get('/course/student/search', 'Course\StudentController@search')->name(
         'search_student'
     );
+    Route::get('/course/student/kick', 'Course\StudentController@kick')->name(
+        'kick_student'
+    );
 
 });
 
