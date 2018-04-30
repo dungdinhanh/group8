@@ -3,7 +3,7 @@
 @section('title', '|Courses')
 
 @section('content')
-    <div class="container" style="margin-top: 60px">
+    <div id="page" class="container-fluid" style="margin-top: 60px">
         <div class="row justify-content-center">
             <div class="card">
                     <div class="card-header">
