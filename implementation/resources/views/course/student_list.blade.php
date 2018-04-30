@@ -11,7 +11,6 @@
                     </div>
                     <input type="hidden" id="course_id" value="{{$courseId}}">
                     <div class="container">
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#studentModal">Enroll a new student</button>
                         <!-- Modal -->
                         <div class="modal fade" id="studentModal" role="dialog">
                             <div class="modal-dialog">
@@ -27,29 +26,33 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" id="clear_student" class="btn btn-primary">Clear</button>
-                                        <button type="button" id="enroll_student" class="btn btn-primary">Enroll</button>
+                                        <button type="button" id="enroll_student" data-dismiss="modal" data-backdrop="false" class="btn btn-primary">Enroll</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <table id="table_id" class="ui celled table" style="width:100%">
+                    <table id="table_id" class="ui celled table" style="width:90%;margin: auto">
                         <thead>
                         <tr>
+                            <th></th>
                             <th>Full name</th>
                             <th>Email</th>
                             <th>School</th>
                             <th>Class</th>
                             <th>BirthDay</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tfoot>
                             <tr>
+                                <th></th>
                                 <th>Full name</th>
                                 <th>Email</th>
                                 <th>School</th>
                                 <th>Class</th>
                                 <th>BirthDay</th>
+                                <th></th>
                             </tr>
                         </tfoot>
                     </table>
@@ -60,10 +63,12 @@
 
 @section('css')
     <link rel="stylesheet" href="{{asset('css/lib/dataTable.css')}}">
+    <link rel="stylesheet" href="{{asset('css/lib/confirm.css')}}">
 @endsection
 
 @section('js')
     <script src="{{asset('js/lib/tableSorter.js')}}"></script>
+    <script src="{{asset('js/lib/confirm.js')}}"></script>
     <script src="{{asset('js/code/course/student.js')}}">
     </script>
 @endsection

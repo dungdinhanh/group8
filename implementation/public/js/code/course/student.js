@@ -1,5 +1,90 @@
 $(document).ready(function() {
     var course_id = $('#course_id').val();
+    // data table
+
+    var t = $('#table_id').DataTable({
+        "dom": 'lf<"toolbar">rtip',
+        "iDisplayLength": 5,
+        "aLengthMenu": [[5, 10, 50, 100, -1], [5, 10, 50, 100, "All"]],
+        "ajax": {
+            "url": "/teacher/course/"+course_id+"/student/list",
+            "dataSrc": ""
+        },
+        "columns": [
+            {
+                data: null,
+                "orderable":      false,
+                "searchable": false,
+                render: function ( data, type, full, meta  ) {
+                    return meta.row + 1;
+                }
+            },
+            { "data": "full_name" },
+            { "data": "email" },
+            { "data": "university" },
+            { "data": "class" },
+            { "data": "date_of_birth" },
+            {
+                data: null,
+                "orderable":      false,
+                "searchable": false,
+                render: function ( data, type, full, meta  ) {
+                    return '<button class="kick_student circular ui negative basic button">Unenroll</button>';
+                }
+            }
+        ],
+        initComplete: function () {
+            var column = this.api().column(4);
+            var select = $('<select><option value=""></option></select>')
+                .appendTo( $(column.footer()).empty() )
+                .on( 'change', function () {
+                    var val = $.fn.dataTable.util.escapeRegex(
+                        $(this).val()
+                    );
+
+                    column
+                        .search( val ? '^'+val+'$' : '', true, false )
+                        .draw();
+                } );
+
+            column.data().unique().sort().each( function ( d, j ) {
+                select.append( '<option value="'+d+'">'+d+'</option>' )
+            } );
+        }
+    });
+
+    $("div.toolbar").html('<button class="ui positive circular button" style="margin-left: 150px" data-toggle="modal" data-target="#studentModal">' +
+        'Enroll a new student</button>')
+
+    $('#table_id').on('click', 'tr td .kick_student', function(e){
+        var selectedRow = $(this).parent().parent();
+        var data = t.row( selectedRow ).data();
+        $.alertable.confirm("Are you sure to kick "+ data.full_name + " out of this course?").then(function() {
+            $.ajax({
+                type: 'GET',
+                url: '/teacher/course/student/kick',
+                data: {
+                    courseId: course_id,
+                    studentId: data.id,
+                },
+                success: function (data) {
+                    console.log(data)
+                    t.row( selectedRow )
+                        .remove()
+                        .draw();
+                }
+            });
+        });
+    });
+
+    t.on( 'order.dt search.dt', function () {
+        t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            cell.innerHTML = i+1;
+        } );
+    } ).draw();
+
+
+    // dropdown ui
     $('#search_student_group')
         .dropdown({
             apiSettings: {
@@ -45,45 +130,9 @@ $(document).ready(function() {
                 userIds: $('#search_student_group').dropdown('get value')
             },
             success: function (data) {
-                // location.reload();
-                t.row.add([
-                    {
-                        "id": "Tiger Nixon",
-                        "full_name": "System Architect",
-                        "email": "$3,120",
-                        "university": "2011/04/25",
-                        "class": "Edinburgh",
-                        "date_of_birth": "5421"
-                    }
-                ]).draw( false );
+                t.ajax.reload();
+                $('#search_student_group').dropdown('clear');
             }
         });
     });
-
-     var t = $('#table_id').DataTable({
-        "dom": '<"top"if>rt<"bottom"lp><"clear">',
-         // "columnDefs": [ {
-         //     "searchable": false,
-         //     "orderable": false,
-         //     "targets": 0
-         // } ],
-         // "order": [[ 1, 'asc' ]],
-        "ajax": {
-            "url": "/teacher/course/"+course_id+"/student/list",
-            "dataSrc": ""
-        },
-        "columns": [
-            // { "data": "id" },
-            { "data": "full_name" },
-            { "data": "email" },
-            { "data": "university" },
-            { "data": "class" },
-            { "data": "date_of_birth" }
-        ]
-    });
-    // t.on( 'order.dt search.dt', function () {
-    //     t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
-    //         cell.innerHTML = i+1;
-    //     } );
-    // } ).draw();
 });
