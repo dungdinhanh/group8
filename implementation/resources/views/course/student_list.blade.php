@@ -34,7 +34,7 @@
                             </div>
                         </div>
                     </div>
-                    <table id="table_id" class="ui celled table" style="width:90%;margin: auto">
+                    <table id="table_id" class="ui celled table stripe display" style="width:90%;margin: auto">
                         <thead>
                         <tr>
                             <th></th>
