@@ -10,7 +10,7 @@
                         {{__('student course')}}
                     </div>
                     <input type="hidden" id="course_id" value="{{$courseId}}">
-                    <div class="container">
+                    <div class="container-fluid">
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#studentModal">Enroll a new student</button>
                         <!-- Modal -->
                         <div class="modal fade" id="studentModal" role="dialog">
