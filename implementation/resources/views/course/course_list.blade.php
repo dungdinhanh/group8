@@ -77,11 +77,12 @@
                                                         </div>
                                                         <div class="moreinfo"><a title="Summary"
                                                                                  href="{{route('list_lessons', ['course_id'=>$course->id])}}"><i
-                                                                        class="icon fa fa-sign-in fa-fw "
+                                                                        class="icon sign in alternate
+"
                                                                         aria-hidden="true" title="Summary"
                                                                         aria-label="Summary"></i></a></div>
                                                         <div class="enrolmenticons"><i
-                                                                    class="icon fa fa-unlock-alt fa-fw "
+                                                                    class="icon unlock"
                                                                     aria-hidden="true" title="Guest access"
                                                                     aria-label="Guest access"></i></div>
                                                     </div>
