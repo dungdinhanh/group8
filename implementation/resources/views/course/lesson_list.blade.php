@@ -27,7 +27,7 @@
                                     <li class="breadcrumb-item"><a href="/home">Home</a>
                                     </li>
                                     <li class="breadcrumb-item"><a
-                                                href="{{route('course.list', ['user_id'=>Auth::user()->id])}}">courses</a></li>
+                                                href="{{route('list_course_teacher', ['user_id'=>Auth::user()->id])}}">courses</a></li>
                                     <li class="breadcrumb-item"><a
                                                 href="#"
                                                 title="Digital Literacy ">{{__($course->course_name)}}</a></li>
