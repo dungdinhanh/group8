@@ -61,7 +61,7 @@
             <a class="btn btn-link p-a-0" role="button" data-container="body" data-toggle="popover"
                data-placement="right" data-content="<div class=&quot;no-overflow&quot;><p>Please be aware that some authentication plugins will not allow you to change the username.</p>
 </div> " data-html="true" tabindex="0" data-trigger="focus">
-  <i class="icon fa fa-question-circle text-info fa-fw " aria-hidden="true" title="Help with Username"
+  <i class="icon question circle outline text-info fa-fw  " aria-hidden="true" title="Help with Username"
      aria-label="Help with Username"></i>
 </a>
         </span>
@@ -85,7 +85,7 @@
                                         <div class="col-md-3">
         <span class="pull-xs-right text-nowrap">
             <abbr class="initialism text-danger" title="Required"><i
-                        class="icon fa fa-exclamation-circle text-danger fa-fw " aria-hidden="true" title="Required"
+                        class="icon question circle outline text-danger fa-fw " aria-hidden="true" title="Required"
                         aria-label="Required"></i></abbr>
 
 
@@ -110,7 +110,7 @@
                                         <div class="col-md-3">
         <span class="pull-xs-right text-nowrap">
             <abbr class="initialism text-danger" title="Required"><i
-                        class="icon fa fa-exclamation-circle text-danger fa-fw " aria-hidden="true" title="Required"
+                        class="icon question circle outline text-danger fa-fw" aria-hidden="true" title="Required"
                         aria-label="Required"></i></abbr>
 
 
@@ -230,7 +230,7 @@
                                 </div>
                             </div>
                             <div class="fdescription required">There are required fields in this form marked <i
-                                        class="icon fa fa-exclamation-circle text-danger fa-fw " aria-hidden="true"
+                                        class="icon question circle outline text-danger fa-fw " aria-hidden="true"
                                         title="Required field" aria-label="Required field"></i>.
                             </div>
                         </form>

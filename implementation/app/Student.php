@@ -23,4 +23,9 @@ class Student extends Model
         return $this->belongsToMany('App\Submission', 'enrollments',
             'course_id', 'student_id');
     }
+
+    public function enrollments()
+    {
+        return $this->hasMany('App\Enrollment');
+    }
 }
