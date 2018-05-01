@@ -11,11 +11,15 @@
     {{--<title>{{ config('app.name', 'Laravel') }}</title>--}}
     <title>@yield('title')</title>
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    {{--<script src="" defer></script>--}}
     <script src="{{ asset('js/dashboard.js') }}" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+    @yield('css')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/lib/tableSorter.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -23,6 +27,12 @@
 
     <!--     Styles -->
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <style>
+        i.icon{
+            margin-top: -7px;
+        }
+    </style>
 
 </head>
 @if (Auth::guest())
@@ -33,6 +43,7 @@
 @else
 <body id="page-my-index"
       class="format-site path-my safari dir-ltr lang-en yui-skin-sam yui3-skin-sam school-demo-moodle-net pagelayout-mydashboard course-1 context-160 jsenabled drawer-ease drawer-open-left">
+
 <div id="app">
     <div id="page-wrapper">
 
@@ -46,7 +57,7 @@
                     <button onclick="tryMe2()" aria-expanded="true" aria-controls="nav-drawer" type="button"
                             class="btn pull-xs-left m-r-1 btn-secondary" data-action="toggle-drawer" data-side="left"
                             data-preference="drawer-open-nav" id="yui_3_17_2_1_1523819606195_41"><i
-                                class="icon fa fa-bars fa-fw " aria-hidden="true" aria-label=""
+                                class="icon bars" aria-hidden="true" aria-label=""
                                 id="yui_3_17_2_1_1523819606195_40"></i>
                         <span class="sr-only">Side panel</span></button>
                 </div>
@@ -78,36 +89,30 @@
                                      data-align="tr-br">
                                     <a href="/home" class="dropdown-item menu-action"
                                        role="menuitem" data-title="mymoodle,admin" aria-labelledby="actionmenuaction-1"><i
-                                                class="icon fa fa-tachometer fa-fw " aria-hidden="true"
+                                                class="icon tachometer alternate fa-fw " aria-hidden="true"
                                                 title="Dashboard"
                                                 aria-label="Dashboard"></i><span class="menu-action-text"
                                                                                  id="actionmenuaction-1">Dashboard</span></a>
                                     <div class="dropdown-divider"></div>
                                     <a href="{{route('profile')}}"
                                        class="dropdown-item menu-action" role="menuitem" data-title="profile,moodle"
-                                       aria-labelledby="actionmenuaction-2"><i class="icon fa fa-user fa-fw "
+                                       aria-labelledby="actionmenuaction-2"><i class="icon user fa-fw "
                                                                                aria-hidden="true" title="Profile"
                                                                                aria-label="Profile"></i><span
                                                 class="menu-action-text"
                                                 id="actionmenuaction-2">{{__('View Profile')}}</span></a>
                                     <a href="{{route('edit_profile')}}"
                                        class="dropdown-item menu-action" role="menuitem" data-title="grades,grades"
-                                       aria-labelledby="actionmenuaction-3"><i class="icon fa fa-table fa-fw "
+                                       aria-labelledby="actionmenuaction-3"><i class="icon table fa-fw "
                                                                                aria-hidden="true" title="Grades"
                                                                                aria-label="Grades"></i><span
                                                 class="menu-action-text"
                                                 id="actionmenuaction-3">{{__('Edit Profile')}}</span></a>
-                                    <a href="#"
-                                       class="dropdown-item menu-action" role="menuitem" data-title="messages,message"
-                                       aria-labelledby="actionmenuaction-4"><i class="icon fa fa-comment fa-fw "
-                                                                               aria-hidden="true" title="Messages"
-                                                                               aria-label="Messages"></i><span
-                                                class="menu-action-text"
-                                                id="actionmenuaction-4">{{__('Change Password')}}</span></a>
+
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"
                                        class="dropdown-item menu-action" role="menuitem" data-title="logout,moodle"
-                                       aria-labelledby="actionmenuaction-6"><i class="icon fa fa-sign-out fa-fw "
+                                       aria-labelledby="actionmenuaction-6"><i class="icon sign in alternate fa-fw "
                                                                                aria-hidden="true" title="Log out"
                                                                                aria-label="Log out"></i><span
                                                 class="menu-action-text"
@@ -136,7 +141,7 @@
                     <div class="popover-region-toggle nav-link" data-region="popover-region-toggle" aria-role="button"
                          aria-controls="popover-region-container-5ad3a457db2285ad3a45768f3413" aria-haspopup="true"
                          aria-label="Show notification window with no new notifications" tabindex="0">
-                        <i class="icon fa fa-bell fa-fw " aria-hidden="true" title="Toggle notifications menu"
+                        <i style="font-size: 1.5em;" class="alarm icon" aria-hidden="true" title="Toggle notifications menu"
                            aria-label="Toggle notifications menu"></i>
                         <div class="count-container" data-region="count-container">2</div>
 
@@ -225,7 +230,7 @@
                     </div>
                 </a>
                 @if(Auth::user()->role_id == 2)
-                <a href="{{route('list_course_teacher', ['user_id'=>Auth::user()->id])}}" class="list-group-item list-group-item-action "
+                <a href="{{route('teacher.course.list')}}" class="list-group-item list-group-item-action "
                    data-key="mycourses" data-isexpandable="1" data-indent="0"
                    data-showdivider="0"
                    data-type="0" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="0"
@@ -299,5 +304,5 @@
         });
     });
 </script>
-@yield('js')
+    @yield('js')
 </html>
