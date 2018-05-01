@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 
 class NotificationController extends Controller
 {
-    public function addClassNotification($sender_id, $course_id, $message, $type)
+    public static function addClassNotification($sender_id, $course_id, $message, $type)
     {
         $course = Course::where('id', '=', $course_id)->get()->first();
         $students = $course->students;
@@ -25,7 +25,7 @@ class NotificationController extends Controller
         }
     }
     //
-    public function addNotification($sender_id, $receiver_id, $message, $type)
+    public static function addNotification($sender_id, $receiver_id, $message, $type)
     {
         $notification = new Notification();
         $notification->sender_id = $sender_id;
