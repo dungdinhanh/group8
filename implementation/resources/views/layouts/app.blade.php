@@ -28,6 +28,11 @@
     <!--     Styles -->
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <style>
+        i.icon{
+            margin-top: -7px;
+        }
+    </style>
 
 </head>
 @if (Auth::guest())
@@ -84,36 +89,30 @@
                                      data-align="tr-br">
                                     <a href="/home" class="dropdown-item menu-action"
                                        role="menuitem" data-title="mymoodle,admin" aria-labelledby="actionmenuaction-1"><i
-                                                class="icon fa fa-tachometer fa-fw " aria-hidden="true"
+                                                class="icon tachometer alternate fa-fw " aria-hidden="true"
                                                 title="Dashboard"
                                                 aria-label="Dashboard"></i><span class="menu-action-text"
                                                                                  id="actionmenuaction-1">Dashboard</span></a>
                                     <div class="dropdown-divider"></div>
                                     <a href="{{route('profile')}}"
                                        class="dropdown-item menu-action" role="menuitem" data-title="profile,moodle"
-                                       aria-labelledby="actionmenuaction-2"><i class="icon fa fa-user fa-fw "
+                                       aria-labelledby="actionmenuaction-2"><i class="icon user fa-fw "
                                                                                aria-hidden="true" title="Profile"
                                                                                aria-label="Profile"></i><span
                                                 class="menu-action-text"
                                                 id="actionmenuaction-2">{{__('View Profile')}}</span></a>
                                     <a href="{{route('edit_profile')}}"
                                        class="dropdown-item menu-action" role="menuitem" data-title="grades,grades"
-                                       aria-labelledby="actionmenuaction-3"><i class="icon fa fa-table fa-fw "
+                                       aria-labelledby="actionmenuaction-3"><i class="icon table fa-fw "
                                                                                aria-hidden="true" title="Grades"
                                                                                aria-label="Grades"></i><span
                                                 class="menu-action-text"
                                                 id="actionmenuaction-3">{{__('Edit Profile')}}</span></a>
-                                    <a href="#"
-                                       class="dropdown-item menu-action" role="menuitem" data-title="messages,message"
-                                       aria-labelledby="actionmenuaction-4"><i class="icon fa fa-comment fa-fw "
-                                                                               aria-hidden="true" title="Messages"
-                                                                               aria-label="Messages"></i><span
-                                                class="menu-action-text"
-                                                id="actionmenuaction-4">{{__('Change Password')}}</span></a>
+
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"
                                        class="dropdown-item menu-action" role="menuitem" data-title="logout,moodle"
-                                       aria-labelledby="actionmenuaction-6"><i class="icon fa fa-sign-out fa-fw "
+                                       aria-labelledby="actionmenuaction-6"><i class="icon sign in alternate fa-fw "
                                                                                aria-hidden="true" title="Log out"
                                                                                aria-label="Log out"></i><span
                                                 class="menu-action-text"

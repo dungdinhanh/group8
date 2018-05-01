@@ -3,7 +3,11 @@
 @section('title', '|Courses')
 
 @section('content')
-
+<style>
+    a, ol, li {
+        text-decoration: none!important;
+    }
+</style>
 <div id="page" class="container-fluid">
     <header id="page-header" class="row">
         <div class="col-xs-12 p-a-1">
@@ -63,32 +67,28 @@
                                                         src="https://school.demo.moodle.net/theme/image.php/boost/core/1524384098/i/loading_small"
                                                         class="spinner iconsmall" style="display: none;"
                                                         hidden="hidden"></h3></div>
-                                        <div class="content" style="">
-                                            <div id="search_result" class="courses">
-                                            </div>
-                                            <div id="origin_result" class="courses">
+                                        <div class="" style="">
+                                            <table id="search_result" class="courses ui celled table">
+                                            </table>
+                                            <table id="origin_result" class="courses ui celled table">
                                                 @csrf
                                                 @foreach($courses as $course)
-                                                <div class="coursebox clearfix odd first collapsed" data-courseid="66"
+                                                <tr class="coursebox clearfix odd first collapsed" data-courseid="66"
                                                      data-type="1">
-                                                    <div class="info">
+                                                    <th class="info">
                                                         <div class="coursename"><a class=""
                                                                                    href="{{route('teacher.lesson.list', ['course_id'=>$course->id])}}">{{__($course->course_name)}}</a>
                                                         </div>
-                                                        <div class="moreinfo"><a title="Summary"
-                                                                                 href="{{route('teacher.lesson.list', ['course_id'=>$course->id])}}"><i
-                                                                        class="icon sign in alternate"
-                                                                        aria-hidden="true" title="Summary"
-                                                                        aria-label="Summary"></i></a></div>
-                                                        <div class="enrolmenticons"><i
-                                                                    class="icon unlock"
-                                                                    aria-hidden="true" title="Guest access"
-                                                                    aria-label="Guest access"></i></div>
-                                                    </div>
+                                                        <div class="moreinfo">
+                                                            <a title="Summary" href="{{route('teacher.lesson.list', ['course_id'=>$course->id])}}">
+                                                                <i class="icon sign in alternate" aria-hidden="true" title="Summary" ria-label="Summary"></i>
+                                                            </a>
+                                                        </div>
+                                                    </th>
                                                     <div class="content"></div>
-                                                </div>
+                                                </tr>
                                                 @endforeach
-                                            </div>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
@@ -96,10 +96,17 @@
                         </div>
                         @if(Auth::user()->role_id == 2)
                         <div class="buttons">
+<<<<<<< HEAD
                             <div class="singlebutton">
                                 <form method="get" action="{{ route('teacher.course.create_form') }}">
                                     <button type="submit" class="btn btn-secondary" id="single_button5ae2034e8883c2"
                                             title="">[+] Add a new course
+=======
+                            <div style="width: 165px; margin: 0 auto" class="">
+                                <form method="get" action="{{ route('create_course') }}">
+                                    <button style="margin-top: 5px" type="submit" class="btn btn-secondary" id="single_button5ae2034e8883c2"
+                                            title=""><i class="plus square outline icon"></i> Add a new course
+>>>>>>> 9aee813cd19a02495149c1ea056e3a92ddc0d772
                                     </button>
                                 </form>
                             </div>
@@ -113,6 +120,10 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('css')
+<link rel="stylesheet" href="{{asset('css/lib/dataTable.css')}}">
 @endsection
 
 @section('js')
