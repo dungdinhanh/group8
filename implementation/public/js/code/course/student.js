@@ -1,7 +1,8 @@
 $(document).ready(function() {
     var course_id = $('#course_id').val();
-    // data table
+// data table section
 
+    // initial sorted table
     var t = $('#table_id').DataTable({
         "dom": 'lf<"toolbar">rtip',
         "iDisplayLength": 5,
@@ -53,38 +54,83 @@ $(document).ready(function() {
         }
     });
 
-    $("div.toolbar").html('<button class="ui positive circular button" style="margin-left: 150px" data-toggle="modal" data-target="#studentModal">' +
-        'Enroll a new student</button>')
+    // render button
+    $("div.toolbar").html('<button class="ui positive circular button" style="margin-left: 100px" data-toggle="modal" data-target="#studentModal">' +
+        'Enroll a new student</button>' +
+        '<button id="kick_many_student_btn" class="ui circular negative button" disabled style="margin-left: 20px">Unenroll selected students</button>');
 
+    // kick single student
     $('#table_id').on('click', 'tr td .kick_student', function(e){
         var selectedRow = $(this).parent().parent();
         var data = t.row( selectedRow ).data();
         $.alertable.confirm("Are you sure to kick "+ data.full_name + " out of this course?").then(function() {
-            $.ajax({
-                type: 'GET',
-                url: '/teacher/course/student/kick',
-                data: {
-                    courseId: course_id,
-                    studentId: data.id,
-                },
-                success: function (data) {
-                    console.log(data)
-                    t.row( selectedRow )
-                        .remove()
-                        .draw();
-                }
-            });
+            kickStudent(selectedRow, data)
         });
     });
 
+    //kick muptiple student
+    $('#kick_many_student_btn').click( function () {
+        var selectedRows = t.rows('.selected');
+        $.alertable.confirm("Are you sure to kick selected students out of this course?")
+            .then(function() {
+                selectedRows.every( function () {
+                    var data = this.data();
+                    $.ajax({
+                        type: 'GET',
+                        url: '/teacher/course/student/kick',
+                        data: {
+                            courseId: course_id,
+                            studentId: data.id,
+                        },
+                        success: function (data) {
+                        }
+                    });
+                } );
+                selectedRows.remove().draw();
+                countSelected();
+            });
+    } );
+
+    // row selection
+    $('#table_id tbody').on( 'click', 'tr', function () {
+        $(this).toggleClass('selected');
+        countSelected();
+    } );
+
+    // count selected function
+    function countSelected() {
+        var length = t.rows('.selected').data().length > 0 ? t.rows('.selected').data().length : '';
+        length ? $('#kick_many_student_btn').prop("disabled", false) : $('#kick_many_student_btn').prop("disabled", true);
+        $('#kick_many_student_btn')
+            .html('Unenroll '+ length + ' selected students');
+    }
+
+    // kick student function
+    function kickStudent(selectedRow,data) {
+        $.ajax({
+            type: 'GET',
+            url: '/teacher/course/student/kick',
+            data: {
+                courseId: course_id,
+                studentId: data.id,
+            },
+            success: function (data) {
+                console.log(data)
+                t.row( selectedRow )
+                    .remove()
+                    .draw();
+            }
+        });
+    }
+
+    // render index column
     t.on( 'order.dt search.dt', function () {
         t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
             cell.innerHTML = i+1;
         } );
     } ).draw();
 
-
-    // dropdown ui
+// dropdown ui
     $('#search_student_group')
         .dropdown({
             apiSettings: {

@@ -230,7 +230,7 @@
                     </div>
                 </a>
                 @if(Auth::user()->role_id == 2)
-                <a href="{{route('list_course_teacher', ['user_id'=>Auth::user()->id])}}" class="list-group-item list-group-item-action "
+                <a href="{{route('teacher.course.list')}}" class="list-group-item list-group-item-action "
                    data-key="mycourses" data-isexpandable="1" data-indent="0"
                    data-showdivider="0"
                    data-type="0" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="0"
