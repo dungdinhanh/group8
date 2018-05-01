@@ -96,17 +96,10 @@
                         </div>
                         @if(Auth::user()->role_id == 2)
                         <div class="buttons">
-<<<<<<< HEAD
                             <div class="singlebutton">
                                 <form method="get" action="{{ route('teacher.course.create_form') }}">
                                     <button type="submit" class="btn btn-secondary" id="single_button5ae2034e8883c2"
                                             title="">[+] Add a new course
-=======
-                            <div style="width: 165px; margin: 0 auto" class="">
-                                <form method="get" action="{{ route('create_course') }}">
-                                    <button style="margin-top: 5px" type="submit" class="btn btn-secondary" id="single_button5ae2034e8883c2"
-                                            title=""><i class="plus square outline icon"></i> Add a new course
->>>>>>> 9aee813cd19a02495149c1ea056e3a92ddc0d772
                                     </button>
                                 </form>
                             </div>
