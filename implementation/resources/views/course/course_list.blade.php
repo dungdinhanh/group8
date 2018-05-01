@@ -73,10 +73,10 @@
                                                      data-type="1">
                                                     <div class="info">
                                                         <div class="coursename"><a class=""
-                                                                                   href="{{route('list_lessons', ['course_id'=>$course->id])}}">{{__($course->course_name)}}</a>
+                                                                                   href="{{route('teacher.lesson.list', ['course_id'=>$course->id])}}">{{__($course->course_name)}}</a>
                                                         </div>
                                                         <div class="moreinfo"><a title="Summary"
-                                                                                 href="{{route('list_lessons', ['course_id'=>$course->id])}}"><i
+                                                                                 href="{{route('teacher.lesson.list', ['course_id'=>$course->id])}}"><i
                                                                         class="icon sign in alternate"
                                                                         aria-hidden="true" title="Summary"
                                                                         aria-label="Summary"></i></a></div>
@@ -97,7 +97,7 @@
                         @if(Auth::user()->role_id == 2)
                         <div class="buttons">
                             <div class="singlebutton">
-                                <form method="get" action="{{ route('create_course') }}">
+                                <form method="get" action="{{ route('teacher.course.create_form') }}">
                                     <button type="submit" class="btn btn-secondary" id="single_button5ae2034e8883c2"
                                             title="">[+] Add a new course
                                     </button>

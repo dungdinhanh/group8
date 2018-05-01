@@ -31,39 +31,66 @@ Route::post('/user/edit', 'CRUD\CRUDController@edit')->name('edit_profile_handle
 
 //course
 
-Route::get('/user/course_list/{user_id}', 'Course\CourseController@listCourses')->name(
-    'list_course_teacher'
-);
+//Route::get('/user/course_list/{user_id}', 'Course\CourseController@listCourses')->name(
+//    'list_course_teacher'
+//);
+//
+//Route::get('/user/teacher/courses/{course_id}', 'Course\CourseController@listLessons')->name(
+//    'list_lessons'
+//);
+Route::prefix('teacher')->name('teacher.')->group(function () {
+    // course
+    Route::name('course.')->group(function () {
+        Route::get('/course', 'Course\CourseController@listCourses')->name(
+            'list'
+        );
+        Route::get('/course/create', 'Course\CourseController@createCourse')->name(
+            'create_form'
+        );
+        Route::post('/course/store', 'Course\CourseController@storeCourse')->name(
+            'store'
+        );
+        Route::post('/course/search', 'Course\CourseController@searchCourse')->name(
+            'search'
+        );
+    });
 
-Route::get('/user/teacher/courses/{course_id}', 'Course\CourseController@listLessons')->name(
-    'list_lessons'
-);
-Route::prefix('teacher')->group(function () {
-    Route::get('/course/create', 'Course\CourseController@createCourse')->name(
-        'create_course'
-    );
-    Route::post('/course/store', 'Course\CourseController@storeCourse')->name(
-        'store_course'
-    );
-    Route::post('/course/search', 'Course\CourseController@searchCourse')->name(
-        'search_course'
-    );
-    Route::get('/course/{course_id}/student', 'Course\StudentController@index')->name(
-        'show_student'
-    );
-    Route::get('/course/student/enroll', 'Course\StudentController@enroll')->name(
-        'enroll_student'
-    );
-    Route::get('/course/{course_id}/student/list', 'Course\StudentController@list')->name(
-        'list_student'
-    );
-    Route::get('/course/student/search', 'Course\StudentController@search')->name(
-        'search_student'
-    );
-    Route::get('/course/student/kick', 'Course\StudentController@kick')->name(
-        'kick_student'
-    );
+    //lesson
+    Route::name('lesson.')->group(function () {
+        Route::get('/course/{course_id}', 'Course\LessonController@index')->name(
+            'list'
+        );
+        Route::get('/course/{course_id}/lesson/create', 'Course\LessonController@create')->name(
+            'create'
+        );
+        Route::post('/course/lesson/', 'Course\LessonController@store')->name(
+            'store'
+        );
+    });
 
+    // student
+    Route::name('student')->group(function () {
+        //show view
+        Route::get('/course/{course_id}/student', 'Course\StudentController@index')->name(
+            'index'
+        );
+        //api
+        Route::get('/course/student/enroll', 'Course\StudentController@enroll')->name(
+            'enroll'
+        );
+        //api
+        Route::get('/course/{course_id}/student/list', 'Course\StudentController@list')->name(
+            'list'
+        );
+        //api
+        Route::get('/course/student/search', 'Course\StudentController@search')->name(
+            'search'
+        );
+        // api
+        Route::get('/course/student/kick', 'Course\StudentController@kick')->name(
+            'kick'
+        );
+    });
 });
 
 

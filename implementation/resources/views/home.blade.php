@@ -526,7 +526,7 @@
                                                                                                 </div>
                                                                                             </div>
                                                                                             <h4 class="h5"><a
-                                                                                                        href="{{route('list_lessons', ['course_id' => $course->id])}}"
+                                                                                                        href="{{route('teacher.lesson.list', ['course_id' => $course->id])}}"
                                                                                                         class="">{{__($course->course_name)}} </a>
                                                                                             </h4>
                                                                                         </div>
@@ -557,7 +557,7 @@
                                                                                                 </div>
                                                                                                 <div class="media-body">
                                                                                                     <h4 class="h5">
-                                                                                                        <a href="{{route('list_lessons', ['course_id' => $course->id])}}"
+                                                                                                        <a href="{{route('teacher.lesson.list', ['course_id' => $course->id])}}"
                                                                                                            class="">{{__($course->course_name)}} </a>
                                                                                                     </h4>
                                                                                                 </div>
@@ -580,7 +580,7 @@
                                                                             @if(($key >= 10) && ($key < 20))
 
                                                                             <a class="nav-link"
-                                                                               href="{{route('list_lessons', ['course_id'=>$course->id])}}">
+                                                                               href="{{route('teacher.lesson.list', ['course_id'=>$course->id])}}">
                                                                             </a>
                                                                             <div class="col-lg-6">
                                                                                 <div class="card m-b-1 courses-view-course-item">
@@ -661,7 +661,7 @@
                                                                             @if(($key >= 20) && ($key < 30))
 
                                                                             <a class="nav-link"
-                                                                               href="{{route('list_lessons', ['course_id'=>$course->id])}}">
+                                                                               href="{{route('teacher.lesson.list', ['course_id'=>$course->id])}}">
                                                                             </a>
                                                                             <div class="col-lg-6">
                                                                                 <div class="card m-b-1 courses-view-course-item">
@@ -742,7 +742,7 @@
                                                                             @if(($key >= 30) && ($key < 40))
 
                                                                             <a class="nav-link"
-                                                                               href="{{route('list_lessons', ['course_id'=>$course->id])}}">
+                                                                               href="{{route('teacher.lesson.list', ['course_id'=>$course->id])}}">
                                                                             </a>
                                                                             <div class="col-lg-6">
                                                                                 <div class="card m-b-1 courses-view-course-item">
