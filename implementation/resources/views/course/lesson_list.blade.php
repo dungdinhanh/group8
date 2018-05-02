@@ -110,7 +110,14 @@
                                                                             src="https://school.demo.moodle.net/theme/image.php/boost/survey/1524376896/icon"
                                                                             class="iconlarge activityicon" alt=" "
                                                                             role="presentation"><span
-                                                                            class="instancename">{{__('Max Students : ')}}: {{__($course->max_students)}}</span></a>
+                                                                            class="instancename">{{__('Max Students : ')}} {{__($course->max_students)}}</span></a>
+
+                                                                <a style="float: right;"  class="" onclick=""
+                                                                   href="{{route('teacher.student.index', ['course_id'=>$course->id])}}"><img
+                                                                            src="https://school.demo.moodle.net/theme/image.php/boost/workshop/1525222857/icon"
+                                                                            class="iconlarge activityicon" alt=" "
+                                                                            role="presentation"><span
+                                                                            class="instancename">{{__('List details')}}</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -126,7 +133,7 @@
                                                                             src="https://school.demo.moodle.net/theme/image.php/boost/survey/1524376896/icon"
                                                                             class="iconlarge activityicon" alt=" "
                                                                             role="presentation"><span
-                                                                            class="instancename">{{__('Max groups: ')}}: {{__($course->max_groups)}}</span></a>
+                                                                            class="instancename">{{__('Max groups: ')}}{{__($course->max_groups)}}</span></a>
                                                             </div>
                                                         </div>
                                                     </div>

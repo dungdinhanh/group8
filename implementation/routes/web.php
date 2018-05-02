@@ -69,7 +69,7 @@ Route::prefix('teacher')->name('teacher.')->group(function () {
     });
 
     // student
-    Route::name('student')->group(function () {
+    Route::name('student.')->group(function () {
         //show view
         Route::get('/course/{course_id}/student', 'Course\StudentController@index')->name(
             'index'
