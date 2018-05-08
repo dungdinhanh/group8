@@ -37,7 +37,7 @@ class HomeworkController extends Controller
     private function getCreateHomeworkType($homework)
     {
         $type = "";
-        $type = $type."[HOMEWORK - ".$homework->title."] - ".$homework->course->course_name;
+        $type = $type."[HOMEWORK]";
         return $type;
     }
 
@@ -54,11 +54,10 @@ class HomeworkController extends Controller
         $homework->save();
         $message = $this->getCreateHomeworkMessage($homework);
         $type = $this->getCreateHomeworkType($homework);
+        //add notification
         NotificationController::addClassNotification(\Auth::user()->id,
             $homework->course_id, $message, $type);
-//        NotificationController::addClassNotification(\Auth::user()->id,
-//            $homework->course_id,);
-        return redirect()->route('view_homework', ['homework_id' => $homework->id]);
+        return redirect()->route('teacher.homework.view', ['homework_id' => $homework->id]);
     }
 
 

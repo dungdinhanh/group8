@@ -13,7 +13,7 @@
                     <h2>{{__('Create homework for '.$lesson->lesson_title.' of '.$course->course_name)}}</h2>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{route('create_homework')}}">
+                    <form method="post" action="{{route('teacher.homework.create')}}">
                         @csrf
                         <div class="row form-group">
                             <label for="homework_no" class="col-md-4 col-form-label text-md-right">

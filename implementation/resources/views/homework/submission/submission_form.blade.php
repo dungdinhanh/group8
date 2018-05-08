@@ -57,7 +57,7 @@
                         </div>
                         <div class="box boxaligncenter editsubmissionform p-y-1" id="yui_3_17_2_1_1524908524725_370">
                             <form autocomplete="off" method="post" accept-charset="utf-8" id="mform1" class="mform"
-                                  action="{{route('submit_homework')}}">
+                                  action="{{route('student.submission.submit')}}">
                                 <div class="row form-group">
                                     <label for="title" class="col-form-label col-md-4">
                                         {{__('Title')}}
@@ -113,7 +113,7 @@ col-md-12">Type your answer here</textarea>
 
                                             </label>
                                             <span data-fieldtype="submit">
-                                            <a href="/user/view_homework/{{__($homework->id)}}"  class="btn btn-secondary
+                                            <a href="{{route('teacher.homework.view', ['homework_id' => $homework->id])}}"  class="btn btn-secondary
                                         " name="cancel" id="id_cancel" value="Cancel">cancel
                                             </a>
                                             </span>

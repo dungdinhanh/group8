@@ -88,7 +88,7 @@
                                                         <div>
                                                             <div class="activityinstance">
                                                                 <a class="" onclick=""
-                                                                   href="{{route('show_create_homework', [
+                                                                   href="{{route('teacher.homework.create_form', [
                                                                     'course_id' => $course->id,
                                                                     'lesson_id' => $lesson->id
                                                                     ])}}">

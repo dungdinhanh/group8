@@ -12,16 +12,19 @@ class NotificationController extends Controller
     public static function addClassNotification($sender_id, $course_id, $message, $type)
     {
         $course = Course::where('id', '=', $course_id)->get()->first();
-        $students = $course->students;
+        $students = $course->getStudents();
         foreach ($students as $student)
         {
-            $user = $student->user;
-            $notification = new Notification();
-            $notification->receiver_id = $user->id;
-            $notification->sender_id = $sender_id;
-            $notification->message = $message;
-            $notification->type = $type;
-            $notification->save();
+            self::addNotification($sender_id, $student->user_id, $message, $type);
+            //$user = $student->user;
+//            $notification = new Notification();
+//            $notification->receiver_id = $student->user_id;
+//            $notification->sender_id = $sender_id;
+//            $notification->message = $message;
+//            $notification->status = 1;
+//            $notification->assigned_id = 0;
+//            $notification->type = $type;
+//            $notification->save();
         }
     }
     //

@@ -75,7 +75,7 @@
                     <h3 id="yui_3_17_2_1_1524980899832_377">Grade</h3>
                     <div class="box boxaligncenter gradingform p-y-1" id="yui_3_17_2_1_1524980899832_379">
                         <form class="gradeform mform" autocomplete="off"
-                              method="post" action="{{route('add_review', ['submission_id'=>$submission->id])}}"
+                              method="post" action="{{route('teacher.review.add', ['submission_id'=>$submission->id])}}"
                               accept-charset="utf-8" id="mform1">
                             <fieldset class="clearfix" id="id_gradeheader">
                                 <legend class="ftoggler">Grade</legend>
