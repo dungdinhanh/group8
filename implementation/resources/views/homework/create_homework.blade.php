@@ -37,7 +37,7 @@
                                 @if ($errors->has('title'))
                                 <span class="invalid-feedback">
                                             <strong>{{ $errors->first('title') }}</strong>
-                                        </span>
+                                </span>
                                 @endif
                             </div>
                         </div>
@@ -56,7 +56,7 @@
                                 @if($errors->has('content'))
                                 <span class="invalid-feedback">
                                             <strong>{{$errors->first('content')}}</strong>
-                                        </span>
+                                </span>
                                 @endif
                             </div>
                         </div>

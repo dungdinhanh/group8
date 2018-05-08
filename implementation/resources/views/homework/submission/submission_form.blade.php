@@ -102,8 +102,9 @@ col-md-12">Type your answer here</textarea>
 
                                             </label>
                                             <span data-fieldtype="submit">
-                                <input type="submit" class="btn btn-primary" name="submitbutton" id="id_submitbutton"
-                                       value="Save changes">
+                                                <input type="submit" class="btn btn-primary" name="submitbutton"
+                                                 id="id_submitbutton"
+                                                 value="Save changes">
                                             </span>
                                         </div>
 
@@ -113,7 +114,7 @@ col-md-12">Type your answer here</textarea>
 
                                             </label>
                                             <span data-fieldtype="submit">
-                                            <a href="/user/view_homework/{{__($homework->id)}}"  class="btn btn-secondary
+                                            <a href="/user/view_homework/{{__($homework->id)}}" class="btn btn-secondary
                                         " name="cancel" id="id_cancel" value="Cancel">cancel
                                             </a>
                                             </span>

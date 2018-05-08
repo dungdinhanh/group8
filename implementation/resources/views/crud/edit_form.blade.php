@@ -11,12 +11,16 @@
                     <div class="pull-xs-right context-header-settings-menu"></div>
                     <div class="pull-xs-left">
                         <div class="page-context-header">
-                            <div class="page-header-image"><a
-                                        href="#"><img
-                                            src="{{ asset('images/user.jpg') }}"
-                                            alt="Anna Alexander" title="Anna Alexander" class="userpicture" width="100"
-                                            height="100"></a></div>
-                            <div class="page-header-headings"><h1>{{Auth::user()->user_name}}</h1></div>
+                            <div class="page-header-image">
+                                <a href="#">
+                                    <img src="{{ asset('images/user.jpg') }}"
+                                         alt="Anna Alexander" title="Anna Alexander" class="userpicture" width="100"
+                                         height="100">
+                                </a>
+                            </div>
+                            <div class="page-header-headings">
+                                <h1>{{Auth::user()->user_name}}</h1>
+                            </div>
                         </div>
                     </div>
                     <div class="clearfix w-100 pull-xs-left" id="page-navbar">
@@ -41,7 +45,8 @@
             <section id="region-main">
                 <div class="card card-block" id="yui_3_17_2_1_1524824525822_64">
                     <span class="notifications" id="user-notifications"></span>
-                    <div role="main" id="yui_3_17_2_1_1524824525822_63"><span id="maincontent"></span>
+                    <div role="main" id="yui_3_17_2_1_1524824525822_63">
+                        <span id="maincontent"></span>
                         <h2 id="yui_3_17_2_1_1524824525822_418">
                             {{__('Edit Profile')}}
                         </h2>
@@ -49,22 +54,29 @@
                               class="mform">
                             @csrf
                             <fieldset class="clearfix collapsible" id="id_moodle">
-                                <legend class="ftoggler"><a href="#" class="fheader" role="button"
-                                                            aria-controls="id_moodle" aria-expanded="true"
-                                                            id="yui_3_17_2_1_1524824525822_61">General</a></legend>
+                                <legend class="ftoggler">
+                                    <a href="#" class="fheader" role="button"
+                                       aria-controls="id_moodle" aria-expanded="true"
+                                       id="yui_3_17_2_1_1524824525822_61">
+                                        General
+                                    </a>
+                                </legend>
                                 <div class="fcontainer clearfix" id="yui_3_17_2_1_1524824525822_393">
                                     <div class="form-group row  fitem   ">
                                         <div class="col-md-3">
-        <span class="pull-xs-right text-nowrap">
+                                              <span class="pull-xs-right text-nowrap">
 
-
-            <a class="btn btn-link p-a-0" role="button" data-container="body" data-toggle="popover"
-               data-placement="right" data-content="<div class=&quot;no-overflow&quot;><p>Please be aware that some authentication plugins will not allow you to change the username.</p>
-</div> " data-html="true" tabindex="0" data-trigger="focus">
-  <i class="icon question circle outline text-info fa-fw  " aria-hidden="true" title="Help with Username"
-     aria-label="Help with Username"></i>
-</a>
-        </span>
+                                                  <a class="btn btn-link p-a-0" role="button" data-container="body"
+                                                     data-toggle="popover"
+                                                     data-placement="right"
+                                                     data-content="<div class=&quot;no-overflow&quot;><p>Please be aware that some authentication plugins will not allow you to change the username.</p>
+                                                      </div> " data-html="true" tabindex="0" data-trigger="focus">
+                                                  <i class="icon question circle outline text-info fa-fw  "
+                                                     aria-hidden="true"
+                                                     title="Help with Username"
+                                                     aria-label="Help with Username"></i>
+                                                 </a>
+                                              </span>
                                             <label class="col-form-label d-inline " for="id_username">
                                                 {{__('Full Name')}}
                                             </label>
@@ -81,15 +93,15 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group row  fitem   ">
+                                    <div class="form-group row  fitem ">
                                         <div class="col-md-3">
-        <span class="pull-xs-right text-nowrap">
-            <abbr class="initialism text-danger" title="Required"><i
-                        class="icon question circle outline text-danger fa-fw " aria-hidden="true" title="Required"
-                        aria-label="Required"></i></abbr>
-
-
-        </span>
+                                            <span class="pull-xs-right text-nowrap">
+                                                <abbr class="initialism text-danger" title="Required">
+                                                    <i class="icon question circle outline text-danger fa-fw "
+                                                       aria-hidden="true" title="Required"
+                                                       aria-label="Required"></i>
+                                                </abbr>
+                                            </span>
                                             <label class="col-form-label d-inline " for="id_lastname">
                                                 {{__('User Name')}}
                                             </label>
@@ -108,13 +120,15 @@
                                     </div>
                                     <div class="form-group row  fitem   ">
                                         <div class="col-md-3">
-        <span class="pull-xs-right text-nowrap">
-            <abbr class="initialism text-danger" title="Required"><i
-                        class="icon question circle outline text-danger fa-fw" aria-hidden="true" title="Required"
-                        aria-label="Required"></i></abbr>
+                                            <span class="pull-xs-right text-nowrap">
+                                                <abbr class="initialism text-danger" title="Required">
+                                                    <i class="icon question circle outline text-danger fa-fw"
+                                                       aria-hidden="true" title="Required"
+                                                       aria-label="Required"></i>
+                                                </abbr>
 
 
-        </span>
+                                            </span>
                                             <label class="col-form-label d-inline " for="id_email">
                                                 {{__('Email')}}
                                             </label>
@@ -132,11 +146,8 @@
                                     </div>
                                     <div class="form-group row  fitem   ">
                                         <div class="col-md-3">
-        <span class="pull-xs-right text-nowrap">
-
-
-
-        </span>
+                                            <span class="pull-xs-right text-nowrap">
+                                            </span>
                                             <label class="col-form-label d-inline " for="id_maildisplay">
                                                 {{__('Role')}}
                                             </label>
@@ -155,21 +166,18 @@
                                     </div>
                                     <div class="form-group row  fitem   ">
                                         <div class="col-md-3">
-        <span class="pull-xs-right text-nowrap">
-
-
-
-        </span>
+                                            <span class="pull-xs-right text-nowrap">
+                                            </span>
                                             <label class="col-form-label d-inline " for="date_of_birth">
                                                 {{__('Date Of Birth')}}
                                             </label>
                                         </div>
                                         <div class="col-md-9 form-inline felement" data-fieldtype="text">
-                                            <input id="date_of_birth" type="date" class="form-control" name="date_of_birth"
+                                            <input id="date_of_birth" type="date" class="form-control"
+                                                   name="date_of_birth"
                                                    value="{{Auth::user()->date_of_birth}}">
                                             <div class="form-control-feedback" id="date_of_birth"
                                                  style="display: none;">
-
                                             </div>
                                         </div>
                                     </div>
@@ -183,25 +191,22 @@
                                 <div class="fcontainer clearfix">
                                     <div class="form-group row  fitem   ">
                                         <div class="col-md-3">
-        <span class="pull-xs-right text-nowrap">
-
-
-
-        </span>
+                                            <span class="pull-xs-right text-nowrap">
+                                            </span>
                                             <span class="col-form-label d-inline-block ">
-            Current picture
-        </span>
+                                                Current picture
+                                            </span>
                                         </div>
                                         <div class="col-md-9 form-inline felement" data-fieldtype="static">
                                             <div class="form-control-static">
-                                                <a href="#"><img
-                                                            src="{{ asset('images/user.jpg') }}"
-                                                            alt="Anna Alexander" title="Anna Alexander"
-                                                            class="userpicture" width="64" height="64"></a>
+                                                <a href="#">
+                                                    <img src="{{ asset('images/user.jpg') }}"
+                                                         alt="Anna Alexander" title="Anna Alexander"
+                                                         class="userpicture" width="64" height="64">
+                                                </a>
                                             </div>
                                             <div class="form-control-feedback" id="id_error_currentpicture"
                                                  style="display: none;">
-
                                             </div>
                                         </div>
                                     </div>
@@ -209,29 +214,23 @@
                             </fieldset>
                             <div class="form-group row  fitem femptylabel  ">
                                 <div class="col-md-3">
-        <span class="pull-xs-right text-nowrap">
-
-
-
-        </span>
+                                    <span class="pull-xs-right text-nowrap">
+                                    </span>
                                     <label class="col-form-label d-inline " for="id_submitbutton">
 
                                     </label>
                                 </div>
                                 <div class="col-md-9 form-inline felement" data-fieldtype="submit">
-                                    <input type="submit" class="btn
-                    btn-primary
-
-                    " name="submitbutton" id="id_submitbutton" value="Update profile">
+                                    <input type="submit" class="btn btn-primary" name="submitbutton"
+                                           id="id_submitbutton" value="Update profile">
                                     <div class="form-control-feedback" id="id_error_submitbutton"
                                          style="display: none;">
-
                                     </div>
                                 </div>
                             </div>
-                            <div class="fdescription required">There are required fields in this form marked <i
-                                        class="icon question circle outline text-danger fa-fw " aria-hidden="true"
-                                        title="Required field" aria-label="Required field"></i>.
+                            <div class="fdescription required">There are required fields in this form marked
+                                <i class="icon question circle outline text-danger fa-fw " aria-hidden="true"
+                                   title="Required field" aria-label="Required field"></i>.
                             </div>
                         </form>
                     </div>
@@ -242,7 +241,6 @@
         </div>
     </div>
 </div>
-
 
 
 @endsection

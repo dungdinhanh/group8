@@ -29,7 +29,9 @@
                                 <div class="table">
                                     <tr>
                                         <td>
-                                            {{__('Title')}}                                        </td>
+                                            {{__('Title')}}
+                                        </td>
+
                                         <td>
                                             <label id="user_name">{{__($homework->title)}}</label>
                                         </td>

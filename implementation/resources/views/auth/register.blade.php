@@ -94,7 +94,8 @@
                 <h4>Terms and Conditions<span class="require">*</span></h4>
                 <div class="input-group">
                     <input type="checkbox" id="terms"/>
-                    <label for="terms">I accept the terms and conditions for signing up to this service, and hereby confirm
+                    <label for="terms">I accept the terms and conditions for signing up to this service, and hereby
+                        confirm
                         I have read the privacy policy.</label>
                 </div>
             </div>
