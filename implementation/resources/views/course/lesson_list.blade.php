@@ -67,6 +67,115 @@
                                 </a></div>
                             <h2 class="accesshide">Topic outline</h2>
                             <ul class="topics">
+                                <li id="section-0" class="section main clearfix" role="region"
+                                    aria-label="About this course"><span
+                                            class="hidden sectionname">About this course</span>
+                                    <div class="left side"></div>
+                                    <div class="right side"><img class="icon spacer" width="1" height="1" alt=""
+                                                                 src="https://school.demo.moodle.net/theme/image.php/boost/core/1524376896/spacer">
+                                    </div>
+                                    <div class="content"><h3 class="sectionname"><span><a
+                                                        href="#section-0">About this course</a></span>
+                                        </h3>
+                                        <div class="section_availability"></div>
+                                        <div class="summary">
+                                            <div class="no-overflow"><p>This course explores {{__($course->course_name)}} and its
+                                                    importance for teachers and students!</p></div>
+                                        </div>
+                                        <ul class="section img-text">
+                                            <li class="activity choice modtype_choice " id="module-777">
+                                                <div>
+                                                    <div class="mod-indent-outer">
+                                                        <div class="mod-indent"></div>
+                                                        <div>
+                                                            <div class="activityinstance"><a class="" onclick=""
+                                                                                             href=""><img
+                                                                            src="https://school.demo.moodle.net/theme/image.php/boost/choice/1524376896/icon"
+                                                                            class="iconlarge activityicon" alt=" "
+                                                                            role="presentation"><span
+                                                                            class="instancename">{{__('Course ID: ')}}<span
+                                                                                class=""> {{__($course->id)}}</span></span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="activity survey modtype_survey " id="module-778">
+                                                <div>
+                                                    <div class="mod-indent-outer">
+                                                        <div class="mod-indent"></div>
+                                                        <div>
+                                                            <div class="activityinstance"><a class="" onclick=""
+                                                                                             href=""><img
+                                                                            src="https://school.demo.moodle.net/theme/image.php/boost/survey/1524376896/icon"
+                                                                            class="iconlarge activityicon" alt=" "
+                                                                            role="presentation"><span
+                                                                            class="instancename">{{__('Max Students : ')}} {{__($course->max_students)}}</span></a>
+
+                                                                <a style="float: right;"  class="" onclick=""
+                                                                   href="{{route('teacher.student.index', ['course_id'=>$course->id])}}"><img
+                                                                            src="https://school.demo.moodle.net/theme/image.php/boost/workshop/1525222857/icon"
+                                                                            class="iconlarge activityicon" alt=" "
+                                                                            role="presentation"><span
+                                                                            class="instancename">{{__('List details')}}</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="activity survey modtype_survey " id="module-778">
+                                                <div>
+                                                    <div class="mod-indent-outer">
+                                                        <div class="mod-indent"></div>
+                                                        <div>
+                                                            <div class="activityinstance"><a class="" onclick=""
+                                                                                             href=""><img
+                                                                            src="https://school.demo.moodle.net/theme/image.php/boost/survey/1524376896/icon"
+                                                                            class="iconlarge activityicon" alt=" "
+                                                                            role="presentation"><span
+                                                                            class="instancename">{{__('Max groups: ')}}{{__($course->max_groups)}}</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="activity data modtype_data " id="module-802">
+                                                <div>
+                                                    <div class="mod-indent-outer">
+                                                        <div class="mod-indent"></div>
+                                                        <div>
+                                                            <div class="activityinstance"><a class="" onclick=""
+                                                                                             href=""><img
+                                                                            src="https://school.demo.moodle.net/theme/image.php/boost/data/1524376896/icon"
+                                                                            class="iconlarge activityicon" alt=" "
+                                                                            role="presentation"><span
+                                                                            class="instancename">{{__('Start date: ')}}</span><span
+                                                                            class=""> {{__($course->start_date)}}</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="activity data modtype_data " id="module-802">
+                                                <div>
+                                                    <div class="mod-indent-outer">
+                                                        <div class="mod-indent"></div>
+                                                        <div>
+                                                            <div class="activityinstance"><a class="" onclick=""
+                                                                                             href=""><img
+                                                                            src="https://school.demo.moodle.net/theme/image.php/boost/data/1524376896/icon"
+                                                                            class="iconlarge activityicon" alt=" "
+                                                                            role="presentation"><span
+                                                                            class="instancename">{{__('End date: ')}}</span><span
+                                                                            class="">  {{__($course->end_date)}}</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
                                 @foreach($lessons as $lesson)
                                 <li id="section-2" class="section main clearfix" role="region"
                                     aria-label="Group work and assessment"><span class="hidden sectionname">Group work and assessment</span>
