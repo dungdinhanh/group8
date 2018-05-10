@@ -111,7 +111,7 @@
                                 </tbody>
                             </table>
                             @if(Auth::user()->role_id == 1)
-                            <a href="{{route('submission_form', ['homework_id' => $homework->id])}}" type="submit" class="btn btn-primary">{{__('Do submisstion')}}</a>
+                            <a href="{{route('student.submission.form', ['homework_id' => $homework->id])}}" type="submit" class="btn btn-primary">{{__('Do submisstion')}}</a>
                             @elseif(Auth::user()->role_id == 2)
                             <a href="#" type="submit" class="btn btn-primary">{{__('Edit')}} homework </a>
                             @endif

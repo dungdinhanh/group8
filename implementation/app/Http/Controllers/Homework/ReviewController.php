@@ -31,6 +31,7 @@ class ReviewController extends Controller
         $review->mark = $request->input('mark');
         $review->comment = $request->input('comment');
         $review->save();
+
         return redirect()->route("home");
     }
 

@@ -33,7 +33,7 @@ class LessonController extends Controller
         $lesson = Lesson::findOrNew(0);
         $lesson->lesson_no = $request->lesson_no;
         $lesson->lesson_title = $request->title;
-        $lesson->content = $request->content;
+        $lesson->content = $request->input('content');
         $lesson->course_id = $request->course_id;
         $lesson->note = $request->note;
 

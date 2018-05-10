@@ -23,7 +23,7 @@ class StudentController extends Controller
         $course = Course::find($courseId);
 
         $students = $course->getStudents();
-
+       // $students = $course->students;
         return $students;
     }
 

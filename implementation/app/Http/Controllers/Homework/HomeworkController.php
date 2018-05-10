@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Homework;
 use App\Course;
 use App\Homework;
 use App\Lesson;
+use App\Notification;
 use App\Submission;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Notification\NotificationController;
 
 class HomeworkController extends Controller
 {
@@ -20,8 +22,27 @@ class HomeworkController extends Controller
             return view('homework.create_homework', ['course' => $course, 'lesson'=>$lesson]);
     }
 
-    public function createHomework(Request $request)
+    private function getCreateHomeworkMessage($homework)
     {
+        $message = "";
+        $message = $message."New homework is created<br>";
+        $message = $message."Course : ".$homework->course->course_name."<br>";
+        $message = $message."Homework No: ".$homework->homework_no."<br>";
+        $message = $message."Homework Title: ".$homework->title."<br>";
+        $message = $message."Deadline : ".$homework->dead_line."<br>";
+        return $message;
+    }
+
+
+    private function getCreateHomeworkType($homework)
+    {
+        $type = "";
+        $type = $type."[HOMEWORK]";
+        return $type;
+    }
+
+    public function createHomework(Request $request)
+    {//create homework then send the notification for the whole class
         $homework = new Homework();
         $homework->homework_no = $request->input('homework_no');
         $homework->title = $request->input('title');
@@ -31,7 +52,12 @@ class HomeworkController extends Controller
         $homework->lesson_id = $request->input('lesson_id');
         $homework->course_id = $request->input('course_id');
         $homework->save();
-        return redirect()->route('view_homework', ['homework_id' => $homework->id]);
+        $message = $this->getCreateHomeworkMessage($homework);
+        $type = $this->getCreateHomeworkType($homework);
+        //add notification
+        NotificationController::addClassNotification(\Auth::user()->id,
+            $homework->course_id, $message, $type);
+        return redirect()->route('teacher.homework.view', ['homework_id' => $homework->id]);
     }
 
 
