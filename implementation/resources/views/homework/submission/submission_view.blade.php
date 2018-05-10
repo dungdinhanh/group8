@@ -164,7 +164,7 @@
                             <div class="box generalbox submissionaction p-y-1" id="yui_3_17_2_1_1524923385116_60">
                                 <div class="singlebutton">
                                     <form method="get"
-                                          action="{{route('submission_form', ['homework_id' => $homework->id])}}">
+                                          action="{{route('student.submission.form', ['homework_id' => $homework->id])}}">
                                         <input type="hidden" name="id" value="787">
                                         <input type="hidden" name="action" value="editsubmission">
                                         <button type="submit" class="btn btn-secondary"
