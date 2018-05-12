@@ -82,8 +82,8 @@ class DatabaseSeeder extends Seeder
                     $course = \App\Course::where('course_name', '=' ,$course->course_name)->get()->first();
                     for($j = 0; $j < 10; $j++) {
                         $lesson = new \App\Lesson();
-                        $lesson->lesson_no = $j+1;
-                        $lesson->lesson_title = $faker->firstNameMale;
+                        $lesson->no = $j+1;
+                        $lesson->title = $faker->firstNameMale;
                         $lesson->note = "ABCsdfkljsdafklasdjfklasdjfkljfkwejqioqweufjndfhsdal;navlk;fasdjf;asdf
                         asdfkljasdfkljsdfkljsdalfkjsdalfjsdflsdjafklasdfjsdlakfjasdlkfj";
                         $lesson->content = "asdlfjsdaklfjsdaklfjsdaklfjsdklafjsdklafjasdklfjsdaklfjasdklfjsdklfjasdklfj

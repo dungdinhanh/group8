@@ -16,17 +16,6 @@
                     <form method="post" action="{{route('teacher.homework.create')}}">
                         @csrf
                         <div class="row form-group">
-                            <label for="homework_no" class="col-md-4 col-form-label text-md-right">
-                                {{__('Homework No')}}
-                            </label>
-
-                            <div class="col-md-1">
-                                <input type="text" class="text-center" id="homework_no" name="homework_no"
-                                       value="{{old('homework_no')}}" required>
-                            </div>
-                        </div>
-
-                        <div class="row form-group">
                             <label for="title" class="col-md-4 col-form-label text-md-right">
                                 {{__('Title')}}
                             </label>
@@ -35,7 +24,7 @@
                                     $errors->has('title') ? 'is-invalid' : ''}}" value="{{old('title')}}">
 
                                 @if ($errors->has('title'))
-                                <span class="invalid-feedback">
+                                <span class="alert alert-danger">
                                             <strong>{{ $errors->first('title') }}</strong>
                                 </span>
                                 @endif
@@ -54,24 +43,12 @@
                                         </textarea>
 
                                 @if($errors->has('content'))
-                                <span class="invalid-feedback">
+                                <span class="alert alert-danger">
                                             <strong>{{$errors->first('content')}}</strong>
                                 </span>
                                 @endif
                             </div>
                         </div>
-
-                        <div class="row form-group">
-                            <label for="start" class="col-md-4 col-form-label text-md-right">
-                                {{__('Start Date:')}}
-                            </label>
-
-                            <div class="col-md-6">
-                                <input type="datetime-local" id="start" name="start"
-                                       class="text-center form-control col-md-8">
-                            </div>
-                        </div>
-
                         <div class="row form-group">
                             <label for="dead_line"
                                    class="col-md-4 col-form-label text-md-right">
@@ -82,7 +59,15 @@
                                 <input id="dead_line" type="datetime-local"
                                        name="dead_line" class="form-control col-md-8">
                             </div>
+                            <br>
+                            <br>
+                            @if ($errors->has('dead_line'))
+                                <span class="alert alert-danger">
+                                            <strong>{{ $errors->first('dead_line') }}</strong>
+                                </span>
+                            @endif
                         </div>
+
 
                         <input type="hidden" name="lesson_id" value="{{__($lesson->id)}}">
                         <input type="hidden" name="course_id" value="{{__($course->id)}}">
@@ -101,5 +86,28 @@
 
     </div>
 </div>
+@endsection
 
+@section('css')
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+@endsection
+
+@section('js')
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#content').summernote({
+                height: 500,
+                toolbar: [
+                    // [groupName, [list of button]]
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']]
+                ]
+            });
+        });
+    </script>
 @endsection

@@ -9,8 +9,10 @@ use App\Notification;
 use App\Submission;
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\HomeworkCreate;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Notification\NotificationController;
+use DateTime;
 
 class HomeworkController extends Controller
 {
@@ -41,13 +43,11 @@ class HomeworkController extends Controller
         return $type;
     }
 
-    public function createHomework(Request $request)
+    public function createHomework(HomeworkCreate $request)
     {//create homework then send the notification for the whole class
         $homework = new Homework();
-        $homework->homework_no = $request->input('homework_no');
         $homework->title = $request->input('title');
         $homework->content = $request->input('content');
-        $homework->start = $request->input('start');
         $homework->dead_line = $request->input('dead_line');
         $homework->lesson_id = $request->input('lesson_id');
         $homework->course_id = $request->input('course_id');
@@ -68,10 +68,10 @@ class HomeworkController extends Controller
         $dead_line = date("Y-m-d H:i:s",strtotime($homework->dead_line));
         $dead_line = new \DateTime($dead_line);
         $current = new \DateTime();
-        $time_left = date_diff($dead_line, $current);
+        $time_left = date_diff($dead_line, $current)->format('%d days %H hours %i minutes');
+
         if ($dead_line > $current) $overtime = false;
         else $overtime=true;
-        $time_left = $time_left->h;
         return view('homework.view_homework', ['homework' => $homework,
             'lesson' => $lesson->lesson_title,
             'course' => $course->course_name,

@@ -6,125 +6,58 @@
 <link href="<?php echo e(asset('css/profile.css')); ?>" rel="stylesheet">
 
 <div class="container" style="margin-top: 66px">
-    <div class="row">
-        <div style="margin-top: 20px"
-             class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
-            <div class="panel panel-info">
-                <div class="panel-heading" style="text-align: center">
-                    <h3 class="panel-title">
-                        {{__('Homework No.'.$homework->homework_no.' - '.$homework->title)}}
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-3 col-lg-3 " align="center">
-                            <img style="width: 100px; border-radius: 50%"
-                                 alt="User Pic"
-                                 src="{{ asset('images/hw.jpg') }}"
-                                 class="img-circle img-responsive">
+    <div id="page-content" class="row">
+        <div id="region-main-box" class="col-xs-12">
+            <section id="region-main">
+                <div class="card card-block">
+                    <div role="main">
+                        <span id="maincontent"></span>
+                        <h2>{{$homework->title}}</h2>
+                        <div id="intro" class="box generalbox boxaligncenter p-y-1">
+                            <div class="no-overflow">
+                                {!! $homework->content !!}
+                            </div>
                         </div>
-                        <div class="col-md-9 col-lg-9">
-                            <table class="table table-user-information">
-                                <tbody>
-                                <div class="table">
-                                    <tr>
-                                        <td>
-                                            {{__('Title')}}
-                                        </td>
-
-                                        <td>
-                                            <label id="user_name">{{__($homework->title)}}</label>
+                        <div class="gradingsummary">
+                            <h3>Grading summary</h3>
+                            <div class="box boxaligncenter gradingsummarytable p-y-1">
+                                <table class="generaltable">
+                                    <tbody>
+                                    <tr class="">
+                                        <td class="cell c0" style="">Participants</td>
+                                        <td class="cell c1 lastcol" style="">10</td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class="cell c0" style="">Submitted</td>
+                                        <td class="cell c1 lastcol" style="">2</td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class="cell c0" style="">Needs grading</td>
+                                        <td class="cell c1 lastcol" style="">1</td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class="cell c0" style="">Due date</td>
+                                        <td class="cell c1 lastcol" style="">{{$homework->dead_line}}</td>
+                                    </tr>
+                                    <tr class="lastrow">
+                                        <td class="cell c0" style="">Time remaining</td>
+                                        <td class="cell c1 lastcol" style="">
+                                            {{$overtime ? 'overtime' : $time_left}}
                                         </td>
                                     </tr>
-
-                                    <tr>
-                                        <td>
-                                            {{__('Content')}}
-                                        </td>
-
-                                        <td>
-                                            <label id="email">{{__($homework->content)}}</label>
-                                        </td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td>
-                                            {{__('Start date')}}
-                                        </td>
-
-                                        <td>
-                                            {{__($homework->start)}}
-                                        </td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td>
-                                            {{__('Deadline')}}
-                                        </td>
-
-                                        <td>
-                                            {{__($homework->dead_line)}}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            {{__('Lesson')}}
-                                        </td>
-
-                                        <td>
-                                            {{__($lesson)}}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            {{__('Course')}}
-                                        </td>
-
-                                        <td>
-                                            {{__($course)}}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            @if($overtime)
-                                            Over Time
-                                            @else
-                                            Time Left
-                                            @endif
-                                        </td>
-
-                                        <td>
-                                            {{__($time_left." hours")}}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            {{__('Updated At')}}
-                                        </td>
-
-                                        <td>
-                                            {{__((string)($homework->updated_at))}}
-                                        </td>
-                                    </tr>
-                                </div>
-
-                                </tbody>
-                            </table>
-                            @if(Auth::user()->role_id == 1)
-                            <a href="{{route('student.submission.form', ['homework_id' => $homework->id])}}" type="submit" class="btn btn-primary">{{__('Do submisstion')}}</a>
-                            @elseif(Auth::user()->role_id == 2)
-                            <a href="#" type="submit" class="btn btn-primary">{{__('Edit')}} homework </a>
-                            @endif
-                            <a style="margin-top: 2px;" href="/home" class="btn btn-primary">Back To Home Page</a>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="submissionlinks">
+                                <a href="https://school.demo.moodle.net/mod/assign/view.php?id=787&amp;action=grading" class="btn btn-secondary">View all submissions</a>
+                                <a href="https://school.demo.moodle.net/mod/assign/view.php?id=787&amp;action=grader" class="btn btn-primary">Grade</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-            </div>
+            </section>
         </div>
     </div>
-</div
+</div>
 
 @endsection

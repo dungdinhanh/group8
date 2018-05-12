@@ -15,8 +15,8 @@ class CreateLessonsTable extends Migration
     {
         Schema::create('lessons', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('lesson_no');
-            $table->string('lesson_title');
+            $table->integer('no');
+            $table->string('title');
             $table->string('note', 10000);
             $table->text('content');
             $table->unsignedInteger('course_id');

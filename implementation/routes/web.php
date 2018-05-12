@@ -28,16 +28,6 @@ Route::get('/user/edit', 'CRUD\CRUDController@showEditForm')->name('edit_profile
 
 Route::post('/user/edit', 'CRUD\CRUDController@edit')->name('edit_profile_handle');
 
-
-//course
-
-//Route::get('/user/course_list/{user_id}', 'Course\CourseController@listCourses')->name(
-//    'list_course_teacher'
-//);
-//
-//Route::get('/user/teacher/courses/{course_id}', 'Course\CourseController@listLessons')->name(
-//    'list_lessons'
-//);
 Route::prefix('teacher')->name('teacher.')->group(function () {
     // course
     Route::name('course.')->prefix('/course')->group(function () {
@@ -140,46 +130,6 @@ Route::prefix('student')->name('student.')->group(function (){
         );
     });
 });
-
-
-//homework
-//Route::get('/user/homework/{course_id}/{lesson_id}', 'Homework\HomeworkController@showCreateHomeworkForm')->name(
-//    'show_create_homework'
-//);
-//
-//Route::post('/user/homework/create', 'Homework\HomeworkController@createHomework')->name(
-//    'create_homework'
-//);
-//
-//Route::get('/user/view_homework/{homework_id}', 'Homework\HomeworkController@showHomework')->name(
-//    'view_homework'
-//);
-
-
-////submission
-//Route::get('/submission/{homework_id}', 'Homework\SubmissionController@showSubmissionForm')->name(
-//    'submission_form'
-//);
-//
-//Route::post('/submit', 'Homework\SubmissionController@addSubmission')->name(
-//    'submit_homework'
-//);
-//
-//Route::get('/view_submission/{submission_id}', 'Homework\SubmissionController@getViewSubmission')->name(
-//    'view_submission'
-//);
-//
-//
-////review
-//Route::get('/review_form/{submission_id}', 'Homework\ReviewController@getReviewForm')->name(
-//    'review_form'
-//);
-//
-//Route::post('/add_review/{submission_id}', 'Homework\ReviewController@addReview')->name(
-//    'add_review'
-//);
-//
-
 
 //Notification
 Route::get('/r_notification/{receiver_id}', 'Notification\NotificationController@listReceivedNotification')->name(
