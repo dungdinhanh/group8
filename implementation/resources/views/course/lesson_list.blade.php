@@ -202,12 +202,11 @@
                                     </div>
                                     <div class="content">
                                         <h3 class="sectionname">
-                                            <span><a href="#">{{__($lesson->lesson_title)}}</a></span>
+                                            <span><a href="#">{{__($lesson->title)}}</a></span>
                                         </h3>
                                         <div class="section_availability"></div>
                                         <div class="summary"></div>
                                         <ul class="section img-text">
-                                            @if(Auth::user()->role_id == 2)
                                             <li class="activity scorm modtype_scorm " id="module-790">
                                                 <div>
                                                     <div class="mod-indent-outer">
@@ -229,43 +228,26 @@
                                                     </div>
                                                 </div>
                                             </li>
-                                            @endif
-
-                                            <li class="activity assign modtype_assign " id="module-787">
-                                                <div>
-                                                    <div class="mod-indent-outer">
-                                                        <div class="mod-indent"></div>
-                                                        <div>
-                                                            <div class="activityinstance">
-                                                                <a class="" onclick="" href="">
-                                                                    <img src="https://school.demo.moodle.net/theme/image.php/boost/assign/1524376896/icon"
-                                                                         class="iconlarge activityicon" alt=" "
-                                                                         role="presentation">
-                                                                    <span class="instancename">Assignment 1 (Text)</span>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="activity assign modtype_assign " id="module-788">
+                                            @foreach($lesson->homeworks as $homework)
+                                                <li class="activity assign modtype_assign " id="module-787">
                                                 <div>
                                                     <div class="mod-indent-outer">
                                                         <div class="mod-indent"></div>
                                                         <div>
                                                             <div class="activityinstance">
                                                                 <a class="" onclick=""
-                                                                   href="https://school.demo.moodle.net/mod/assign/view.php?id=788">
+                                                                   href="{{route('teacher.homework.view', ['courseId' => $course->id, 'homeworkId' => $homework->id])}}">
                                                                     <img src="https://school.demo.moodle.net/theme/image.php/boost/assign/1524376896/icon"
                                                                          class="iconlarge activityicon" alt=" "
                                                                          role="presentation">
-                                                                    <span class="instancename">Assignment 2 (Upload)</span>
+                                                                    <span class="instancename">{{$homework->title}}</span>
                                                                 </a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </li>

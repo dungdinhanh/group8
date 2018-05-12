@@ -28,7 +28,7 @@
                                         <a href="/home">Home</a>
                                     </li>
                                     <li class="breadcrumb-item">
-                                        <a href="{{route('teacher.course.list', ['user_id'=>Auth::user()->id])}}">courses</a>
+                                        <a href="{{route('student.course.list', ['user_id'=>Auth::user()->id])}}">courses</a>
                                     </li>
                                     <li class="breadcrumb-item">
                                         <a href="#" title="Digital Literacy ">{{__($course->course_name)}}</a>
@@ -61,7 +61,7 @@
                                 <a class="btn btn-link p-a-0" role="button" data-container="body"
                                    data-toggle="popover"
                                    data-placement="right" data-content="<div class=&quot;no-overflow&quot;><p>A tick next to an activity name may be used to indicate when the activity is complete.</p>
-                                    <p>If a box with a dotted border is shown, a tick will appear automatically when you have completed the activity according to conditions set by the teacher.</p>
+                                    <p>If a box with a dotted border is shown, a tick will appear automatically when you have completed the activity according to conditions set by the student.</p>
                                     <p>If a box with a solid border is shown, you can click it to tick the box when you think you have completed the activity. (Clicking it again removes the tick if you change your mind.)</p>
                                     </div> " data-html="true" tabindex="0" data-trigger="focus">
                                     <i class="icon question circle outline text-info fa-fw " aria-hidden="true"
@@ -122,14 +122,6 @@
                                                                          class="iconlarge activityicon" alt=" "
                                                                          role="presentation">
                                                                     <span class="instancename">{{__('Max Students : ')}} {{__($course->max_students)}}</span>
-                                                                </a>
-
-                                                                <a style="float: right;" class="" onclick=""
-                                                                   href="{{route('teacher.student.index', ['course_id'=>$course->id])}}">
-                                                                    <img src="https://school.demo.moodle.net/theme/image.php/boost/workshop/1525222857/icon"
-                                                                         class="iconlarge activityicon" alt=" "
-                                                                         role="presentation">
-                                                                    <span class="instancename">{{__('List details')}}</span>
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -202,83 +194,36 @@
                                     </div>
                                     <div class="content">
                                         <h3 class="sectionname">
-                                            <span><a href="#">{{__($lesson->lesson_title)}}</a></span>
+                                            <span><a href="#">{{__($lesson->title)}}</a></span>
                                         </h3>
                                         <div class="section_availability"></div>
                                         <div class="summary"></div>
                                         <ul class="section img-text">
-                                            @if(Auth::user()->role_id == 2)
-                                            <li class="activity scorm modtype_scorm " id="module-790">
+                                            @foreach($lesson->homeworks as $homework)
+                                                <li class="activity assign modtype_assign " id="module-787">
                                                 <div>
                                                     <div class="mod-indent-outer">
                                                         <div class="mod-indent"></div>
                                                         <div>
                                                             <div class="activityinstance">
                                                                 <a class="" onclick=""
-                                                                   href="{{route('teacher.homework.create_form', [
-                                                                    'course_id' => $course->id,
-                                                                    'lesson_id' => $lesson->id
-                                                                    ])}}">
-                                                                    <img src="https://school.demo.moodle.net/theme/image.php/boost/scorm/1524376896/icon"
-                                                                         class="iconlarge activityicon" alt=" "
-                                                                         role="presentation">
-                                                                    <span class="instancename">Create Homework</span>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            @endif
-
-                                            <li class="activity assign modtype_assign " id="module-787">
-                                                <div>
-                                                    <div class="mod-indent-outer">
-                                                        <div class="mod-indent"></div>
-                                                        <div>
-                                                            <div class="activityinstance">
-                                                                <a class="" onclick="" href="">
+                                                                   href="{{route('student.homework.view', ['courseId' => $course->id, 'homeworkId' => $homework->id])}}">
                                                                     <img src="https://school.demo.moodle.net/theme/image.php/boost/assign/1524376896/icon"
                                                                          class="iconlarge activityicon" alt=" "
                                                                          role="presentation">
-                                                                    <span class="instancename">Assignment 1 (Text)</span>
+                                                                    <span class="instancename">{{$homework->title}}</span>
                                                                 </a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li class="activity assign modtype_assign " id="module-788">
-                                                <div>
-                                                    <div class="mod-indent-outer">
-                                                        <div class="mod-indent"></div>
-                                                        <div>
-                                                            <div class="activityinstance">
-                                                                <a class="" onclick=""
-                                                                   href="https://school.demo.moodle.net/mod/assign/view.php?id=788">
-                                                                    <img src="https://school.demo.moodle.net/theme/image.php/boost/assign/1524376896/icon"
-                                                                         class="iconlarge activityicon" alt=" "
-                                                                         role="presentation">
-                                                                    <span class="instancename">Assignment 2 (Upload)</span>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </li>
                                 @endforeach
                             </ul>
-                            <div id="changenumsections" class="mdl-right">
-                                <a class="add-sections button"
-                                   href="{{route('teacher.lesson.create',['courseId' => $course->id])}}">
-                                    <i class="icon plus" aria-hidden="true" title="Add topics"
-                                       aria-label="Add topics"></i>
-                                    Add topics
-                                </a>
-                            </div>
                         </div>
                     </div>
 

@@ -18,39 +18,38 @@
                                 {!! $homework->content !!}
                             </div>
                         </div>
-                        <div class="gradingsummary">
-                            <h3>Grading summary</h3>
-                            <div class="box boxaligncenter gradingsummarytable p-y-1">
+                        <div class="submissionstatustable" id="yui_3_17_2_1_1526162991307_51">
+                            <h3 id="yui_3_17_2_1_1526162991307_50">Submission status</h3>
+                            <div class="box boxaligncenter submissionsummarytable p-y-1">
                                 <table class="generaltable">
                                     <tbody>
                                     <tr class="">
-                                        <td class="cell c0" style="">Participants</td>
-                                        <td class="cell c1 lastcol" style="">10</td>
+                                        <td class="cell c0" style="">Submission status</td>
+                                        <td class="submissionstatussubmitted cell c1 lastcol" style="">No attempt</td>
                                     </tr>
                                     <tr class="">
-                                        <td class="cell c0" style="">Submitted</td>
-                                        <td class="cell c1 lastcol" style="">2</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td class="cell c0" style="">Needs grading</td>
-                                        <td class="cell c1 lastcol" style="">1</td>
+                                        <td class="cell c0" style="">Grading status</td>
+                                        <td class="submissionnotgraded cell c1 lastcol" style="">Not marked</td>
                                     </tr>
                                     <tr class="">
                                         <td class="cell c0" style="">Due date</td>
                                         <td class="cell c1 lastcol" style="">{{$homework->dead_line}}</td>
                                     </tr>
-                                    <tr class="lastrow">
+                                    <tr class="">
                                         <td class="cell c0" style="">Time remaining</td>
-                                        <td class="cell c1 lastcol" style="">
-                                            {{$overtime ? 'overtime' : $time_left}}
-                                        </td>
+                                        <td class="earlysubmission cell c1 lastcol" style="">{{$time_left}}</td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="submissionlinks">
-                                <a href="https://school.demo.moodle.net/mod/assign/view.php?id=787&amp;action=grading" class="btn btn-secondary">View all submissions</a>
-                                <a href="https://school.demo.moodle.net/mod/assign/view.php?id=787&amp;action=grader" class="btn btn-primary">Grade</a>
+                            <div class="box generalbox submissionaction p-y-1">
+                                <div class="singlebutton">
+                                    <a href="{{route('student.submission.form', ['homework_id' => $homework->id])}}">
+                                        <button class="btn btn-primary">
+                                            Add submission
+                                        </button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

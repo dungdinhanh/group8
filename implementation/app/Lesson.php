@@ -17,7 +17,7 @@ class Lesson extends Model
         return $this->belongsTo('App\Course', 'course_id');
     }
 
-    public function homework(){
+    public function homeworks(){
         //30
         return $this->hasMany('App\Homework', 'lesson_id');
     }

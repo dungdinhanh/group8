@@ -20,17 +20,6 @@ class CourseController extends Controller
         return view('course.course_list', ['courses' => $courses]);
     }
 
-    public function listLessons($course_id)
-    {
-        $course = Course::where('id', $course_id)->first();
-        $lessons = $course->lessons;
-        $students = $course->students;
-        return view('course.lesson_list', ['lessons' => $lessons,
-            'course' => $course]);
-    }
-
-
-
     public function createCourse()
     {
         return view('course.course_create');

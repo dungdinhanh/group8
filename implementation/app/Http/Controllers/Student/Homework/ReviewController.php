@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Teacher\Homework;
+namespace App\Http\Controllers\Student\Homework;
 
 use App\Review;
 use App\Submission;
