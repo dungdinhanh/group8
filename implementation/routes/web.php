@@ -28,7 +28,7 @@ Route::get('/user/edit', 'CRUD\CRUDController@showEditForm')->name('edit_profile
 
 Route::post('/user/edit', 'CRUD\CRUDController@edit')->name('edit_profile_handle');
 
-Route::prefix('teacher')->name('teacher.')->group(function () {
+Route::prefix('teacher')->namespace('Teacher')->name('teacher.')->group(function () {
     // course
     Route::name('course.')->prefix('/course')->group(function () {
         Route::get('/', 'Course\CourseController@listCourses')->name(

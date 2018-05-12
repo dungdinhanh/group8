@@ -36,9 +36,17 @@ class DatabaseSeeder extends Seeder
             'role_id' => '2',
             'date_of_birth' => '1996/11/21'
         ]);
+        DB::table('users')->insert([
+            'full_name'=>'Do Nhat Quang',
+            'user_name'=>'donhatquang',
+            'password' => bcrypt('123456'),
+            'email'=> 'nhatquangprovodoi@gmail.com',
+            'role_id' => '1',
+            'date_of_birth' => '1996/11/21'
+        ]);
 
 
-        for($i = 0; $i < 100; $i++)
+        for($i = 0; $i < 50; $i++)
         {
             DB::table('users')->insert([
                 'full_name' => $faker->name,
@@ -70,7 +78,7 @@ class DatabaseSeeder extends Seeder
             $user_role->university = $faker->city;
             $user_role->save();
             if($user->role_id == 2){
-                for($i =0; $i < 100; $i++) {
+                for($i =0; $i < 10; $i++) {
                     $course = new \App\Course();
                     $course->course_name = $faker->firstNameMale;
                     $course->max_students = rand(20, 40);
@@ -80,7 +88,7 @@ class DatabaseSeeder extends Seeder
                     $course->end_date = $faker->dateTimeBetween('now', '2 years');
                     $course->save();
                     $course = \App\Course::where('course_name', '=' ,$course->course_name)->get()->first();
-                    for($j = 0; $j < 10; $j++) {
+                    for($j = 0; $j < 2; $j++) {
                         $lesson = new \App\Lesson();
                         $lesson->no = $j+1;
                         $lesson->title = $faker->firstNameMale;
@@ -95,21 +103,21 @@ class DatabaseSeeder extends Seeder
             }
         }
 
-        $students = \App\Student::all();
-        $courses = \App\Course::all();
-        $students_count = count($students);
-        foreach($courses as $course)
-        {
-            $number_of_student = rand(20, $course->max_students);
-            for ($i = 0; $i < $number_of_student; $i++)
-            {
-                $index = rand(1, $students_count-1);
-                $enroll = new \App\Enrollment();
-                $enroll->student_id = $students[$index]->id;
-                $enroll->course_id = $course->id;
-                $enroll->save();
-            }
-        }
+//        $students = \App\Student::all();
+//        $courses = \App\Course::all();
+//        $students_count = count($students);
+//        foreach($courses as $course)
+//        {
+//            $number_of_student = rand(20, $course->max_students);
+//            for ($i = 0; $i < $number_of_student; $i++)
+//            {
+//                $index = rand(1, $students_count-1);
+//                $enroll = new \App\Enrollment();
+//                $enroll->student_id = $students[$index]->id;
+//                $enroll->course_id = $course->id;
+//                $enroll->save();
+//            }
+//        }
 
         $teachers = \App\Teacher::all();
 

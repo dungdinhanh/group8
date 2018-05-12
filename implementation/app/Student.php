@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Student extends Model
 {
+    protected $guarded = [];
     //
     public function user(){ //6
         return $this->belongsTo('App\User', 'student_id');
@@ -20,8 +21,7 @@ class Student extends Model
     }
 
     public function courses(){ //15
-        return $this->belongsToMany('App\Submission', 'enrollments',
-            'course_id', 'student_id');
+        return $this->belongsToMany('App\Course', 'enrollments');
     }
 
     public function enrollments()

@@ -15,10 +15,10 @@ class CreateTeachersTable extends Migration
     {
         Schema::create('teachers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('dept');
-            $table->string('school');
-            $table->string('university');
-            $table->string('level');
+            $table->string('dept')->nullable();
+            $table->string('school')->nullable();
+            $table->string('university')->nullable();
+            $table->string('level')->nullable();
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
