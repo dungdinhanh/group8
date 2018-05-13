@@ -75,8 +75,9 @@
                                                      hidden="hidden">
                                             </h3>
                                         </div>
-                                        <div class="" style="">
+                                        <div class="content" style="">
                                             <table id="search_result" class="courses ui celled table">
+                                            sssssssssssssssss
                                             </table>
                                             <table id="origin_result" class="courses ui celled table">
                                                 @csrf

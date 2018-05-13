@@ -22,7 +22,6 @@ class CourseController extends Controller
         $search = $request->search;
         $courses = Course::where('teacher_id', Auth::user()->teacher->id)
                         ->where('course_name', 'LIKE', "%$search%")->get();
-
-        return view('course.course_search', ['courses' => $courses]);
+        return $courses;
     }
 }
