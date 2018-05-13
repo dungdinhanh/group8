@@ -113,6 +113,13 @@ Route::prefix('teacher')->middleware('teacher')->namespace('Teacher')->name('tea
     });
 
 
+    Route::name('submission.')->prefix('/submission')->group(function () {
+        //show view
+        Route::get('/{homework_id}', 'Homework\SubmissionController@index')->name(
+            'list'
+        );
+    });
+
     Route::name('review.')->prefix('/review')->group(function () {
         Route::get('/form/{submission_id}', 'Homework\ReviewController@getReviewForm')->name(
         'form'
