@@ -13,7 +13,7 @@ class ReviewController extends Controller
     public function getReviewForm($submission_id){
         $submission = Submission::where('id', '=', $submission_id)->get()->first();
         $homework = $submission->homework;
-        $course = $homework->course;
+        $course = $submission->course;
         return view('homework.review.review_form', [
             'homework' => $homework,
             'submission' => $submission,

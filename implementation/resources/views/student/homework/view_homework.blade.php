@@ -63,6 +63,12 @@
                                                 {!! $submission->content !!}
                                             </td>
                                         </tr>
+                                        <tr class="">
+                                            <td class="cell c0" style="">Note for teacher</td>
+                                            <td class="earlysubmission cell c1 lastcol" style="">
+                                                {!! $submission->note !!}
+                                            </td>
+                                        </tr>
                                     @endif
                                     </tbody>
                                 </table>
