@@ -34,4 +34,12 @@ class ReviewController extends Controller
 
         return redirect()->route("home");
     }
+
+    public function getListSubmission($homeworkID)
+    {
+//        $homework = Homework::where('id', '=', $homeworkID)->get()->first();
+//        $submissions = $homework->submissions;
+        $submissions = Submission::with('students')->where('homework_id', '=', $homeworkID)->get();
+        return $submissions;
+    }
 }
