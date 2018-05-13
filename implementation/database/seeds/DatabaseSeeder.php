@@ -103,21 +103,21 @@ class DatabaseSeeder extends Seeder
             }
         }
 
-//        $students = \App\Student::all();
-//        $courses = \App\Course::all();
-//        $students_count = count($students);
-//        foreach($courses as $course)
-//        {
-//            $number_of_student = rand(20, $course->max_students);
-//            for ($i = 0; $i < $number_of_student; $i++)
-//            {
-//                $index = rand(1, $students_count-1);
-//                $enroll = new \App\Enrollment();
-//                $enroll->student_id = $students[$index]->id;
-//                $enroll->course_id = $course->id;
-//                $enroll->save();
-//            }
-//        }
+        $students = \App\Student::all();
+        $courses = \App\Course::all();
+        $students_count = count($students);
+        foreach($courses as $course)
+        {
+            $number_of_student = rand(20, $course->max_students);
+            for ($i = 0; $i < $number_of_student; $i++)
+            {
+                $index = rand(1, $students_count-1);
+                $enroll = new \App\Enrollment();
+                $enroll->student_id = $students[$index]->id;
+                $enroll->course_id = $course->id;
+                $enroll->save();
+            }
+        }
 
         $teachers = \App\Teacher::all();
 
