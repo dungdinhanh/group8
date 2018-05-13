@@ -118,9 +118,6 @@ class DatabaseSeeder extends Seeder
                 $enroll->save();
             }
         }
-
-        $teachers = \App\Teacher::all();
-
     }
 
 
