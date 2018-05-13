@@ -53,7 +53,7 @@
                                 </table>
                             </div>
                             <div class="submissionlinks">
-                                <a href="https://school.demo.moodle.net/mod/assign/view.php?id=787&amp;action=grading" class="btn btn-secondary">View all submissions</a>
+                                <a href="{{route('teacher.submission.list', ['homework_id' => $homework->id])}}" class="btn btn-secondary">View all submissions</a>
                                 <a href="https://school.demo.moodle.net/mod/assign/view.php?id=787&amp;action=grader" class="btn btn-primary">Grade</a>
                             </div>
                         </div>

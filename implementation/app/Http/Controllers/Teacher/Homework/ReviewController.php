@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Teacher\Homework;
 
+use App\Homework;
 use App\Review;
 use App\Submission;
 use Illuminate\Http\Request;
@@ -22,7 +23,6 @@ class ReviewController extends Controller
         ]);
     }
 
-
     public function addReview(Request $request){
         $review = new Review();
         $review->submission_id = $request->input('submission_id');
@@ -34,5 +34,4 @@ class ReviewController extends Controller
 
         return redirect()->route("home");
     }
-
 }
