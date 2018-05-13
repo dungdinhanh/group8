@@ -115,7 +115,7 @@ Route::prefix('teacher')->middleware('teacher')->namespace('Teacher')->name('tea
 
     Route::name('submission.')->prefix('/submission')->group(function () {
         //show view
-        Route::get('/{homework_id}', 'Homework\SubmissionController@index')->name(
+        Route::get('/list/{homework_id}', 'Homework\ReviewController@getListSubmission')->name(
             'list'
         );
     });
@@ -129,9 +129,9 @@ Route::prefix('teacher')->middleware('teacher')->namespace('Teacher')->name('tea
         'add'
         );
 
-        Route::get('/list/{homework_id}', 'Teacher\Homework\ReviewController@getListSubmission')->name(
-            'list'
-        );
+//        Route::get('/list/{homework_id}', 'Teacher\Homework\ReviewController@getListSubmission')->name(
+//            'list'
+//        );
     });
 
 });
