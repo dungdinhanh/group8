@@ -19,16 +19,30 @@ Route::get('/', function () {
 Auth::routes();
 
 //crud
+Route::middleware('auth')->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/user/profile', 'CRUD\CRUDController@showProfile')->name('profile');
 
-Route::get('/user/profile', 'CRUD\CRUDController@showProfile')->name('profile');
+    Route::get('/user/edit', 'CRUD\CRUDController@showEditForm')->name('edit_profile');
 
-Route::get('/user/edit', 'CRUD\CRUDController@showEditForm')->name('edit_profile');
+    Route::post('/user/edit', 'CRUD\CRUDController@edit')->name('edit_profile_handle');
 
-Route::post('/user/edit', 'CRUD\CRUDController@edit')->name('edit_profile_handle');
+    //Notification
+    Route::get('/r_notification/{receiver_id}', 'Notification\NotificationController@listReceivedNotification')->name(
+        'list_received_notification'
+    );
 
-Route::prefix('teacher')->name('teacher.')->group(function () {
+    Route::get('/s_notification/{sender_id}', 'Notification\NotificationController@listSentNotification')->name(
+        'list_sent_notification'
+    );
+
+    Route::post('/notification/{user_id}/{notification_id}', 'Notification\NotificationController@readNotification')->name(
+        'view_detail_notification'
+    );
+});
+
+Route::prefix('teacher')->middleware('teacher')->namespace('Teacher')->name('teacher.')->group(function () {
     // course
     Route::name('course.')->prefix('/course')->group(function () {
         Route::get('/', 'Course\CourseController@listCourses')->name(
@@ -112,9 +126,37 @@ Route::prefix('teacher')->name('teacher.')->group(function () {
 });
 
 
-Route::prefix('student')->name('student.')->group(function (){
-    //submission
+Route::prefix('student')->namespace('Student')->name('student.')->group(function (){
 
+    Route::name('course.')->prefix('/course')->group(function () {
+        Route::get('/', 'Course\CourseController@listCourses')->name(
+            'list'
+        );
+        Route::post('/search', 'Course\CourseController@searchCourse')->name(
+            'search'
+        );
+    });
+
+    //lesson
+    Route::name('lesson.')->prefix('/course')->group(function () {
+        Route::get('/{course_id}', 'Course\LessonController@index')->name(
+            'list'
+        );
+        Route::get('/{course_id}/lesson/create', 'Course\LessonController@create')->name(
+            'create'
+        );
+        Route::post('/lesson/', 'Course\LessonController@store')->name(
+            'store'
+        );
+    });
+
+    Route::name('homework.')->prefix('/homework')->group(function () {
+        Route::get('/view/{homework_id}', 'Homework\HomeworkController@showHomework')->name(
+            'view'
+        );
+    });
+
+    //submission
     Route::name('submission.')->prefix('/submission')->group(function () {
         //show view
         Route::get('/form/{homework_id}', 'Homework\SubmissionController@showSubmissionForm')->name(
@@ -130,18 +172,3 @@ Route::prefix('student')->name('student.')->group(function (){
         );
     });
 });
-
-//Notification
-Route::get('/r_notification/{receiver_id}', 'Notification\NotificationController@listReceivedNotification')->name(
-    'list_received_notification'
-);
-
-Route::get('/s_notification/{sender_id}', 'Notification\NotificationController@listSentNotification')->name(
-    'list_sent_notification'
-);
-
-Route::post('/notification/{user_id}/{notification_id}', 'Notification\NotificationController@readNotification')->name(
-    'view_detail_notification'
-);
-
-

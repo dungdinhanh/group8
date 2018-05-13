@@ -504,44 +504,11 @@
                                                                             <div data-region="paging-content-item"
                                                                                  data-page="1" id="page1" class="row">
                                                                                 @csrf
-                                                                                @foreach($courses as $key=>$course)
-                                                                                @if($key < 10)
-
-                                                                                <a class="nav-link"
-                                                                                   href="">
-                                                                                </a>
+                                                                                @foreach($courses as $course)
                                                                                 <div class="col-lg-6">
                                                                                     <div class="card m-b-1 courses-view-course-item">
                                                                                         <div class="card-block course-info-container"
                                                                                              id="course-info-container-66">
-                                                                                            <div class="hidden-sm-up hidden-phone">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text has-percent">
-                                                                                                            {{__($course->max_students)}}%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        {{__($course->max_students)}}%
-                                                                                                                    </title>
-                                                                                                                    <circle class="circle percent-{{__($course->max_students)}}"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35">
-                                                                                                                    </circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="{{route('teacher.lesson.list', ['course_id' => $course->id])}}"
-                                                                                                       class="">{{__($course->course_name)}}
-                                                                                                    </a>
-                                                                                                </h4>
-                                                                                            </div>
                                                                                             <div class="hidden-xs-down visible-phone">
                                                                                                 <div class="media">
                                                                                                     <div class="media-left">
@@ -571,9 +538,15 @@
                                                                                                     </div>
                                                                                                     <div class="media-body">
                                                                                                         <h4 class="h5">
-                                                                                                            <a href="{{route('teacher.lesson.list', ['course_id' => $course->id])}}"
-                                                                                                               class="">{{__($course->course_name)}}
-                                                                                                            </a>
+                                                                                                            @if(Auth::user()->isTeacher())
+                                                                                                                <a href="{{route('teacher.lesson.list', ['course_id' => $course->id])}}"
+                                                                                                                   class="">{{__($course->course_name)}}
+                                                                                                                </a>
+                                                                                                            @else
+                                                                                                                <a href="{{route('student.lesson.list', ['course_id' => $course->id])}}"
+                                                                                                                   class="">{{__($course->course_name)}}
+                                                                                                                </a>
+                                                                                                            @endif
                                                                                                         </h4>
                                                                                                     </div>
                                                                                                 </div>
@@ -586,342 +559,8 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                                @endif
                                                                                 @endforeach
                                                                             </div>
-                                                                            <div data-region="paging-content-item"
-                                                                                 data-page="2" id="page2"
-                                                                                 class=" row hidden">
-                                                                                @csrf
-                                                                                @foreach($courses as $key=>$course)
-                                                                                @if(($key >= 10) && ($key < 20))
-
-                                                                                <a class="nav-link"
-                                                                                   href="{{route('teacher.lesson.list', ['course_id'=>$course->id])}}">
-                                                                                </a>
-                                                                                <div class="col-lg-6">
-                                                                                    <div class="card m-b-1 courses-view-course-item">
-                                                                                        <div class="card-block course-info-container"
-                                                                                             id="course-info-container-66">
-                                                                                            <div class="hidden-sm-up hidden-phone">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text has-percent">
-                                                                                                            {{__($course->max_students)}}%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        {{__($course->max_students)}}%
-                                                                                                                    </title>
-                                                                                                                    <circle class="circle percent-{{__($course->max_students)}}"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35">
-                                                                                                                    </circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="" class="">{{__($course->course_name)}} </a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-xs-down visible-phone">
-                                                                                                <div class="media">
-                                                                                                    <div class="media-left">
-                                                                                                        <div class="media-object">
-                                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                                <div class="progress-doughnut">
-                                                                                                                    <div class="progress-text has-percent">
-                                                                                                                        {{__($course->max_students)}}%
-                                                                                                                    </div>
-                                                                                                                    <div class="progress-indicator">
-                                                                                                                        <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                            <g>
-                                                                                                                                <title aria-hidden="true">
-                                                                                                                                    {{__($course->max_students)}}%
-                                                                                                                                </title>
-                                                                                                                                <circle class="circle percent-{{__($course->max_students)}}"
-                                                                                                                                        r="27.5"
-                                                                                                                                        cx="35"
-                                                                                                                                        cy="35">
-                                                                                                                                </circle>
-                                                                                                                            </g>
-                                                                                                                        </svg>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="media-body">
-                                                                                                        <h4 class="h5">
-                                                                                                            <a href=""
-                                                                                                               class="">{{__($course->course_name)}} </a>
-                                                                                                        </h4>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <p class="text-muted">
-                                                                                                Introducing the
-                                                                                                concept
-                                                                                                of{{__($course->course_name)}}
-                                                                                            </p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                @endif
-                                                                                @endforeach
-                                                                            </div>
-                                                                            <div data-region="paging-content-item"
-                                                                                 data-page="3" id="page3"
-                                                                                 class=" row hidden">
-                                                                                @csrf
-                                                                                @foreach($courses as $key=>$course)
-                                                                                @if(($key >= 20) && ($key < 30))
-
-                                                                                <a class="nav-link"
-                                                                                   href="{{route('teacher.lesson.list', ['course_id'=>$course->id])}}">
-                                                                                </a>
-                                                                                <div class="col-lg-6">
-                                                                                    <div class="card m-b-1 courses-view-course-item">
-                                                                                        <div class="card-block course-info-container"
-                                                                                             id="course-info-container-66">
-                                                                                            <div class="hidden-sm-up hidden-phone">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text has-percent">
-                                                                                                            {{__($course->max_students)}}%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        {{__($course->max_students)}}%</title>
-                                                                                                                    <circle class="circle percent-{{__($course->max_students)}}"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35"></circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5">
-                                                                                                    <a href="" class="">{{__($course->course_name)}} </a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-xs-down visible-phone">
-                                                                                                <div class="media">
-                                                                                                    <div class="media-left">
-                                                                                                        <div class="media-object">
-                                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                                <div class="progress-doughnut">
-                                                                                                                    <div class="progress-text has-percent">
-                                                                                                                        {{__($course->max_students)}}%
-                                                                                                                    </div>
-                                                                                                                    <div class="progress-indicator">
-                                                                                                                        <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                            <g>
-                                                                                                                                <title aria-hidden="true">
-                                                                                                                                    {{__($course->max_students)}}%
-                                                                                                                                </title>
-                                                                                                                                <circle class="circle percent-{{__($course->max_students)}}"
-                                                                                                                                        r="27.5"
-                                                                                                                                        cx="35"
-                                                                                                                                        cy="35">
-                                                                                                                                </circle>
-                                                                                                                            </g>
-                                                                                                                        </svg>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="media-body">
-                                                                                                        <h4 class="h5">
-                                                                                                            <a href=""
-                                                                                                               class="">{{__($course->course_name)}} </a>
-                                                                                                        </h4>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <p class="text-muted">
-                                                                                                Introducing the
-                                                                                                concept
-                                                                                                of{{__($course->course_name)}}
-                                                                                            </p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                @endif
-                                                                                @endforeach
-                                                                            </div>
-                                                                            <div data-region="paging-content-item"
-                                                                                 data-page="4" id="page4"
-                                                                                 class=" row hidden">
-                                                                                @csrf
-                                                                                @foreach($courses as $key=>$course)
-                                                                                @if(($key >= 30) && ($key < 40))
-
-                                                                                <a class="nav-link"
-                                                                                   href="{{route('teacher.lesson.list', ['course_id'=>$course->id])}}">
-                                                                                </a>
-                                                                                <div class="col-lg-6">
-                                                                                    <div class="card m-b-1 courses-view-course-item">
-                                                                                        <div class="card-block course-info-container"
-                                                                                             id="course-info-container-66">
-                                                                                            <div class="hidden-sm-up hidden-phone">
-                                                                                                <div class="progress-chart-container m-b-1">
-                                                                                                    <div class="progress-doughnut">
-                                                                                                        <div class="progress-text has-percent">
-                                                                                                            {{__($course->max_students)}}%
-                                                                                                        </div>
-                                                                                                        <div class="progress-indicator">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                <g>
-                                                                                                                    <title aria-hidden="true">
-                                                                                                                        {{__($course->max_students)}}%</title>
-                                                                                                                    <circle class="circle percent-{{__($course->max_students)}}"
-                                                                                                                            r="27.5"
-                                                                                                                            cx="35"
-                                                                                                                            cy="35"></circle>
-                                                                                                                </g>
-                                                                                                            </svg>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <h4 class="h5"><a
-                                                                                                            href=""
-                                                                                                            class="">{{__($course->course_name)}} </a>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                            <div class="hidden-xs-down visible-phone">
-                                                                                                <div class="media">
-                                                                                                    <div class="media-left">
-                                                                                                        <div class="media-object">
-                                                                                                            <div class="progress-chart-container m-b-1">
-                                                                                                                <div class="progress-doughnut">
-                                                                                                                    <div class="progress-text has-percent">
-                                                                                                                        {{__($course->max_students)}}%
-                                                                                                                    </div>
-                                                                                                                    <div class="progress-indicator">
-                                                                                                                        <svg xmlns="http://www.w3.org/2000/svg">
-                                                                                                                            <g>
-                                                                                                                                <title aria-hidden="true">
-                                                                                                                                    {{__($course->max_students)}}%</title>
-                                                                                                                                <circle class="circle percent-{{__($course->max_students)}}"
-                                                                                                                                        r="27.5"
-                                                                                                                                        cx="35"
-                                                                                                                                        cy="35"></circle>
-                                                                                                                            </g>
-                                                                                                                        </svg>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="media-body">
-                                                                                                        <h4 class="h5">
-                                                                                                            <a href=""
-                                                                                                               class="">{{__($course->course_name)}} </a>
-                                                                                                        </h4>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <p class="text-muted">
-                                                                                                Introducing the
-                                                                                                concept
-                                                                                                of{{__($course->course_name)}}
-                                                                                            </p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                @endif
-                                                                                @endforeach
-                                                                            </div>
-
-                                                                        </div>
-
-                                                                        <div class="text-xs-center text-center">
-                                                                            <nav aria-label=""
-                                                                                 id="pb-for-in-progress"
-                                                                                 data-region="paging-bar"
-                                                                                 data-page-count="2">
-
-                                                                                <ul class="pagination">
-                                                                                    <li class="page-item  "
-                                                                                        data-region="page-item"
-                                                                                        data-page-number="first">
-
-                                                                                        <a href="#"
-                                                                                           class="page-link"
-                                                                                           data-region="page-link">
-                                                                                            «
-                                                                                        </a>
-                                                                                    </li>
-                                                                                    <li id="pageItem1"
-                                                                                        class="page-item active "
-                                                                                        data-region="page-item"
-                                                                                        onclick="changePage(1,4)"
-                                                                                        data-page-number="1">
-
-                                                                                        <a href="#page1"
-                                                                                           class="page-link"
-                                                                                           data-region="page-link">
-                                                                                            1
-                                                                                        </a>
-                                                                                    </li>
-                                                                                    <li id="pageItem2"
-                                                                                        class="page-item  "
-                                                                                        data-region="page-item"
-                                                                                        onclick="changePage(2,4)"
-                                                                                        data-page-number="2">
-
-                                                                                        <a href="#page2"
-                                                                                           class="page-link"
-                                                                                           data-region="page-link">
-                                                                                            2
-                                                                                        </a>
-                                                                                    </li>
-                                                                                    <li id="pageItem3"
-                                                                                        class="page-item  "
-                                                                                        data-region="page-item"
-                                                                                        onclick="changePage(3,4)"
-                                                                                        data-page-number="3">
-
-                                                                                        <a href="#page3"
-                                                                                           class="page-link"
-                                                                                           data-region="page-link">
-                                                                                            3
-                                                                                        </a>
-                                                                                    </li>
-                                                                                    <li id="pageItem4"
-                                                                                        class="page-item  "
-                                                                                        data-region="page-item"
-                                                                                        onclick="changePage(4,4)"
-                                                                                        data-page-number="4">
-
-                                                                                        <a href="#page4"
-                                                                                           class="page-link"
-                                                                                           data-region="page-link">
-                                                                                            4
-                                                                                        </a>
-                                                                                    </li>
-                                                                                    <li class="page-item  "
-                                                                                        data-region="page-item"
-                                                                                        data-page-number="last">
-
-                                                                                        <a href="#"
-                                                                                           class="page-link"
-                                                                                           data-region="page-link">
-                                                                                            »
-                                                                                        </a>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </nav>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -931,17 +570,11 @@
                                                 </div>
                                             </div>
                                             <div class="footer"></div>
-
                                         </div>
-
                                     </div>
-
                                 </aside>
-
                                 <span id="sb-4"></span></aside>
                         </div>
-
-
                     </div>
                 </section>
                 @if(Auth::user()->role_id == 2)

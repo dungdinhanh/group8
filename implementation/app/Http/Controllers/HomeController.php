@@ -25,14 +25,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = Auth::user()->id;
-        $user = User::where('id', '=', $user)->get()->first();
-        if($user->role_id == 1)
+        $user = Auth::user();
+        if($user->isStudent())
         {
             $student = $user->student;
             $courses = $student->courses;
         }
-        else if($user->role_id == 2)
+        else if($user->isTeacher())
         {
             $teacher = $user->teacher;
             $courses = $teacher->courses;

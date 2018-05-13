@@ -54,4 +54,14 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Notification', 'receiver_id');
     }
+
+    public function isStudent()
+    {
+        return $this->role_id == 1;
+    }
+
+    public function isTeacher()
+    {
+        return $this->role_id == 2;
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Course;
+namespace App\Http\Controllers\Teacher\Course;
 
 use App\Course;
 use App\User;
@@ -22,7 +22,7 @@ class CourseController extends Controller
 
     public function listLessons($course_id)
     {
-        $course = Course::where('id', $course_id)->first();
+        $course = Course::find($course_id);
         $lessons = $course->lessons;
         $students = $course->students;
         return view('course.lesson_list', ['lessons' => $lessons,
@@ -48,7 +48,7 @@ class CourseController extends Controller
         $course->fill($input);
         $course->save();
 
-        return redirect()->route('list_lessons', ['course_id' => $course->id]);
+        return redirect()->route('teacher.lesson.list', ['course_id' => $course->id]);
     }
 
     public function searchCourse(Request $request)
