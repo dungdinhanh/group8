@@ -186,7 +186,7 @@
                                      aria-atomic="false" aria-relevant="additions">
                                     <a class="content-item-container unread"
                                        data-region="message-content-item-container" role="listitem"
-                                       href="https://school.demo.moodle.net/message/index.php?user=56&amp;id=47"
+                                       href=""
                                        aria-label="View unread messages with Brian Franklin" tabindex="0">
 
                                         <div class="content-item">
@@ -205,7 +205,7 @@
                                         </div>
                                     </a><a class="content-item-container " data-region="message-content-item-container"
                                            role="listitem"
-                                           href="https://school.demo.moodle.net/message/index.php?user=56&amp;id=13"
+                                           href=""
                                            aria-label="View messages with Jeffrey Sanders" tabindex="0">
 
                                         <div class="content-item">
@@ -225,7 +225,7 @@
                                         </div>
                                     </a><a class="content-item-container " data-region="message-content-item-container"
                                            role="listitem"
-                                           href="https://school.demo.moodle.net/message/index.php?user=56&amp;id=46"
+                                           href=""
                                            aria-label="View messages with Amanda Hamilton" tabindex="0">
 
                                         <div class="content-item">
@@ -245,7 +245,7 @@
                                         </div>
                                     </a><a class="content-item-container " data-region="message-content-item-container"
                                            role="listitem"
-                                           href="https://school.demo.moodle.net/message/index.php?user=56&amp;id=106"
+                                           href=""
                                            aria-label="View messages with Margaret Rivera" tabindex="0">
 
                                         <div class="content-item">
@@ -270,7 +270,7 @@
                             <span class="loading-icon"><img class="icon " alt="Loading" title="Loading"
                                                             src="https://school.demo.moodle.net/theme/image.php/boost/core/1526180459/y/loading"></span>
                         </div>
-                        <a class="see-all-link" href="https://school.demo.moodle.net/message/index.php">
+                        <a class="see-all-link" href="#">
                             <div class="popover-region-footer-container">
                                 <div class="popover-region-seeall-text">See all</div>
                             </div>
