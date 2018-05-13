@@ -74,7 +74,8 @@
 
                                     <div class="col-md-8">
                                         <textarea id="note" name="note" cols="50" rows="5"
-                                                  class="col-form-label form-control col-md-12">Note for your submission</textarea>
+                                                  class="col-form-label form-control col-md-12"
+                                                  placeholder="Note for teacher"></textarea>
                                     </div>
                                 </div>
 

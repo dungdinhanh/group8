@@ -142,12 +142,6 @@ Route::prefix('student')->namespace('Student')->name('student.')->group(function
         Route::get('/{course_id}', 'Course\LessonController@index')->name(
             'list'
         );
-        Route::get('/{course_id}/lesson/create', 'Course\LessonController@create')->name(
-            'create'
-        );
-        Route::post('/lesson/', 'Course\LessonController@store')->name(
-            'store'
-        );
     });
 
     Route::name('homework.')->prefix('/homework')->group(function () {
