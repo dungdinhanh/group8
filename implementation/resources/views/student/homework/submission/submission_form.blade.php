@@ -47,34 +47,23 @@
                 <div class="card card-block" id="yui_3_17_2_1_1524908524725_372">
                     <span class="notifications" id="user-notifications"></span>
                     <div role="main" id="yui_3_17_2_1_1524908524725_371"><span id="maincontent"></span>
-                        <h2>Assignment {{__($homework->homework_no)}} (Text) </h2>
+                        <h2>Assignment {{__($homework->title)}} </h2>
                         <h6>Deadline: {{__($homework->dead_line)}}</h6>
                         <div id="intro" class="box generalbox boxaligncenter p-y-1">
                             <div class="no-overflow">
-                                <p>{{__($homework->title)}}</p>
-                                <p>{{__($homework->content)}}</p>
+                                <p>{!! $homework->content !!}</p>
                             </div>
                         </div>
                         <div class="box boxaligncenter editsubmissionform p-y-1" id="yui_3_17_2_1_1524908524725_370">
                             <form autocomplete="off" method="post" accept-charset="utf-8" id="mform1" class="mform"
                                   action="{{route('student.submission.submit')}}">
                                 <div class="row form-group">
-                                    <label for="title" class="col-form-label col-md-4">
-                                        {{__('Title')}}
-                                    </label>
-                                    <div class="col-md-8">
-                                        <input id="title" name="title" class="form-control
-col-md-12" type="text" value="Title">
-                                    </div>
-                                </div>
-
-                                <div class="row form-group">
                                     <label for="content" class="col-form-label col-md-4">
                                         {{__('Content')}}
                                     </label>
                                     <div class="col-md-8">
-                            <textarea id="content" name="content" cols="50" rows="20" class="col-form-label form-control
-col-md-12">Type your answer here</textarea>
+                                        <textarea id="content" name="content" cols="50" rows="20" class="col-form-label form-control
+            col-md-12">Type your answer here</textarea>
                                     </div>
                                 </div>
 
@@ -119,7 +108,6 @@ col-md-12">Type your answer here</textarea>
                                         " name="cancel" id="id_cancel" value="Cancel">cancel
                                             </a>
                                             </span>
-
                                         </div>
                                     </div>
                                 </div>
@@ -132,6 +120,27 @@ col-md-12">Type your answer here</textarea>
         </div>
     </div>
 </div>
+@endsection
+@section('css')
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+@endsection
 
-
+@section('js')
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#content').summernote({
+                height: 500,
+                toolbar: [
+                    // [groupName, [list of button]]
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']]
+                ]
+            });
+        });
+    </script>
 @endsection

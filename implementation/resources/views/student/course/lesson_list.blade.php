@@ -207,7 +207,7 @@
                                                         <div>
                                                             <div class="activityinstance">
                                                                 <a class="" onclick=""
-                                                                   href="{{route('student.homework.view', ['courseId' => $course->id, 'homeworkId' => $homework->id])}}">
+                                                                   href="{{route('student.homework.view', ['homeworkId' => $homework->id])}}">
                                                                     <img src="https://school.demo.moodle.net/theme/image.php/boost/assign/1524376896/icon"
                                                                          class="iconlarge activityicon" alt=" "
                                                                          role="presentation">

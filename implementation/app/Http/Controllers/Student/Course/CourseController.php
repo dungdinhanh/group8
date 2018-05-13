@@ -10,13 +10,11 @@ use Auth;
 
 class CourseController extends Controller
 {
-    public function listLessons($course_id)
+    public function listCourses()
     {
-        $course = Course::find($course_id);
-        $lessons = $course->lessons;
-        $students = $course->students;
-        return view('course.lesson_list', ['lessons' => $lessons,
-            'course' => $course]);
+        $user = Auth::user();
+        $courses = $user->student->courses;
+        return view('course.course_list', ['courses' => $courses]);
     }
 
     public function searchCourse(Request $request)

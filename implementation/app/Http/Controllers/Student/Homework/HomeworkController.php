@@ -13,6 +13,7 @@ use App\Http\Requests\HomeworkCreate;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Notification\NotificationController;
 use DateTime;
+use Illuminate\Support\Facades\Auth;
 
 class HomeworkController extends Controller
 {
@@ -26,6 +27,11 @@ class HomeworkController extends Controller
         $current = new \DateTime();
         $time_left = date_diff($dead_line, $current)->format('%d days %H hours %i minutes');
 
+        $submission = Submission::where('homework_id', $homework_id)
+                                ->where('student_id', Auth::user()->student->id)
+                                ->first();
+
+
         if ($dead_line > $current) $overtime = false;
         else $overtime=true;
         return view('student.homework.view_homework',
@@ -33,8 +39,9 @@ class HomeworkController extends Controller
                 'homework' => $homework,
                 'lesson' => $lesson->lesson_title,
                 'course' => $course->course_name,
-                    'time_left' => $time_left,
-                    'overtime' => $overtime
+                'submission' =>$submission,
+                'time_left' => $time_left,
+                'overtime' => $overtime
             ]
         );
     }

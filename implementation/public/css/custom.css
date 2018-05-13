@@ -11,3 +11,11 @@ td.highlightt {
 div#table_id_wrapper {
     padding: 20px;
 }
+generalbox {
+    background-color: transparent;
+    border: 1px solid #d3d3d3;
+    box-shadow: 0 0 4px rgba(0,0,0,.15);
+    margin: 1em auto;
+    padding: 10px;
+    width: 85%;
+}
