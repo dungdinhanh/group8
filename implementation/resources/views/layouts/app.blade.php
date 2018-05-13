@@ -177,22 +177,17 @@
                                     <span class="loading-icon"><img class="icon " alt="Loading" title="Loading"
                                                                     src="https://school.demo.moodle.net/theme/image.php/boost/core/1526180459/y/loading"></span>
                                 </a>
-                                <a href="https://school.demo.moodle.net/message/edit.php?id=56"
-                                   title="Message preferences">
-                                    <i class="icon fa fa-cog fa-fw " aria-hidden="true" title="Message preferences"
-                                       aria-label="Message preferences"></i>
-                                </a>
                             </div>
                         </div>
                         <div class="popover-region-content-container" data-region="popover-region-content-container"
                              aria-busy="false">
                             <div class="popover-region-content" data-region="popover-region-content">
                                 <div class="messages" data-region="messages" role="log" aria-busy="false"
-                                     aria-atomic="false" aria-relevant="additions"><a
-                                            class="content-item-container unread"
-                                            data-region="message-content-item-container" role="listitem"
-                                            href="https://school.demo.moodle.net/message/index.php?user=56&amp;id=47"
-                                            aria-label="View unread messages with Brian Franklin" tabindex="0">
+                                     aria-atomic="false" aria-relevant="additions">
+                                    <a class="content-item-container unread"
+                                       data-region="message-content-item-container" role="listitem"
+                                       href="https://school.demo.moodle.net/message/index.php?user=56&amp;id=47"
+                                       aria-label="View unread messages with Brian Franklin" tabindex="0">
 
                                         <div class="content-item">
                                             <div class="profile-image-container">
@@ -283,47 +278,6 @@
                     </div>
 
 
-                    <div id="popover-region-container-5ad3a457db2285ad3a45768f3413" class="popover-region-container"
-                         data-region="popover-region-container" aria-expanded="false" aria-hidden="true"
-                         aria-label="Notification window" role="region">
-                        <div class="popover-region-header-container">
-                            <h3 class="popover-region-header-text" data-region="popover-region-header-text">
-                                Notifications</h3>
-                            <div class="popover-region-header-actions" data-region="popover-region-header-actions">
-                                <a class="mark-all-read-button" href="#" title="Mark all as read"
-                                   data-action="mark-all-read" role="button">
-                                <span class="normal-icon">
-                                    <i class="check icon" aria-hidden="true" title="Mark all as read"
-                                       aria-label="Mark all as read"></i>
-                                </span>
-                                    <span class="loading-icon">
-                                        <img class="icon " alt="Loading" title="Loading"
-                                             src="https://school.demo.moodle.net/theme/image.php/boost/core/1523815278/y/loading">
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="popover-region-content-container" data-region="popover-region-content-container">
-                            <div class="popover-region-content" data-region="popover-region-content">
-                                <div class="all-notifications" data-region="all-notifications" role="log"
-                                     aria-busy="false"
-                                     aria-atomic="false" aria-relevant="additions">
-                                </div>
-                                <div class="empty-message" tabindex="0" data-region="empty-message">You have no
-                                    notifications
-                                </div>
-                            </div>
-                            <span class="loading-icon">
-                                <img class="icon " alt="Loading" title="Loading"
-                                     src="https://school.demo.moodle.net/theme/image.php/boost/core/1523815278/y/loading">
-                            </span>
-                        </div>
-                        <a class="see-all-link" href="">
-                            <div class="popover-region-footer-container">
-                                <div class="popover-region-seeall-text">See all</div>
-                            </div>
-                        </a>
-                    </div>
                 </div>
 
                 <!-- search_box -->
@@ -456,14 +410,14 @@
     function showNotices() {
         console.log('ssssssssss', boolPower);
         if (!boolPower) {
-            document.getElementById('popover-region-container-5ad3a457db2285ad3a45768f3413').style.opacity = '0';
-            document.getElementById('popover-region-container-5ad3a457db2285ad3a45768f3413').style.visibility = 'invisible';
+            document.getElementById('popover-region-container-5af7b96f7d2bb5af7b96f679cf12').style.opacity = '0';
+            document.getElementById('popover-region-container-5af7b96f7d2bb5af7b96f679cf12').style.visibility = 'invisible';
             boolPower = true;
         } else {
             boolPower = false;
-            document.getElementById('popover-region-container-5ad3a457db2285ad3a45768f3413').style.opacity = '1';
-            document.getElementById('popover-region-container-5ad3a457db2285ad3a45768f3413').style.visibility = 'visible';
-            document.getElementById('popover-region-container-5ad3a457db2285ad3a45768f3413').style.height = '500px';
+            document.getElementById('popover-region-container-5af7b96f7d2bb5af7b96f679cf12').style.opacity = '1';
+            document.getElementById('popover-region-container-5af7b96f7d2bb5af7b96f679cf12').style.visibility = 'visible';
+            document.getElementById('popover-region-container-5af7b96f7d2bb5af7b96f679cf12').style.height = '500px';
         }
 
     }
