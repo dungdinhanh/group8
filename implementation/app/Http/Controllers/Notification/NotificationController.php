@@ -6,6 +6,7 @@ use App\Course;
 use App\Notification;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Auth;
 
 class NotificationController extends Controller
 {
@@ -16,15 +17,6 @@ class NotificationController extends Controller
         foreach ($students as $student)
         {
             self::addNotification($sender_id, $student->user_id, $message, $type);
-            //$user = $student->user;
-//            $notification = new Notification();
-//            $notification->receiver_id = $student->user_id;
-//            $notification->sender_id = $sender_id;
-//            $notification->message = $message;
-//            $notification->status = 1;
-//            $notification->assigned_id = 0;
-//            $notification->type = $type;
-//            $notification->save();
         }
     }
     //
@@ -40,7 +32,13 @@ class NotificationController extends Controller
         $notification->save();
     }
 
+    public function index()
+    {
+        $user = Auth::user();
+        $notification = Notification::where('receiver_id', $user->id);
 
+        return $notification;
+    }
 
     public function listReceivedNotification($receiver_id)
     {
@@ -59,8 +57,7 @@ class NotificationController extends Controller
 
     public function listSentNotification($sender_id)
     {
-        $notification = Notification::where('sender_id', '=', $sender_id);
-        $notifications = $notification->get();
+        $notifications = Notification::where('sender_id', '=', $sender_id)->get();
         foreach ($notifications as $notification) {
             $people[$notification->id] = $notification->receiver->full_name;
         }
