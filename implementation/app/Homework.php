@@ -15,16 +15,16 @@ class Homework extends Model
     protected $table = 'homework';
     public function course(){
         //23
-        return $this->belongsTo('App\Course', 'course_id');
+        return $this->belongsTo('App\Course');
     }
 
     public function submissions(){
         //28
-        return $this->hasMany('App\Submission', 'submission_id');
+        return $this->hasMany('App\Submission');
     }
 
     public function lesson(){
         //29
-        return $this->belongsTo('App\Lesson', 'lesson_id');
+        return $this->belongsTo('App\Lesson');
     }
 }

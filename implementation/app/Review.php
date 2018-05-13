@@ -14,12 +14,12 @@ class Review extends Model
     //
     public function teacher(){
         //14
-        return $this->belongsTo('App\Teacher', 'teacher_id');
+        return $this->belongsTo('App\Teacher');
     }
 
     public function submission()
     {
         //25
-        return $this->belongsTo('App\Submission', 'submission_id');
+        return $this->belongsTo('App\Submission');
     }
 }

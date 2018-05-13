@@ -15,7 +15,7 @@ class Course extends Model
     protected $guarded = [];
     //
     public function teacher(){//12
-        return $this->belongsTo('App\Teacher', 'teacher_id');
+        return $this->belongsTo('App\Teacher');
     }
 
     public function students(){//16
@@ -29,7 +29,7 @@ class Course extends Model
     }
 
     public function submissions(){//19
-        return $this->hasMany('App\Submission', 'course_id');
+        return $this->hasMany('App\Submission');
     }
 
     public function homework(){ //20

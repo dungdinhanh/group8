@@ -14,11 +14,11 @@ class Lesson extends Model
     //
     public function course(){
         //24
-        return $this->belongsTo('App\Course', 'course_id');
+        return $this->belongsTo('App\Course');
     }
 
     public function homeworks(){
         //30
-        return $this->hasMany('App\Homework', 'lesson_id');
+        return $this->hasMany('App\Homework');
     }
 }

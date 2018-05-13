@@ -25,11 +25,15 @@
                                     <tbody>
                                     <tr class="">
                                         <td class="cell c0" style="">Participants</td>
-                                        <td class="cell c1 lastcol" style="">10</td>
+                                        <td class="cell c1 lastcol" style="">
+                                            {{$course->students()->count()}}
+                                        </td>
                                     </tr>
                                     <tr class="">
                                         <td class="cell c0" style="">Submitted</td>
-                                        <td class="cell c1 lastcol" style="">2</td>
+                                        <td class="cell c1 lastcol" style="">
+                                            {{$homework->submissions()->count()}}
+                                        </td>
                                     </tr>
                                     <tr class="">
                                         <td class="cell c0" style="">Needs grading</td>

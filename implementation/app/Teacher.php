@@ -14,15 +14,15 @@ class Teacher extends Model
     protected $guarded = [];
     //
     public function user(){ //4
-        return $this->belongsTo('App\Teacher', 'user_id');
+        return $this->belongsTo('App\Teacher');
     }
 
     public function courses(){ //11
-        return $this->hasMany('App\Course', 'teacher_id');
+        return $this->hasMany('App\Course');
     }
 
     public function reviews(){ //13
-        return $this->hasMany('App\Review', 'teacher_id');
+        return $this->hasMany('App\Review');
     }
 
 }

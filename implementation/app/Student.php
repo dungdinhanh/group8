@@ -14,10 +14,10 @@ class Student extends Model
     protected $guarded = [];
     //
     public function user(){ //6
-        return $this->belongsTo('App\User', 'student_id');
+        return $this->belongsTo('App\User');
     }
     public function submissions(){ //17
-        return $this->hasMany('App\Submission', 'student_id');
+        return $this->hasMany('App\Submission');
     }
 
     public function courses(){ //15

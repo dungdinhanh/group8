@@ -62,7 +62,7 @@ class HomeworkController extends Controller
 
 
     public function showHomework($homework_id){
-        $homework = Homework::where('id', '=',$homework_id)->get()->first();
+        $homework = Homework::find($homework_id);
         $lesson = $homework->lesson;
         $course = $lesson->course;
         $dead_line = date("Y-m-d H:i:s",strtotime($homework->dead_line));
@@ -72,11 +72,14 @@ class HomeworkController extends Controller
 
         if ($dead_line > $current) $overtime = false;
         else $overtime=true;
-        return view('homework.view_homework', ['homework' => $homework,
-            'lesson' => $lesson->lesson_title,
-            'course' => $course->course_name,
+        return view('homework.view_homework',
+            [
+                'homework' => $homework,
+                'lesson' => $lesson->lesson_title,
+                'course' => $course,
                 'time_left' => $time_left,
-                'overtime' => $overtime]
+                'overtime' => $overtime
+            ]
         );
     }
 }
