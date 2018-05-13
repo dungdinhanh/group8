@@ -50,6 +50,8 @@
                     <div role="main" id="yui_3_17_2_1_1524388453553_47">
                         <span id="maincontent"></span>
                         <span></span>
+                        @if(Auth::user()->role_id == 2)
+
                         <form action="" id="coursesearch" method="get"
                               class="form-inline">
                             <fieldset class="coursesearchbox invisiblefieldset">
@@ -57,6 +59,7 @@
                                 <input id="search" name="search" type="text" size="30" value="" class="form-control">
                             </fieldset>
                         </form>
+                        @endif
                         <div class="course_category_tree clearfix category-browse category-browse-0"
                              id="yui_3_17_2_1_1524388453553_46">
                             <div class="collapsible-actions">
@@ -85,16 +88,31 @@
                                                     data-type="1">
                                                     <th class="info">
                                                         <div class="coursename">
+                                                            @if(Auth::user()->role_id == 2)
                                                             <a class=""
                                                                href="{{route('teacher.lesson.list', ['course_id'=>$course->id])}}">{{__($course->course_name)}}
                                                             </a>
+                                                            @elseif(Auth::user()->role_id == 1)
+                                                            <a class=""
+                                                               href="{{route('student.lesson.list', ['course_id'=>$course->id])}}">{{__($course->course_name)}}
+                                                            </a>
+                                                            @endif
+
                                                         </div>
                                                         <div class="moreinfo">
+                                                            @if(Auth::user()->role_id == 2)
                                                             <a title="Summary"
                                                                href="{{route('teacher.lesson.list', ['course_id'=>$course->id])}}">
                                                                 <i class="icon sign in alternate" aria-hidden="true"
                                                                    title="Summary" ria-label="Summary"></i>
                                                             </a>
+                                                            @elseif(Auth::user()->role_id == 1)
+                                                            <a title="Summary"
+                                                               href="{{route('student.lesson.list', ['course_id'=>$course->id])}}">
+                                                                <i class="icon sign in alternate" aria-hidden="true"
+                                                                   title="Summary" ria-label="Summary"></i>
+                                                            </a>
+                                                            @endif
                                                         </div>
                                                     </th>
                                                     <div class="content"></div>

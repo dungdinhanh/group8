@@ -255,6 +255,19 @@
                         My courses
                     </div>
                 </a>
+
+                @elseif(Auth::user()->role_id == 1)
+                <a href="{{route('student.course.list')}}" class="list-group-item list-group-item-action "
+                   data-key="mycourses" data-isexpandable="1" data-indent="0"
+                   data-showdivider="0"
+                   data-type="0" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="0"
+                   data-hidden="0"
+                   data-preceedwithhr="0" data-parent-key="myhome">
+                    <div class="m-l-0">
+                        My courses
+                    </div>
+                </a>
+
                 @endif
 
                 <a class="list-group-item list-group-item-action "
