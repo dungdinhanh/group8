@@ -32,6 +32,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/notification/', 'Notification\NotificationController@index')->name(
         'list_notification'
     );
+    Route::get('/notification/read/{notification_id}', 'Notification\NotificationController@read')->name(
+        'read_notification'
+    );
 });
 
 Route::prefix('teacher')->middleware('teacher')->namespace('Teacher')->name('teacher.')->group(function () {
@@ -120,10 +123,6 @@ Route::prefix('teacher')->middleware('teacher')->namespace('Teacher')->name('tea
         Route::post('/add/{submission_id}', 'Homework\ReviewController@addReview')->name(
         'add'
         );
-
-//        Route::get('/list/{homework_id}', 'Teacher\Homework\ReviewController@getListSubmission')->name(
-//            'list'
-//        );
     });
 
 });
