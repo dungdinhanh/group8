@@ -29,16 +29,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/user/edit', 'CRUD\CRUDController@edit')->name('edit_profile_handle');
 
     //Notification
-    Route::get('/r_notification/{receiver_id}', 'Notification\NotificationController@listReceivedNotification')->name(
-        'list_received_notification'
+    Route::get('/notification/', 'Notification\NotificationController@index')->name(
+        'list_notification'
     );
-
-    Route::get('/s_notification/{sender_id}', 'Notification\NotificationController@listSentNotification')->name(
-        'list_sent_notification'
-    );
-
-    Route::post('/notification/{user_id}/{notification_id}', 'Notification\NotificationController@readNotification')->name(
-        'view_detail_notification'
+    Route::get('/notification/read/{notification_id}', 'Notification\NotificationController@read')->name(
+        'read_notification'
     );
 });
 
@@ -128,10 +123,6 @@ Route::prefix('teacher')->middleware('teacher')->namespace('Teacher')->name('tea
         Route::post('/add/{submission_id}', 'Homework\ReviewController@addReview')->name(
         'add'
         );
-
-//        Route::get('/list/{homework_id}', 'Teacher\Homework\ReviewController@getListSubmission')->name(
-//            'list'
-//        );
     });
 
 });

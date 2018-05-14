@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Student\Homework;
 use App\Homework;
 use App\Submission;
 use App\User;
+use App\Notification;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
@@ -46,6 +47,15 @@ class SubmissionController extends Controller
         if ($over_time == false)$submission->overtime = 0;
         else $submission->overtime = date_diff($dead_line, $current);
         $submission->save();
+
+        $noti = Notification::create([
+            'sender_id' => Auth::user()->id,
+            'receiver_id' => $homework->course->teacher->user->id,
+            'message' => "there are new submission",
+            'type' => 'Submission',
+            'status' => 0,
+            'assigned_id' => $submission->id
+        ]);
 
         return redirect()->route('student.homework.view', ['homework_id' => $homework_id]);
     }
