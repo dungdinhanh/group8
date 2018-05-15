@@ -15,6 +15,8 @@ Route::get('/', function () {
     return redirect()->route('home');
 });
 
+Route::get('/test', 'BBBController@index');
+
 
 Auth::routes();
 
@@ -64,6 +66,16 @@ Route::prefix('teacher')->middleware('teacher')->namespace('Teacher')->name('tea
         );
         Route::post('/lesson/', 'Course\LessonController@store')->name(
             'store'
+        );
+    });
+
+    //meeting
+    Route::name('meeting.')->prefix('/course')->group(function () {
+        Route::post('/meeting/{lesson_id}', 'MeetingController@store')->name(
+            'store'
+        );
+        Route::get('/meeting/{meeting_id}', 'MeetingController@join')->name(
+            'join'
         );
     });
 
@@ -165,6 +177,13 @@ Route::prefix('student')->namespace('Student')->name('student.')->group(function
 
         Route::get('/view/{submission_id}', 'Homework\SubmissionController@getViewSubmission')->name(
             'view'
+        );
+    });
+
+    //meeting
+    Route::name('meeting.')->prefix('/course')->group(function () {
+        Route::get('/meeting/{meeting_id}', 'MeetingController@join')->name(
+            'join'
         );
     });
 });
