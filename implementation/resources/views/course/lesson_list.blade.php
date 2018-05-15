@@ -221,6 +221,13 @@
                                                                              role="presentation">
                                                                         <span class="instancename"><strong>Online meeting:</strong> {{$meeting->title}}</span>
                                                                     </a>
+                                                                    <span style="margin-left: 15px">
+                                                                        <a href="{{route('teacher.meeting.end', ['$meetingId' => $meeting->id])}}">
+                                                                            <button class="ui negative basic button">
+                                                                                End this meeting
+                                                                            </button>
+                                                                        </a>
+                                                                    </span>
                                                                 </div>
                                                             </div>
                                                         </div>
