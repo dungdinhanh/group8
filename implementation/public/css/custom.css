@@ -19,3 +19,7 @@ generalbox {
     padding: 10px;
     width: 85%;
 }
+.notification-container{
+    background-color: #bfbebe;
+    width: 100%;
+}

@@ -39,7 +39,8 @@ class ReviewController extends Controller
     {
 //        $homework = Homework::where('id', '=', $homeworkID)->get()->first();
 //        $submissions = $homework->submissions;
-        $submissions = Submission::with('students')->where('homework_id', '=', $homeworkID)->get();
-        return $submissions;
+        $submissions = Submission::with('student')->where('homework_id', '=', $homeworkID)->get();
+        //return $submissions;
+        return view('homework.submission.submission_list', $submissions);
     }
 }

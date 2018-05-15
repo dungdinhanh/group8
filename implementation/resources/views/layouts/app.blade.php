@@ -146,67 +146,8 @@
                 </div>
 
                 <!-- navbar_plugin_output -->
-                <div class="popover-region collapsed popover-region-notifications"
-                     id="nav-notification-popover-container"
-                     data-userid="13" data-region="popover-region">
-                    <div class="popover-region-toggle nav-link" data-region="popover-region-toggle" aria-role="button"
-                         aria-controls="popover-region-container-5ad3a457db2285ad3a45768f3413" aria-haspopup="true"
-                         aria-label="Show notification window with no new notifications" tabindex="0">
-                        <i style="font-size: 1.5em;" class="alarm icon" aria-hidden="true"
-                           title="Toggle notifications menu"
-                           aria-label="Toggle notifications menu">
-                        </i>
-                        <div class="count-container" data-region="count-container">2</div>
-
-                        <div class="count-container hidden" data-region="count-container"></div>
-
-                    </div>
-                    <div id="popover-region-container-5ad3a457db2285ad3a45768f3413" class="popover-region-container"
-                         data-region="popover-region-container" aria-expanded="false" aria-hidden="true"
-                         aria-label="Notification window" role="region">
-                        <div class="popover-region-header-container">
-                            <h3 class="popover-region-header-text" data-region="popover-region-header-text">
-                                Notifications</h3>
-                            <div class="popover-region-header-actions" data-region="popover-region-header-actions">
-                                <a class="mark-all-read-button" href="#" title="Mark all as read"
-                                   data-action="mark-all-read" role="button">
-                                <span class="normal-icon">
-                                    <i class="icon fa fa-check fa-fw " aria-hidden="true" title="Mark all as read"
-                                       aria-label="Mark all as read"></i>
-                                </span>
-                                    <span class="loading-icon">
-                                        <img class="icon " alt="Loading" title="Loading"
-                                             src="https://school.demo.moodle.net/theme/image.php/boost/core/1523815278/y/loading">
-                                    </span>
-                                </a>
-                                <a href="" title="Notification preferences">
-                                    <i class="icon fa fa-cog fa-fw " aria-hidden="true" title="Notification preferences"
-                                       aria-label="Notification preferences"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="popover-region-content-container" data-region="popover-region-content-container">
-                            <div class="popover-region-content" data-region="popover-region-content">
-                                <div class="all-notifications" data-region="all-notifications" role="log"
-                                     aria-busy="false"
-                                     aria-atomic="false" aria-relevant="additions">
-                                </div>
-                                <div class="empty-message" tabindex="0" data-region="empty-message">You have no
-                                    notifications
-                                </div>
-                            </div>
-                            <span class="loading-icon">
-                                <img class="icon " alt="Loading" title="Loading"
-                                     src="https://school.demo.moodle.net/theme/image.php/boost/core/1523815278/y/loading">
-                            </span>
-                        </div>
-                        <a class="see-all-link" href="">
-                            <div class="popover-region-footer-container">
-                                <div class="popover-region-seeall-text">See all</div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                <span id="notification_template">
+                </span>
 
                 <!-- search_box -->
                 <span class="hidden-md-down"></span>
@@ -332,7 +273,34 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+        getNotify();
+        function getNotify() {
+            $.ajax({
+                type: 'GET',
+                url: '/notification/',
+                success: function (data) {
+                    console.log(data);
+                    $("#notification_template").html(data);
+                }
+            });
+        }
     });
+    var boolPower = true;
+
+    function showNotices() {
+        console.log('ssssssssss', boolPower);
+        if (!boolPower) {
+            document.getElementById('popover-region-container-5af7b96f7d2bb5af7b96f679cf12').style.opacity = '0';
+            document.getElementById('popover-region-container-5af7b96f7d2bb5af7b96f679cf12').style.visibility = 'invisible';
+            boolPower = true;
+        } else {
+            boolPower = false;
+            document.getElementById('popover-region-container-5af7b96f7d2bb5af7b96f679cf12').style.opacity = '1';
+            document.getElementById('popover-region-container-5af7b96f7d2bb5af7b96f679cf12').style.visibility = 'visible';
+            document.getElementById('popover-region-container-5af7b96f7d2bb5af7b96f679cf12').style.height = '500px';
+        }
+
+    }
 </script>
 @yield('js')
 </html>

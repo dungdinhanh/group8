@@ -56,7 +56,7 @@ class HomeworkController extends Controller
         $type = $this->getCreateHomeworkType($homework);
         //add notification
         NotificationController::addClassNotification(\Auth::user()->id,
-            $homework->course_id, $message, $type);
+            $homework->course_id, $homework->id, $message, $type);
         return redirect()->route('teacher.homework.view', ['homework_id' => $homework->id]);
     }
 

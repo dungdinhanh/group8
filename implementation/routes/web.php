@@ -15,6 +15,8 @@ Route::get('/', function () {
     return redirect()->route('home');
 });
 
+Route::get('/test', 'BBBController@index');
+
 
 Auth::routes();
 
@@ -29,16 +31,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/user/edit', 'CRUD\CRUDController@edit')->name('edit_profile_handle');
 
     //Notification
-    Route::get('/r_notification/{receiver_id}', 'Notification\NotificationController@listReceivedNotification')->name(
-        'list_received_notification'
+    Route::get('/notification/', 'Notification\NotificationController@index')->name(
+        'list_notification'
     );
-
-    Route::get('/s_notification/{sender_id}', 'Notification\NotificationController@listSentNotification')->name(
-        'list_sent_notification'
-    );
-
-    Route::post('/notification/{user_id}/{notification_id}', 'Notification\NotificationController@readNotification')->name(
-        'view_detail_notification'
+    Route::get('/notification/read/{notification_id}', 'Notification\NotificationController@read')->name(
+        'read_notification'
     );
 });
 
@@ -69,6 +66,16 @@ Route::prefix('teacher')->middleware('teacher')->namespace('Teacher')->name('tea
         );
         Route::post('/lesson/', 'Course\LessonController@store')->name(
             'store'
+        );
+    });
+
+    //meeting
+    Route::name('meeting.')->prefix('/course')->group(function () {
+        Route::post('/meeting/{lesson_id}', 'MeetingController@store')->name(
+            'store'
+        );
+        Route::get('/meeting/{meeting_id}', 'MeetingController@join')->name(
+            'join'
         );
     });
 
@@ -128,10 +135,6 @@ Route::prefix('teacher')->middleware('teacher')->namespace('Teacher')->name('tea
         Route::post('/add/{submission_id}', 'Homework\ReviewController@addReview')->name(
         'add'
         );
-
-//        Route::get('/list/{homework_id}', 'Teacher\Homework\ReviewController@getListSubmission')->name(
-//            'list'
-//        );
     });
 
 });
@@ -174,6 +177,13 @@ Route::prefix('student')->namespace('Student')->name('student.')->group(function
 
         Route::get('/view/{submission_id}', 'Homework\SubmissionController@getViewSubmission')->name(
             'view'
+        );
+    });
+
+    //meeting
+    Route::name('meeting.')->prefix('/course')->group(function () {
+        Route::get('/meeting/{meeting_id}', 'MeetingController@join')->name(
+            'join'
         );
     });
 });

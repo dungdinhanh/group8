@@ -17,7 +17,10 @@ class CreateSubmissionsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('student_id');
             $table->unsignedInteger('course_id');
-            //$table->string('title', 1000);
+//<<<<<<< HEAD
+//            //$table->string('title', 1000);
+//=======
+//>>>>>>> 4a8f171c2a5339074ddd9dbe1f64ac962fe0cf27
             $table->text('content');
             $table->string('note', 10000)->nullable();
             $table->integer('overtime');

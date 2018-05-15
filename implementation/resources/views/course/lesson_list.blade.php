@@ -207,27 +207,26 @@
                                         <div class="section_availability"></div>
                                         <div class="summary"></div>
                                         <ul class="section img-text">
-                                            <li class="activity scorm modtype_scorm " id="module-790">
-                                                <div>
-                                                    <div class="mod-indent-outer">
-                                                        <div class="mod-indent"></div>
-                                                        <div>
-                                                            <div class="activityinstance">
-                                                                <a class="" onclick=""
-                                                                   href="{{route('teacher.homework.create_form', [
-                                                                    'course_id' => $course->id,
-                                                                    'lesson_id' => $lesson->id
-                                                                    ])}}">
-                                                                    <img src="https://school.demo.moodle.net/theme/image.php/boost/scorm/1524376896/icon"
-                                                                         class="iconlarge activityicon" alt=" "
-                                                                         role="presentation">
-                                                                    <span class="instancename">Create Homework</span>
-                                                                </a>
+                                            @foreach($lesson->meetings as $meeting)
+                                                <li class="activity assign modtype_assign " id="module-787">
+                                                    <div>
+                                                        <div class="mod-indent-outer">
+                                                            <div class="mod-indent"></div>
+                                                            <div>
+                                                                <div class="activityinstance">
+                                                                    <a class="" target="_blank"
+                                                                       href="{{route('teacher.meeting.join', ['$meetingId' => $meeting->id])}}">
+                                                                        <img src="https://school.demo.moodle.net/theme/image.php/boost/chat/1526356860/icon"
+                                                                             class="iconlarge activityicon" alt=" "
+                                                                             role="presentation">
+                                                                        <span class="instancename"><strong>Online meeting:</strong> {{$meeting->title}}</span>
+                                                                    </a>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </li>
+                                                </li>
+                                            @endforeach
                                             @foreach($lesson->homeworks as $homework)
                                                 <li class="activity assign modtype_assign " id="module-787">
                                                 <div>
@@ -235,12 +234,14 @@
                                                         <div class="mod-indent"></div>
                                                         <div>
                                                             <div class="activityinstance">
-                                                                <a class="" onclick=""
+                                                                <a class=""
                                                                    href="{{route('teacher.homework.view', ['homeworkId' => $homework->id])}}">
                                                                     <img src="https://school.demo.moodle.net/theme/image.php/boost/assign/1524376896/icon"
                                                                          class="iconlarge activityicon" alt=" "
                                                                          role="presentation">
-                                                                    <span class="instancename">{{$homework->title}}</span>
+                                                                    <span class="instancename">
+                                                                        <strong>Homework:</strong>{{$homework->title}}
+                                                                    </span>
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -248,6 +249,51 @@
                                                 </div>
                                             </li>
                                             @endforeach
+                                                <li class="activity scorm modtype_scorm " id="module-790">
+                                                    <div>
+                                                        <div class="mod-indent-outer">
+                                                            <div class="mod-indent"></div>
+                                                            <div>
+                                                                <div class="activityinstance">
+                                                                    <div class="dropdown">
+                                                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Add activity
+                                                                            <span class="caret"></span></button>
+                                                                        <ul class="dropdown-menu" style="list-style-type: none;">
+                                                                            <li>
+                                                                                <a class="" onclick=""
+                                                                                   href="{{route('teacher.homework.create_form', [
+                                                                    'course_id' => $course->id,
+                                                                    'lesson_id' => $lesson->id
+                                                                    ])}}">
+                                                                                    <img src="https://school.demo.moodle.net/theme/image.php/boost/scorm/1524376896/icon"
+                                                                                         class="iconlarge activityicon" alt=" "
+                                                                                         role="presentation">
+                                                                                    <span class="instancename">Create Homework</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <span class="meeting_modal_open" lesson="{{$lesson->id}}" data-toggle="modal" data-target="#meetingModal">
+                                                                                    <img src="https://school.demo.moodle.net/theme/image.php/boost/chat/1526356860/icon"
+                                                                                         class="iconlarge activityicon" alt=" "
+                                                                                         role="presentation">
+                                                                                    <span class="instancename">Online meeting</span>
+                                                                                </span>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a class="" data-toggle="modal" data-target="#meetingModal">
+                                                                                    <img src="https://school.demo.moodle.net/theme/image.php/boost/scorm/1524376896/icon"
+                                                                                         class="iconlarge activityicon" alt=" "
+                                                                                         role="presentation">
+                                                                                    <span class="instancename">New resourse</span>
+                                                                                </a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
                                         </ul>
                                     </div>
                                 </li>
@@ -263,11 +309,33 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </section>
         </div>
     </div>
+    <div class="modal fade" id="meetingModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add new online meeting</h4>
+                </div>
+                <div class="modal-body">
+                    <label for="meeting_title">Meeting title:</label>
+                    <input type="text" name="meeting_title" id="meeting_title" required>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="create_meeting" data-dismiss="modal" data-backdrop="false" class="btn btn-primary">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+@endsection
+@section('css')
+@endsection
+
+@section('js')
+    <script src="{{asset('js/code/course/lesson.js')}}">
+    </script>
 @endsection
