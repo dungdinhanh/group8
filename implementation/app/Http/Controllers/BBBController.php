@@ -11,15 +11,10 @@ class BBBController extends Controller
         $version = $bbb->getVersion();
         print "$version<br />\n";
 
-        $meetingId = $bbb->addMeeting('1');
+        $meetingId = $bbb->addMeeting('2');
 
         $metting = $bbb->getMeeting($meetingId);
 
         print '<pre>' . print_r($metting, true) . "</pre>\n\n";
-
-        // Get meeting join URL for a moderator.
-        $full_name = 'Martin Moderator';
-        $url = $bbb->join($meetingId, $full_name);
-        print "Hi $full_name, you are a moderator. Please join the call via $url<br />\n\n";
     }
 }
