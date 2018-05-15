@@ -77,6 +77,9 @@ Route::prefix('teacher')->middleware('teacher')->namespace('Teacher')->name('tea
         Route::get('/meeting/{meeting_id}', 'MeetingController@join')->name(
             'join'
         );
+        Route::get('/meeting/end/{meeting_id}', 'MeetingController@end')->name(
+            'end'
+        );
     });
 
     // student

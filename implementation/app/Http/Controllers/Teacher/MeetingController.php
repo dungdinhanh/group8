@@ -23,6 +23,17 @@ class MeetingController extends Controller
         return $mettingId;
     }
 
+    public function end($meetingId)
+    {
+        $bbb = new BBBService();
+
+        Meeting::find($meetingId)->delete();
+
+        $url = $bbb->end($meetingId);
+
+        return back();
+    }
+
 
 
     public function join($meetingId)

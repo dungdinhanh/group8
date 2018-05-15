@@ -11,8 +11,9 @@ $(document).ready(function() {
             url: '/teacher/course/meeting/'+ lesson_id,
             data: {meeting_title: meeting_title},
             success: function (data) {
-                location.reload();
+
             }
         });
+        location.reload();
     })
 });

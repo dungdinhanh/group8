@@ -47,11 +47,22 @@ class BBBService
 
     public function join($meetingId, $name, $isMod = false)
     {
-        $meeting = $this->getMeeting($meetingId);
-        $url = $meeting->join($name, $isMod);
+        $url = '/test';
+        try {
+            $meeting = $this->getMeeting($meetingId);
+            if ($meeting) {
+                $url = $meeting->join($name, $isMod);
+            }
+        } catch (Exception $e) {
+        };
 
         return $url;
+    }
 
+    public function end($meetingId)
+    {
+        $meeting = $this->getMeeting($meetingId);
+        return $meeting->end();
     }
 
 }

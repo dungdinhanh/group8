@@ -45,6 +45,15 @@ class DatabaseSeeder extends Seeder
             'date_of_birth' => '1996/11/21'
         ]);
 
+        DB::table('users')->insert([
+            'full_name'=>'Do Trung Ta',
+            'user_name'=>'dotrungta',
+            'password' => bcrypt('123456'),
+            'email'=> 'nhatquangprosdfsdvodoi@gmail.com',
+            'role_id' => '1',
+            'date_of_birth' => '1996/11/21'
+        ]);
+
 
         for($i = 0; $i < 50; $i++)
         {
@@ -78,7 +87,15 @@ class DatabaseSeeder extends Seeder
             $user_role->university = $faker->city;
             $user_role->save();
             if($user->role_id == 2){
-                for($i =0; $i < 10; $i++) {
+                $course = new \App\Course();
+                $course->course_name = 'Distributed System';
+                $course->max_students = rand(20, 40);
+                $course->max_groups = rand(3, 5);
+                $course->teacher_id = $user_role->id;
+                $course->start_date = $faker->dateTimeBetween('now', '17 days');
+                $course->end_date = $faker->dateTimeBetween('now', '2 years');
+                $course->save();
+                for($i =0; $i < 2; $i++) {
                     $course = new \App\Course();
                     $course->course_name = $faker->firstNameMale;
                     $course->max_students = rand(20, 40);
@@ -108,15 +125,10 @@ class DatabaseSeeder extends Seeder
         $students_count = count($students);
         foreach($courses as $course)
         {
-            $number_of_student = rand(20, $course->max_students);
-            for ($i = 0; $i < $number_of_student; $i++)
-            {
-                $index = rand(1, $students_count-1);
-                $enroll = new \App\Enrollment();
-                $enroll->student_id = $students[$index]->id;
-                $enroll->course_id = $course->id;
-                $enroll->save();
-            }
+            $enroll = new \App\Enrollment();
+            $enroll->student_id = 1;
+            $enroll->course_id = $course->id;
+            $enroll->save();
         }
     }
 
