@@ -199,25 +199,47 @@
                                         <div class="section_availability"></div>
                                         <div class="summary"></div>
                                         <ul class="section img-text">
-                                            @foreach($lesson->homeworks as $homework)
+                                            @foreach($lesson->meetings as $meeting)
                                                 <li class="activity assign modtype_assign " id="module-787">
-                                                <div>
-                                                    <div class="mod-indent-outer">
-                                                        <div class="mod-indent"></div>
-                                                        <div>
-                                                            <div class="activityinstance">
-                                                                <a class="" onclick=""
-                                                                   href="{{route('student.homework.view', ['homeworkId' => $homework->id])}}">
-                                                                    <img src="https://school.demo.moodle.net/theme/image.php/boost/assign/1524376896/icon"
-                                                                         class="iconlarge activityicon" alt=" "
-                                                                         role="presentation">
-                                                                    <span class="instancename">{{$homework->title}}</span>
-                                                                </a>
+                                                    <div>
+                                                        <div class="mod-indent-outer">
+                                                            <div class="mod-indent"></div>
+                                                            <div>
+                                                                <div class="activityinstance">
+                                                                    <a class="" target="_blank"
+                                                                       href="{{route('student.meeting.join', ['$meetingId' => $meeting->id])}}">
+                                                                        <img src="https://school.demo.moodle.net/theme/image.php/boost/chat/1526356860/icon"
+                                                                             class="iconlarge activityicon" alt=" "
+                                                                             role="presentation">
+                                                                        <span class="instancename"><strong>Online meeting:</strong> {{$meeting->title}}</span>
+                                                                    </a>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </li>
+                                                </li>
+                                            @endforeach
+                                            @foreach($lesson->homeworks as $homework)
+                                                <li class="activity assign modtype_assign " id="module-787">
+                                                    <div>
+                                                        <div class="mod-indent-outer">
+                                                            <div class="mod-indent"></div>
+                                                            <div>
+                                                                <div class="activityinstance">
+                                                                    <a class=""
+                                                                       href="{{route('student.homework.view', ['homeworkId' => $homework->id])}}">
+                                                                        <img src="https://school.demo.moodle.net/theme/image.php/boost/assign/1524376896/icon"
+                                                                             class="iconlarge activityicon" alt=" "
+                                                                             role="presentation">
+                                                                        <span class="instancename">
+                                                                        <strong>Homework:</strong>{{$homework->title}}
+                                                                    </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
                                             @endforeach
                                         </ul>
                                     </div>

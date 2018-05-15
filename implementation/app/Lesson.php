@@ -21,4 +21,9 @@ class Lesson extends Model
         //30
         return $this->hasMany('App\Homework');
     }
+
+    public function meetings(){
+        //30
+        return $this->hasMany('App\Meeting');
+    }
 }
