@@ -26,4 +26,9 @@ class Lesson extends Model
         //30
         return $this->hasMany('App\Meeting');
     }
+
+    public function materials(){
+        //30
+        return $this->hasMany('App\Material');
+    }
 }

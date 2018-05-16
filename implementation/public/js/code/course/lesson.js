@@ -16,4 +16,20 @@ $(document).ready(function() {
         });
         location.reload();
     })
+
+    $('#create_material').click(function () {
+        var title = $("#material_title").val();
+        var url = $("#material_url").val();
+        $.ajax({
+            type: 'POST',
+            url: '/teacher/material/'+ lesson_id,
+            data: {
+                title: title,
+                url: url
+            },
+            success: function (data) {
+            }
+        });
+       // location.reload();
+    })
 });

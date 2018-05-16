@@ -82,6 +82,16 @@ Route::prefix('teacher')->middleware('teacher')->namespace('Teacher')->name('tea
         );
     });
 
+    //material
+    Route::name('material.')->prefix('/material')->group(function () {
+        Route::post('/{lesson_id}', 'MaterialController@store')->name(
+            'store'
+        );
+        Route::get('/{meeting_id}/delete', 'MaterialController@delete')->name(
+            'delete'
+        );
+    });
+
     // student
 
     Route::name('student.')->prefix('/course')->group(function () {

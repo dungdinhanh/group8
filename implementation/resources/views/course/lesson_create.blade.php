@@ -16,17 +16,6 @@
                         <form method="post" action="{{route('teacher.lesson.store')}}">
                             @csrf
                             <div class="row form-group">
-                                <label for="lesson_no" class="col-md-4 col-form-label text-md-right">
-                                    {{__('lesson No')}}
-                                </label>
-
-                                <div class="col-md-1">
-                                    <input type="number" class="text-center" id="lesson_no" name="lesson_no"
-                                           value="{{old('lesson_no')}}" required>
-                                </div>
-                            </div>
-
-                            <div class="row form-group">
                                 <label for="title" class="col-md-4 col-form-label text-md-right">
                                     {{__('Title')}}
                                 </label>

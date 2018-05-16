@@ -31,7 +31,6 @@ class LessonController extends Controller
     public function store(Request $request)
     {
         $lesson = Lesson::findOrNew(0);
-        $lesson->no = $request->lesson_no;
         $lesson->title = $request->title;
         $lesson->content = $request->input('content');
         $lesson->course_id = $request->course_id;

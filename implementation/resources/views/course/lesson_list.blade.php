@@ -234,6 +234,31 @@
                                                     </div>
                                                 </li>
                                             @endforeach
+                                            @foreach($lesson->materials as $material)
+                                                    <li class="activity assign modtype_assign " id="module-787">
+                                                        <div>
+                                                            <div class="mod-indent-outer">
+                                                                <div class="mod-indent"></div>
+                                                                <div>
+                                                                    <div class="activityinstance">
+                                                                        <a class="" target="_blank"
+                                                                           href="{{$material->url}}">
+                                                                            <img src="https://school.demo.moodle.net/theme/image.php/boost/book/1526428869/icon"
+                                                                                 class="iconlarge activityicon" alt=" "
+                                                                                 role="presentation">
+                                                                            <span class="instancename"><strong>Online resource:</strong> {{$material->title}}</span>
+                                                                        </a>
+                                                                        <a href="{{route('teacher.material.delete', ['$materialId' => $material->id])}}">
+                                                                            <button class="ui negative basic icon button">
+                                                                                <i class="trash icon"></i>
+                                                                            </button>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                        @endforeach
                                             @foreach($lesson->homeworks as $homework)
                                                 <li class="activity assign modtype_assign " id="module-787">
                                                 <div>
@@ -263,7 +288,7 @@
                                                             <div>
                                                                 <div class="activityinstance">
                                                                     <div class="dropdown">
-                                                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Add activity
+                                                                        <button class="meeting_modal_open btn btn-primary dropdown-toggle" lesson="{{$lesson->id}}" type="button" data-toggle="dropdown">Add activity
                                                                             <span class="caret"></span></button>
                                                                         <ul class="dropdown-menu" style="list-style-type: none;">
                                                                             <li>
@@ -279,7 +304,7 @@
                                                                                 </a>
                                                                             </li>
                                                                             <li>
-                                                                                <span class="meeting_modal_open" lesson="{{$lesson->id}}" data-toggle="modal" data-target="#meetingModal">
+                                                                                <span class="" data-toggle="modal" data-target="#meetingModal">
                                                                                     <img src="https://school.demo.moodle.net/theme/image.php/boost/chat/1526356860/icon"
                                                                                          class="iconlarge activityicon" alt=" "
                                                                                          role="presentation">
@@ -287,8 +312,8 @@
                                                                                 </span>
                                                                             </li>
                                                                             <li>
-                                                                                <a class="" data-toggle="modal" data-target="#meetingModal">
-                                                                                    <img src="https://school.demo.moodle.net/theme/image.php/boost/scorm/1524376896/icon"
+                                                                                <a class="" data-toggle="modal" data-target="#materialModal">
+                                                                                    <img src="https://school.demo.moodle.net/theme/image.php/boost/book/1526428869/icon"
                                                                                          class="iconlarge activityicon" alt=" "
                                                                                          role="presentation">
                                                                                     <span class="instancename">New resourse</span>
@@ -333,6 +358,26 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="create_meeting" data-dismiss="modal" data-backdrop="false" class="btn btn-primary">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="materialModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add new material or online resource</h4>
+                </div>
+                <div class="modal-body">
+                    <label for="meeting_title">Title:</label>
+                    <input type="text" name="meeting_title" id="material_title" required>
+                    <br><br>
+                    <label for="material_url">URL:</label>
+                    <input type="url" id="material_url" required>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="create_material" data-dismiss="modal" data-backdrop="false" class="btn btn-primary">Create</button>
                 </div>
             </div>
         </div>

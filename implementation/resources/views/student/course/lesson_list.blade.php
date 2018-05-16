@@ -219,6 +219,31 @@
                                                     </div>
                                                 </li>
                                             @endforeach
+                                                @foreach($lesson->materials as $material)
+                                                    <li class="activity assign modtype_assign " id="module-787">
+                                                        <div>
+                                                            <div class="mod-indent-outer">
+                                                                <div class="mod-indent"></div>
+                                                                <div>
+                                                                    <div class="activityinstance">
+                                                                        <a class="" target="_blank"
+                                                                           href="{{$material->url}}">
+                                                                            <img src="https://school.demo.moodle.net/theme/image.php/boost/book/1526428869/icon"
+                                                                                 class="iconlarge activityicon" alt=" "
+                                                                                 role="presentation">
+                                                                            <span class="instancename"><strong>Online resource:</strong> {{$material->title}}</span>
+                                                                        </a>
+                                                                        <a href="{{route('teacher.material.delete', ['$materialId' => $material->id])}}">
+                                                                            <button class="ui negative basic icon button">
+                                                                                <i class="trash icon"></i>
+                                                                            </button>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
                                             @foreach($lesson->homeworks as $homework)
                                                 <li class="activity assign modtype_assign " id="module-787">
                                                     <div>
